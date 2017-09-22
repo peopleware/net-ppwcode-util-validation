@@ -14,10 +14,12 @@
 // 
 
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
 
 namespace PPWCode.Util.Validation.I.UnitTests
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Test")]
     public class KBOTests : BaseUnitTest
     {
         private static IEnumerable InvalidKBOs
@@ -31,6 +33,13 @@ namespace PPWCode.Util.Validation.I.UnitTests
             }
         }
 
+        private static IEnumerable ValidKBOs
+        {
+            get
+            {
+                yield return "0453834195";
+            }
+        }
         [Test, TestCaseSource(nameof(InvalidKBOs))]
         public void kbo_is_not_valid(string identification)
         {
@@ -44,6 +53,21 @@ namespace PPWCode.Util.Validation.I.UnitTests
             Assert.That(kbo.IsStrictValid, Is.False);
             Assert.That(kbo.ElectronicVersion, Is.Null);
             Assert.That(kbo.PaperVersion, Is.Null);
+        }
+
+        [Test, TestCaseSource(nameof(ValidKBOs))]
+        public void kbo_is_valid(string identification)
+        {
+            // Arrange
+            var kbo = new KBO(identification);
+
+            // Act
+
+            // Assert
+            Assert.That(kbo.IsValid, Is.True);
+            Assert.That(kbo.IsStrictValid, Is.True);
+            Assert.That(kbo.ElectronicVersion, Is.Not.Null);
+            Assert.That(kbo.PaperVersion, Is.Not.Null);
         }
     }
 }
