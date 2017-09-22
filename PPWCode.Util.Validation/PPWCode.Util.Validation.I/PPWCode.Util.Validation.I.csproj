@@ -3,7 +3,7 @@
   <Import Project="..\version.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>net45;netstandard1.6;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
     <AssemblyVersion>$(GacVersion)</AssemblyVersion>
     <FileVersion>$(PackageVersion)</FileVersion>
     <Version>$(PackageVersion)</Version>
