@@ -33,13 +33,30 @@ namespace PPWCode.Util.Validation.I.UnitTests
             }
         }
 
-        private static IEnumerable ValidKBOs
+        private static IEnumerable StrictValidKBOs
         {
             get
             {
                 yield return "0453834195";
             }
         }
+
+        private static IEnumerable ValidKBOs
+        {
+            get
+            {
+                foreach (var kbo in StrictValidKBOs)
+                {
+                    yield return kbo;
+                }
+
+                yield return "453834195";
+                yield return "0453.834.195";
+                yield return "BE 0453.834.195";
+                yield return "BE 0453.834.195 Antwerp";
+            }
+        }
+
         [Test, TestCaseSource(nameof(InvalidKBOs))]
         public void kbo_is_not_valid(string identification)
         {
@@ -55,6 +72,22 @@ namespace PPWCode.Util.Validation.I.UnitTests
             Assert.That(kbo.PaperVersion, Is.Null);
         }
 
+        [Test, TestCaseSource(nameof(StrictValidKBOs))]
+        public void kbo_is_strict_valid(string identification)
+        {
+            // Arrange
+            var kbo = new KBO(identification);
+
+            // Act
+
+            // Assert
+            Assert.That(kbo.IsValid, Is.True);
+            Assert.That(kbo.IsStrictValid, Is.True);
+            Assert.That(kbo.ElectronicVersion, Is.EqualTo(kbo.CleanedVersion));
+            Assert.That(kbo.ElectronicVersion, Is.EqualTo(kbo.RawVersion));
+            Assert.That(kbo.PaperVersion, Is.Not.Null);
+        }
+
         [Test, TestCaseSource(nameof(ValidKBOs))]
         public void kbo_is_valid(string identification)
         {
@@ -65,7 +98,6 @@ namespace PPWCode.Util.Validation.I.UnitTests
 
             // Assert
             Assert.That(kbo.IsValid, Is.True);
-            Assert.That(kbo.IsStrictValid, Is.True);
             Assert.That(kbo.ElectronicVersion, Is.Not.Null);
             Assert.That(kbo.PaperVersion, Is.Not.Null);
         }
