@@ -30,18 +30,13 @@ namespace PPWCode.Util.Validation.I.European.Belgium
                 ? $"{CleanedVersion.Substring(0, CleanedVersion.Length - 2)}-{CleanedVersion.Substring(CleanedVersion.Length - 2)}"
                 : null;
 
-        protected override bool Validate(string identification)
+        protected override bool OnValidate(string identification)
         {
-            if (identification != null && identification.Length == StandardLength)
-            {
-                var rest = 96 - long.Parse(identification.Substring(0, identification.Length - 2)) * 100 % 97;
-                if (rest == 0)
-                    rest = 97;
+            var rest = 96 - long.Parse(identification.Substring(0, identification.Length - 2)) * 100 % 97;
+            if (rest == 0)
+                rest = 97;
 
-                return rest == long.Parse(identification.Substring(identification.Length - 2));
-            }
-
-            return false;
+            return rest == long.Parse(identification.Substring(identification.Length - 2));
         }
     }
 }

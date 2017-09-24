@@ -20,19 +20,22 @@ namespace PPWCode.Util.Validation.I
 {
     public abstract class AbstractIdentification : IIdentification
     {
+        private string _cleanedVersion;
+        private bool? _isValid;
+        private bool? _isStrictValid;
+
         protected AbstractIdentification(string rawVersion)
         {
             RawVersion = rawVersion;
-            CleanedVersion = Cleanup(rawVersion);
         }
 
         public abstract char PaddingCharacter { get; }
 
-        public string CleanedVersion { get; }
+        public string CleanedVersion => _cleanedVersion ?? (_cleanedVersion = Cleanup(RawVersion));
 
-        public bool IsValid => Validate(CleanedVersion);
+        public bool IsValid => _isValid ?? (bool) (_isValid = Validate(CleanedVersion));
 
-        public bool IsStrictValid => Validate(RawVersion);
+        public bool IsStrictValid => _isStrictValid ?? (bool)(_isStrictValid = Validate(RawVersion));
 
         public abstract int StandardLength { get; }
 
@@ -64,6 +67,14 @@ namespace PPWCode.Util.Validation.I
             return Pad(GetDigitStream(identification));
         }
 
-        protected abstract bool Validate(string identification);
+        protected virtual bool Validate(string identification)
+        {
+            if (identification != null && identification.Length == StandardLength)
+                return OnValidate(identification);
+
+            return false;
+        }
+
+        protected abstract bool OnValidate(string identification);
     }
 }

@@ -56,7 +56,11 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
 
         private static IEnumerable PaperVersions
         {
-            get { yield return new TestCaseData("0420936943").Returns("0420.936.943"); }
+            get
+            {
+                yield return new TestCaseData("0420936943").Returns("0420.936.943");
+                yield return new TestCaseData("BE 0420936943").Returns("0420.936.943");
+            }
         }
 
         [Test, TestCaseSource(nameof(PaperVersions))]
