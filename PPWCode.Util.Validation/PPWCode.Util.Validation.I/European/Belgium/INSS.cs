@@ -77,7 +77,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         private ParseResult ParseINSS()
         {
             DateTime? birthdate = null;
-            var sexe = Sexe.NOT_KNOWN;
+            var sexe = Sexe.NOT_APPLICABLE;
 
             if (IsValid)
             {
@@ -90,9 +90,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
                 int yyOffset;
                 {
-                    var numberBefore2000 = long.Parse(CleanedVersion.Substring(0, 9));
-                    var rest = 97 - int.Parse(CleanedVersion.Substring(9, 2));
-                    yyOffset = numberBefore2000 % 97 == rest ? 1900 : 2000;
+                    yyOffset = ValidBefore2000(CleanedVersion) ? 1900 : 2000;
                 }
 
                 yy = yy + yyOffset;
@@ -137,14 +135,27 @@ namespace PPWCode.Util.Validation.I.European.Belgium
             return new ParseResult(birthdate, sexe);
         }
 
-        protected override bool OnValidate(string identification)
+        protected bool ValidBefore2000(string identification)
         {
             var number = identification.Substring(0, 9);
             var numberBefore2000 = long.Parse(number);
+            var rest = 97 - int.Parse(identification.Substring(9, 2));
+            return numberBefore2000 % 97 == rest;
+        }
+
+        protected bool ValidAfter2000(string identification)
+        {
+            var number = identification.Substring(0, 9);
             var numberAfter2000 = long.Parse(string.Concat('2', number));
             var rest = 97 - int.Parse(identification.Substring(9, 2));
-            return numberBefore2000 % 97 == rest || numberAfter2000 % 97 == rest;
+            return numberAfter2000 % 97 == rest;
         }
+
+        protected override bool OnValidate(string identification)
+        {
+            return ValidBefore2000(identification) || ValidAfter2000(identification);
+        }
+
 
         private class ParseResult
         {
