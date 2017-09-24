@@ -1,4 +1,4 @@
-﻿// Copyright 2017-2017 by PeopleWare n.v..
+// Copyright 2017-2017 by PeopleWare n.v..
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 // limitations under the License.
 // 
 
-namespace PPWCode.Util.Validation.I
+namespace PPWCode.Util.Validation.I.European.Belgium
 {
     public class KBO : AbstractIdentification
     {

@@ -16,8 +16,9 @@
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
+using PPWCode.Util.Validation.I.European.Belgium;
 
-namespace PPWCode.Util.Validation.I.UnitTests
+namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
 {
     [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Test")]
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Test")]

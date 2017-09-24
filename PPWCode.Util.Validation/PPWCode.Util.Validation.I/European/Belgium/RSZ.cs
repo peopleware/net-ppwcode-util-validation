@@ -13,7 +13,7 @@
 // limitations under the License.
 // 
 
-namespace PPWCode.Util.Validation.I
+namespace PPWCode.Util.Validation.I.European.Belgium
 {
     public class RSZ : AbstractIdentification
     {
