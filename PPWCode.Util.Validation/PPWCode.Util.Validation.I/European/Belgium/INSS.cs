@@ -29,10 +29,8 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
         public override int StandardLength => 11;
 
-        public override string PaperVersion =>
-            IsValid
-                ? $"{CleanedVersion.Substring(0, 2)}.{CleanedVersion.Substring(2, 2)}.{CleanedVersion.Substring(4, 2)} {CleanedVersion.Substring(6, 3)}-{CleanedVersion.Substring(9, 2)}"
-                : null;
+        protected override string OnPaperVersion =>
+            $"{CleanedVersion.Substring(0, 2)}.{CleanedVersion.Substring(2, 2)}.{CleanedVersion.Substring(4, 2)} {CleanedVersion.Substring(6, 3)}-{CleanedVersion.Substring(9, 2)}";
 
         /// <summary>
         ///     see <see href="https://www.ksz-bcss.fgov.be/nl/diensten-en-support/diensten/ksz-registers" /> for more information

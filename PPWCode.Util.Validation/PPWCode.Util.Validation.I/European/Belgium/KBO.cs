@@ -25,10 +25,8 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
         public override int StandardLength => 10;
 
-        public override string PaperVersion =>
-            IsValid
-                ? $"{CleanedVersion.Substring(0, 4)}.{CleanedVersion.Substring(4, 3)}.{CleanedVersion.Substring(7, 3)}"
-                : null;
+        protected override string OnPaperVersion =>
+            $"{CleanedVersion.Substring(0, 4)}.{CleanedVersion.Substring(4, 3)}.{CleanedVersion.Substring(7, 3)}";
 
         protected override bool OnValidate(string identification)
         {

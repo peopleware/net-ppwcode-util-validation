@@ -21,8 +21,10 @@ namespace PPWCode.Util.Validation.I
     public abstract class AbstractIdentification : IIdentification
     {
         private string _cleanedVersion;
-        private bool? _isValid;
+        private string _electronicVersion;
         private bool? _isStrictValid;
+        private bool? _isValid;
+        private string _paperVersion;
 
         protected AbstractIdentification(string rawVersion)
         {
@@ -31,19 +33,28 @@ namespace PPWCode.Util.Validation.I
 
         public abstract char PaddingCharacter { get; }
 
-        public string CleanedVersion => _cleanedVersion ?? (_cleanedVersion = Cleanup(RawVersion));
+        public string CleanedVersion =>
+            _cleanedVersion ?? (_cleanedVersion = Cleanup(RawVersion));
 
-        public bool IsValid => _isValid ?? (bool) (_isValid = Validate(CleanedVersion));
+        protected virtual string OnElectronicVersion => CleanedVersion;
 
-        public bool IsStrictValid => _isStrictValid ?? (bool)(_isStrictValid = Validate(RawVersion));
+        protected abstract string OnPaperVersion { get; }
+
+        public bool IsValid =>
+            _isValid ?? (bool) (_isValid = Validate(CleanedVersion));
+
+        public bool IsStrictValid =>
+            _isStrictValid ?? (bool) (_isStrictValid = Validate(RawVersion));
 
         public abstract int StandardLength { get; }
 
         public string RawVersion { get; }
 
-        public virtual string ElectronicVersion => IsValid ? CleanedVersion : null;
+        public string ElectronicVersion =>
+            _electronicVersion ?? (_electronicVersion = IsValid ? OnElectronicVersion : null);
 
-        public abstract string PaperVersion { get; }
+        public string PaperVersion =>
+            _paperVersion ?? (_paperVersion = IsValid ? OnPaperVersion : null);
 
         protected string GetDigitStream(string stream)
         {
