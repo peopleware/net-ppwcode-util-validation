@@ -20,7 +20,8 @@ using NUnit.Framework;
 namespace PPWCode.Util.Validation.I.UnitTests
 {
     [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Test")]
-    public class KBOTests : BaseUnitTest
+    [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Test")]
+    public class KBOTests : BaseTests
     {
         private static IEnumerable InvalidKBOs
         {
@@ -35,10 +36,7 @@ namespace PPWCode.Util.Validation.I.UnitTests
 
         private static IEnumerable StrictValidKBOs
         {
-            get
-            {
-                yield return "0453834195";
-            }
+            get { yield return "0453834195"; }
         }
 
         private static IEnumerable ValidKBOs
@@ -46,15 +44,32 @@ namespace PPWCode.Util.Validation.I.UnitTests
             get
             {
                 foreach (var kbo in StrictValidKBOs)
-                {
                     yield return kbo;
-                }
 
                 yield return "453834195";
                 yield return "0453.834.195";
                 yield return "BE 0453.834.195";
                 yield return "BE 0453.834.195 Antwerp";
             }
+        }
+
+        private static IEnumerable PaperVersions
+        {
+            get { yield return new TestCaseData("0420936943").Returns("0420.936.943"); }
+        }
+
+        [Test, TestCaseSource(nameof(PaperVersions))]
+        public string check_paperversion(string identification)
+        {
+            // Arrange
+            var kbo = new KBO(identification);
+
+            // Act
+
+            // Assert
+            Assert.That(kbo.IsValid, Is.True);
+            Assert.That(kbo.ElectronicVersion, Is.Not.Null);
+            return kbo.PaperVersion;
         }
 
         [Test, TestCaseSource(nameof(InvalidKBOs))]

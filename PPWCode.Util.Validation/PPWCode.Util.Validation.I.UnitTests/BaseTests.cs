@@ -18,7 +18,7 @@ using NUnit.Framework;
 namespace PPWCode.Util.Validation.I.UnitTests
 {
     [TestFixture]
-    public abstract class BaseUnitTest
+    public abstract class BaseTests
     {
         [SetUp]
         public void Setup()
