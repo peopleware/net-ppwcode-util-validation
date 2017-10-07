@@ -17,16 +17,16 @@ namespace PPWCode.Util.Validation.I
 {
     public interface IIdentification
     {
-        bool IsValid { get; }
+        string ElectronicVersion { get; }
 
         bool IsStrictValid { get; }
 
-        int StandardLength { get; }
+        bool IsValid { get; }
+
+        string PaperVersion { get; }
 
         string RawVersion { get; }
 
-        string ElectronicVersion { get; }
-
-        string PaperVersion { get; }
+        int StandardLength { get; }
     }
 }

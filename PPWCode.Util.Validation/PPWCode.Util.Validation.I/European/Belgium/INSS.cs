@@ -25,12 +25,25 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         {
         }
 
+        protected override string OnPaperVersion =>
+            $"{CleanedVersion.Substring(0, 2)}.{CleanedVersion.Substring(2, 2)}.{CleanedVersion.Substring(4, 2)} {CleanedVersion.Substring(6, 3)}-{CleanedVersion.Substring(9, 2)}";
+
         public override char PaddingCharacter => '0';
 
         public override int StandardLength => 11;
 
-        protected override string OnPaperVersion =>
-            $"{CleanedVersion.Substring(0, 2)}.{CleanedVersion.Substring(2, 2)}.{CleanedVersion.Substring(4, 2)} {CleanedVersion.Substring(6, 3)}-{CleanedVersion.Substring(9, 2)}";
+        public DateTime? BirthDate
+        {
+            get
+            {
+                if (_parseResult == null)
+                {
+                    _parseResult = ParseINSS();
+                }
+
+                return _parseResult.BirthDate;
+            }
+        }
 
         /// <summary>
         ///     see <see href="https://www.ksz-bcss.fgov.be/nl/diensten-en-support/diensten/ksz-registers" /> for more information
@@ -42,22 +55,11 @@ namespace PPWCode.Util.Validation.I.European.Belgium
             {
                 if (IsValid)
                 {
-                    var mm = int.Parse(CleanedVersion.Substring(2, 2));
+                    int mm = int.Parse(CleanedVersion.Substring(2, 2));
                     return mm > 12;
                 }
 
                 return null;
-            }
-        }
-
-        public DateTime? BirthDate
-        {
-            get
-            {
-                if (_parseResult == null)
-                    _parseResult = ParseINSS();
-
-                return _parseResult.BirthDate;
             }
         }
 
@@ -66,25 +68,29 @@ namespace PPWCode.Util.Validation.I.European.Belgium
             get
             {
                 if (_parseResult == null)
+                {
                     _parseResult = ParseINSS();
+                }
 
                 return _parseResult.Sexe;
             }
         }
 
+        protected override bool OnValidate(string identification) => ValidBefore2000(identification) || ValidAfter2000(identification);
+
         private ParseResult ParseINSS()
         {
             DateTime? birthdate = null;
-            var sexe = Sexe.NOT_APPLICABLE;
+            Sexe sexe = Sexe.NOT_APPLICABLE;
 
             if (IsValid)
             {
-                var calcSexe = false;
-                var calcBirthDate = false;
-                var yy = int.Parse(CleanedVersion.Substring(0, 2));
-                var mm = int.Parse(CleanedVersion.Substring(2, 2));
-                var dd = int.Parse(CleanedVersion.Substring(4, 2));
-                var vvv = int.Parse(CleanedVersion.Substring(6, 3));
+                bool calcSexe = false;
+                bool calcBirthDate = false;
+                int yy = int.Parse(CleanedVersion.Substring(0, 2));
+                int mm = int.Parse(CleanedVersion.Substring(2, 2));
+                int dd = int.Parse(CleanedVersion.Substring(4, 2));
+                int vvv = int.Parse(CleanedVersion.Substring(6, 3));
 
                 int yyOffset;
                 {
@@ -111,23 +117,29 @@ namespace PPWCode.Util.Validation.I.European.Belgium
                 }
 
                 if (calcSexe)
+                {
                     sexe = vvv == 0 || vvv == 999
-                        ? Sexe.NOT_KNOWN
-                        : vvv % 2 == 1
-                            ? Sexe.MALE
-                            : Sexe.FEMALE;
+                               ? Sexe.NOT_KNOWN
+                               : vvv % 2 == 1
+                                   ? Sexe.MALE
+                                   : Sexe.FEMALE;
+                }
 
                 if (calcBirthDate)
+                {
                     try
                     {
                         birthdate = new DateTime(yy, mm, dd);
                         if (birthdate > DateTime.Today)
+                        {
                             birthdate = null;
+                        }
                     }
                     catch
                     {
                         birthdate = null;
                     }
+                }
             }
 
             return new ParseResult(birthdate, sexe);
@@ -135,25 +147,19 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
         protected bool ValidBefore2000(string identification)
         {
-            var number = identification.Substring(0, 9);
-            var numberBefore2000 = long.Parse(number);
-            var rest = 97 - int.Parse(identification.Substring(9, 2));
+            string number = identification.Substring(0, 9);
+            long numberBefore2000 = long.Parse(number);
+            int rest = 97 - int.Parse(identification.Substring(9, 2));
             return numberBefore2000 % 97 == rest;
         }
 
         protected bool ValidAfter2000(string identification)
         {
-            var number = identification.Substring(0, 9);
-            var numberAfter2000 = long.Parse(string.Concat('2', number));
-            var rest = 97 - int.Parse(identification.Substring(9, 2));
+            string number = identification.Substring(0, 9);
+            long numberAfter2000 = long.Parse(string.Concat('2', number));
+            int rest = 97 - int.Parse(identification.Substring(9, 2));
             return numberAfter2000 % 97 == rest;
         }
-
-        protected override bool OnValidate(string identification)
-        {
-            return ValidBefore2000(identification) || ValidAfter2000(identification);
-        }
-
 
         private class ParseResult
         {

@@ -1,16 +1,17 @@
-﻿// Copyright 2014-2017 by PeopleWare n.v..
+﻿// Copyright 2017-2017 by PeopleWare n.v..
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 // 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
+//  
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+// 
 
 using System;
 using System.Linq;
@@ -30,11 +31,6 @@ namespace PPWCode.Util.Validation.I
         public const int LengthKbo = 10;
 
         /// <summary>
-        ///     The length of VAT.
-        /// </summary>
-        public const int LengthVat = 9;
-
-        /// <summary>
         ///     The length of RIJKSREGISTENUMMER.
         /// </summary>
         public const int LengthRrn = 11;
@@ -43,6 +39,11 @@ namespace PPWCode.Util.Validation.I
         ///     The length of RSZ.
         /// </summary>
         public const int LengthRsz = 10;
+
+        /// <summary>
+        ///     The length of VAT.
+        /// </summary>
+        public const int LengthVat = 9;
 
         /// <summary>
         ///     Converts string to valid DMFA number.
@@ -109,17 +110,14 @@ namespace PPWCode.Util.Validation.I
         /// </summary>
         /// <param name="rrn">The given 'RIJKSREGISTERNUMMER' as string.</param>
         /// <returns>A string padded with zeros.</returns>
-        public static string PadRrn(string rrn)
-        {
-            return string.IsNullOrEmpty(rrn) ? rrn : rrn.PadLeft(LengthRrn, '0');
-        }
+        public static string PadRrn(string rrn) => string.IsNullOrEmpty(rrn) ? rrn : rrn.PadLeft(LengthRrn, '0');
 
         private static void ParseRrn(string rrn, out DateTime? birthdate, out int sexe)
         {
             birthdate = null;
             sexe = 9;
             string digitStream = GetDigitStream(rrn);
-            if (ValidRrn(rrn) && (digitStream.Length > 0))
+            if (ValidRrn(rrn) && digitStream.Length > 0)
             {
                 bool calcSexe = false;
                 bool calcBirthDate = false;
@@ -142,12 +140,12 @@ namespace PPWCode.Util.Validation.I
                     calcSexe = true;
                     calcBirthDate = true;
                 }
-                else if ((20 <= mm) && (mm < 40))
+                else if (20 <= mm && mm < 40)
                 {
                     mm -= 20;
                     calcBirthDate = true;
                 }
-                else if ((40 <= mm) && (mm < 60))
+                else if (40 <= mm && mm < 60)
                 {
                     mm -= 40;
                     calcSexe = true;
@@ -156,7 +154,7 @@ namespace PPWCode.Util.Validation.I
 
                 if (calcSexe)
                 {
-                    sexe = (vvv == 0 || vvv == 999) ? 0 : ((vvv % 2) == 1) ? 1 : 2;
+                    sexe = vvv == 0 || vvv == 999 ? 0 : vvv % 2 == 1 ? 1 : 2;
                 }
 
                 if (calcBirthDate)
@@ -250,10 +248,7 @@ namespace PPWCode.Util.Validation.I
         /// </summary>
         /// <param name="rsz">The given RSZ number as string.</param>
         /// <returns>A string padded with zeros.</returns>
-        public static string PadRsz(string rsz)
-        {
-            return string.IsNullOrEmpty(rsz) ? rsz : rsz.PadLeft(LengthRsz, '0');
-        }
+        public static string PadRsz(string rsz) => string.IsNullOrEmpty(rsz) ? rsz : rsz.PadLeft(LengthRsz, '0');
 
         /// <summary>
         ///     Checks whether given string is a valid KBO number.
@@ -288,10 +283,7 @@ namespace PPWCode.Util.Validation.I
         /// </summary>
         /// <param name="kbo">The given string.</param>
         /// <returns>A string padded with zeros.</returns>
-        public static string PadKbo(string kbo)
-        {
-            return string.IsNullOrEmpty(kbo) ? kbo : kbo.PadLeft(LengthKbo, '0');
-        }
+        public static string PadKbo(string kbo) => string.IsNullOrEmpty(kbo) ? kbo : kbo.PadLeft(LengthKbo, '0');
 
         /// <summary>
         ///     Checks whether string is a valid VAT number.

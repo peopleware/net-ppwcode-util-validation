@@ -48,8 +48,10 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         {
             get
             {
-                foreach (var kbo in StrictValidRSZs)
+                foreach (object kbo in StrictValidRSZs)
+                {
                     yield return kbo;
+                }
 
                 yield return "133296720";
                 yield return "RSZ 133296720";
@@ -67,11 +69,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        [Test, TestCaseSource(nameof(PaperVersions))]
+        [Test]
+        [TestCaseSource(nameof(PaperVersions))]
         public string check_paperversion(string identification)
         {
             // Arrange
-            var rsz = new RSZ(identification);
+            RSZ rsz = new RSZ(identification);
 
             // Act
 
@@ -81,11 +84,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             return rsz.PaperVersion;
         }
 
-        [Test, TestCaseSource(nameof(InvalidRSZs))]
+        [Test]
+        [TestCaseSource(nameof(InvalidRSZs))]
         public void rsz_is_not_valid(string identification)
         {
             // Arrange
-            var rsz = new RSZ(identification);
+            RSZ rsz = new RSZ(identification);
 
             // Act
 
@@ -96,11 +100,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             Assert.That(rsz.PaperVersion, Is.Null);
         }
 
-        [Test, TestCaseSource(nameof(StrictValidRSZs))]
+        [Test]
+        [TestCaseSource(nameof(StrictValidRSZs))]
         public void rsz_is_strict_valid(string identification)
         {
             // Arrange
-            var rsz = new RSZ(identification);
+            RSZ rsz = new RSZ(identification);
 
             // Act
 
@@ -112,11 +117,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             Assert.That(rsz.PaperVersion, Is.Not.Null);
         }
 
-        [Test, TestCaseSource(nameof(ValidRSZs))]
+        [Test]
+        [TestCaseSource(nameof(ValidRSZs))]
         public void rsz_is_valid(string identification)
         {
             // Arrange
-            var rsz = new RSZ(identification);
+            RSZ rsz = new RSZ(identification);
 
             // Act
 

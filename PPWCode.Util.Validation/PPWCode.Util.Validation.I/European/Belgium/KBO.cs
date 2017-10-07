@@ -21,16 +21,16 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         {
         }
 
+        protected override string OnPaperVersion =>
+            $"{CleanedVersion.Substring(0, 4)}.{CleanedVersion.Substring(4, 3)}.{CleanedVersion.Substring(7, 3)}";
+
         public override char PaddingCharacter => '0';
 
         public override int StandardLength => 10;
 
-        protected override string OnPaperVersion =>
-            $"{CleanedVersion.Substring(0, 4)}.{CleanedVersion.Substring(4, 3)}.{CleanedVersion.Substring(7, 3)}";
-
         protected override bool OnValidate(string identification)
         {
-            var rest = 97 - long.Parse(identification.Substring(0, 8)) % 97;
+            long rest = 97 - long.Parse(identification.Substring(0, 8)) % 97;
             return rest == long.Parse(identification.Substring(8, 2));
         }
     }

@@ -26,66 +26,63 @@ namespace PPWCode.Util.Validation.I
         private bool? _isValid;
         private string _paperVersion;
 
-        protected AbstractIdentification(string rawVersion)
-        {
-            RawVersion = rawVersion;
-        }
+        protected AbstractIdentification(string rawVersion) => RawVersion = rawVersion;
+
+        protected abstract string OnPaperVersion { get; }
 
         public abstract char PaddingCharacter { get; }
+
+        protected virtual string OnElectronicVersion => CleanedVersion;
 
         public string CleanedVersion =>
             _cleanedVersion ?? (_cleanedVersion = Cleanup(RawVersion));
 
-        protected virtual string OnElectronicVersion => CleanedVersion;
-
-        protected abstract string OnPaperVersion { get; }
-
-        public bool IsValid =>
-            _isValid ?? (bool) (_isValid = Validate(CleanedVersion));
+        public string ElectronicVersion =>
+            _electronicVersion ?? (_electronicVersion = IsValid ? OnElectronicVersion : null);
 
         public bool IsStrictValid =>
             _isStrictValid ?? (bool) (_isStrictValid = Validate(RawVersion));
 
-        public abstract int StandardLength { get; }
-
-        public string RawVersion { get; }
-
-        public string ElectronicVersion =>
-            _electronicVersion ?? (_electronicVersion = IsValid ? OnElectronicVersion : null);
+        public bool IsValid =>
+            _isValid ?? (bool) (_isValid = Validate(CleanedVersion));
 
         public string PaperVersion =>
             _paperVersion ?? (_paperVersion = IsValid ? OnPaperVersion : null);
 
-        protected string GetDigitStream(string stream)
-        {
-            if (stream == null)
-                return string.Empty;
+        public string RawVersion { get; }
 
-            var sb = new StringBuilder(stream.Length);
-            foreach (var ch in stream.Where(char.IsDigit))
-                sb.Append(ch);
+        public abstract int StandardLength { get; }
 
-            return sb.ToString();
-        }
+        protected abstract bool OnValidate(string identification);
 
-        protected string Pad(string identification)
-        {
-            return identification?.PadLeft(StandardLength, PaddingCharacter);
-        }
-
-        protected virtual string Cleanup(string identification)
-        {
-            return Pad(GetDigitStream(identification));
-        }
+        protected virtual string Cleanup(string identification) => Pad(GetDigitStream(identification));
 
         protected virtual bool Validate(string identification)
         {
             if (identification != null && identification.Length == StandardLength)
+            {
                 return OnValidate(identification);
+            }
 
             return false;
         }
 
-        protected abstract bool OnValidate(string identification);
+        protected string GetDigitStream(string stream)
+        {
+            if (stream == null)
+            {
+                return string.Empty;
+            }
+
+            StringBuilder sb = new StringBuilder(stream.Length);
+            foreach (char ch in stream.Where(char.IsDigit))
+            {
+                sb.Append(ch);
+            }
+
+            return sb.ToString();
+        }
+
+        protected string Pad(string identification) => identification?.PadLeft(StandardLength, PaddingCharacter);
     }
 }

@@ -44,8 +44,10 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         {
             get
             {
-                foreach (var kbo in StrictValidTemporaryRSZs)
+                foreach (object kbo in StrictValidTemporaryRSZs)
+                {
                     yield return kbo;
+                }
 
                 yield return "Temp. RSZ 5105009119";
                 yield return "51050091.19";
@@ -61,11 +63,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        [Test, TestCaseSource(nameof(PaperVersions))]
+        [Test]
+        [TestCaseSource(nameof(PaperVersions))]
         public string check_paperversion(string identification)
         {
             // Arrange
-            var temporaryRSZ = new TemporaryRSZ(identification);
+            TemporaryRSZ temporaryRSZ = new TemporaryRSZ(identification);
 
             // Act
 
@@ -75,11 +78,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             return temporaryRSZ.PaperVersion;
         }
 
-        [Test, TestCaseSource(nameof(InvalidTemporaryRSZs))]
+        [Test]
+        [TestCaseSource(nameof(InvalidTemporaryRSZs))]
         public void temporary_rsz_is_not_valid(string identification)
         {
             // Arrange
-            var temporaryRsz = new TemporaryRSZ(identification);
+            TemporaryRSZ temporaryRsz = new TemporaryRSZ(identification);
 
             // Act
 
@@ -90,11 +94,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             Assert.That(temporaryRsz.PaperVersion, Is.Null);
         }
 
-        [Test, TestCaseSource(nameof(StrictValidTemporaryRSZs))]
+        [Test]
+        [TestCaseSource(nameof(StrictValidTemporaryRSZs))]
         public void temporary_rsz_is_strict_valid(string identification)
         {
             // Arrange
-            var temporaryRsz = new TemporaryRSZ(identification);
+            TemporaryRSZ temporaryRsz = new TemporaryRSZ(identification);
 
             // Act
 
@@ -106,11 +111,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             Assert.That(temporaryRsz.PaperVersion, Is.Not.Null);
         }
 
-        [Test, TestCaseSource(nameof(ValidTemporaryRSZs))]
+        [Test]
+        [TestCaseSource(nameof(ValidTemporaryRSZs))]
         public void temporary_rsz_is_valid(string identification)
         {
             // Arrange
-            var temporaryRsz = new TemporaryRSZ(identification);
+            TemporaryRSZ temporaryRsz = new TemporaryRSZ(identification);
 
             // Act
 

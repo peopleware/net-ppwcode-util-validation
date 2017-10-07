@@ -14,7 +14,6 @@
 // 
 
 using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
 using PPWCode.Util.Validation.I.European.Belgium;
@@ -50,8 +49,10 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         {
             get
             {
-                foreach (var inss in StrictValidINSSs)
+                foreach (object inss in StrictValidINSSs)
+                {
                     yield return inss;
+                }
 
                 yield return "1410191175";
                 yield return "30610329";
@@ -73,8 +74,10 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         {
             get
             {
-                foreach (var inss in InvalidINSSs)
-                    yield return new TestCaseData(inss).Returns((bool?)null);
+                foreach (object inss in InvalidINSSs)
+                {
+                    yield return new TestCaseData(inss).Returns(null);
+                }
 
                 yield return new TestCaseData("56252201101").Returns(true);
                 yield return new TestCaseData("68500701501").Returns(true);
@@ -83,11 +86,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        [Test, TestCaseSource(nameof(BisNumbers))]
+        [Test]
+        [TestCaseSource(nameof(BisNumbers))]
         public bool? check_bis_numbers(string identification)
         {
             // Arrange
-            var inss = new INSS(identification);
+            INSS inss = new INSS(identification);
 
             // Act
 
@@ -95,11 +99,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             return inss.IsBisNumber;
         }
 
-        [Test, TestCaseSource(nameof(PaperVersions))]
+        [Test]
+        [TestCaseSource(nameof(PaperVersions))]
         public string check_paperversion(string identification)
         {
             // Arrange
-            var inss = new INSS(identification);
+            INSS inss = new INSS(identification);
 
             // Act
 
@@ -109,11 +114,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             return inss.PaperVersion;
         }
 
-        [Test, TestCaseSource(nameof(InvalidINSSs))]
+        [Test]
+        [TestCaseSource(nameof(InvalidINSSs))]
         public void inss_is_not_valid(string identification)
         {
             // Arrange
-            var inss = new INSS(identification);
+            INSS inss = new INSS(identification);
 
             // Act
 
@@ -124,11 +130,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             Assert.That(inss.PaperVersion, Is.Null);
         }
 
-        [Test, TestCaseSource(nameof(StrictValidINSSs))]
+        [Test]
+        [TestCaseSource(nameof(StrictValidINSSs))]
         public void inss_is_strict_valid(string identification)
         {
             // Arrange
-            var inss = new INSS(identification);
+            INSS inss = new INSS(identification);
 
             // Act
 
@@ -140,11 +147,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             Assert.That(inss.PaperVersion, Is.Not.Null);
         }
 
-        [Test, TestCaseSource(nameof(ValidINSSs))]
+        [Test]
+        [TestCaseSource(nameof(ValidINSSs))]
         public void inss_is_valid(string identification)
         {
             // Arrange
-            var inss = new INSS(identification);
+            INSS inss = new INSS(identification);
 
             // Act
 

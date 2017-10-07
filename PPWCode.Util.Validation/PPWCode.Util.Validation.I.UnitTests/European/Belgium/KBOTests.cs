@@ -44,8 +44,10 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         {
             get
             {
-                foreach (var kbo in StrictValidKBOs)
+                foreach (object kbo in StrictValidKBOs)
+                {
                     yield return kbo;
+                }
 
                 yield return "453834195";
                 yield return "0453.834.195";
@@ -63,11 +65,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        [Test, TestCaseSource(nameof(PaperVersions))]
+        [Test]
+        [TestCaseSource(nameof(PaperVersions))]
         public string check_paperversion(string identification)
         {
             // Arrange
-            var kbo = new KBO(identification);
+            KBO kbo = new KBO(identification);
 
             // Act
 
@@ -77,11 +80,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             return kbo.PaperVersion;
         }
 
-        [Test, TestCaseSource(nameof(InvalidKBOs))]
+        [Test]
+        [TestCaseSource(nameof(InvalidKBOs))]
         public void kbo_is_not_valid(string identification)
         {
             // Arrange
-            var kbo = new KBO(identification);
+            KBO kbo = new KBO(identification);
 
             // Act
 
@@ -92,11 +96,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             Assert.That(kbo.PaperVersion, Is.Null);
         }
 
-        [Test, TestCaseSource(nameof(StrictValidKBOs))]
+        [Test]
+        [TestCaseSource(nameof(StrictValidKBOs))]
         public void kbo_is_strict_valid(string identification)
         {
             // Arrange
-            var kbo = new KBO(identification);
+            KBO kbo = new KBO(identification);
 
             // Act
 
@@ -108,11 +113,12 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             Assert.That(kbo.PaperVersion, Is.Not.Null);
         }
 
-        [Test, TestCaseSource(nameof(ValidKBOs))]
+        [Test]
+        [TestCaseSource(nameof(ValidKBOs))]
         public void kbo_is_valid(string identification)
         {
             // Arrange
-            var kbo = new KBO(identification);
+            KBO kbo = new KBO(identification);
 
             // Act
 
