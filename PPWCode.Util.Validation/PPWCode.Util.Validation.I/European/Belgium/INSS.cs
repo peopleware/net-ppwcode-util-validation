@@ -63,6 +63,8 @@ namespace PPWCode.Util.Validation.I.European.Belgium
             }
         }
 
+        public bool? IsNationalNumber => !IsBisNumber;
+
         public Sexe Sexe
         {
             get
