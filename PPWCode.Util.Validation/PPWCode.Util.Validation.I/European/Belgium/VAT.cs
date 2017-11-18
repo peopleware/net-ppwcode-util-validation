@@ -13,22 +13,14 @@
 // limitations under the License.
 // 
 
-namespace PPWCode.Util.Validation.I
+namespace PPWCode.Util.Validation.I.European.Belgium
 {
-    public interface IIdentification
+    public class VAT : KBO
     {
-        string ElectronicVersion { get; }
+        public VAT(string rawVersion) : base(rawVersion)
+        {
+        }
 
-        bool IsStrictValid { get; }
-
-        bool IsValid { get; }
-
-        string PaperVersion { get; }
-
-        string RawVersion { get; }
-
-        int StandardMinLength { get; }
-
-        int StandardMaxLength { get; }
+        protected override string OnPaperVersion => $"BE {base.OnPaperVersion}";
     }
 }

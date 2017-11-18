@@ -13,6 +13,7 @@
 // limitations under the License.
 // 
 
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -51,19 +52,19 @@ namespace PPWCode.Util.Validation.I
 
         public string RawVersion { get; }
 
-        public abstract int StandardMinLength { get; }
+        public virtual int StandardMaxLength => StandardMinLength;
 
-        public virtual int? StandardMaxLength => null;
+        public abstract int StandardMinLength { get; }
 
         protected abstract bool OnValidate(string identification);
 
-        protected virtual string Cleanup(string identification) => Pad(GetDigitStream(identification));
+        protected virtual string Cleanup(string identification) => Pad(GetValidStream(identification));
 
         protected virtual bool Validate(string identification)
         {
-            if (identification != null 
-                && StandardMinLength <= identification.Length 
-                && (StandardMaxLength == null || identification.Length <= StandardMaxLength.Value))
+            if (identification != null
+                && StandardMinLength <= identification.Length
+                && identification.Length <= StandardMaxLength)
             {
                 return OnValidate(identification);
             }
@@ -71,7 +72,7 @@ namespace PPWCode.Util.Validation.I
             return false;
         }
 
-        protected string GetDigitStream(string stream)
+        protected virtual string GetValidStream(string stream)
         {
             if (stream == null)
             {
@@ -79,7 +80,7 @@ namespace PPWCode.Util.Validation.I
             }
 
             StringBuilder sb = new StringBuilder(stream.Length);
-            foreach (char ch in stream.Where(char.IsDigit))
+            foreach (char ch in stream.Where(IsValidChar))
             {
                 sb.Append(ch);
             }
@@ -87,6 +88,8 @@ namespace PPWCode.Util.Validation.I
             return sb.ToString();
         }
 
-        protected string Pad(string identification) => identification?.PadLeft(StandardMaxLength ?? StandardMinLength, PaddingCharacter);
+        protected virtual bool IsValidChar(char ch) => char.IsDigit(ch);
+
+        protected virtual string Pad(string identification) => identification?.PadLeft(StandardMaxLength, PaddingCharacter);
     }
 }
