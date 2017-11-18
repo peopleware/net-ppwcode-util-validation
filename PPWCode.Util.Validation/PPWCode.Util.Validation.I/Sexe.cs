@@ -13,7 +13,7 @@
 // limitations under the License.
 // 
 
-namespace PPWCode.Util.Validation.I.European.Belgium
+namespace PPWCode.Util.Validation.I
 {
     /// <summary>
     ///     We follow ISO/IEC 5218
