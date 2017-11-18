@@ -24,7 +24,7 @@ namespace PPWCode.Util.Validation.I.European
     public class IBAN : AbstractIdentification
     {
         private static readonly Regex BBANFormatRegex =
-            new Regex(@"^(?<n>\d+)(?<t>(n|a|c))$", RegexOptions.Compiled | RegexOptions.CultureInvariant);
+            new Regex("^(?<n>\\d+)(?<t>(n|a|c))$", RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
         private static readonly IDictionary<char, int> IBANConversions =
             new Dictionary<char, int>
