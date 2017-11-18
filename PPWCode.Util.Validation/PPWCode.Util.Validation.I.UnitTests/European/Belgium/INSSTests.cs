@@ -65,8 +65,8 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         {
             get
             {
-                yield return new TestCaseData("55250200801").Returns("55.25.02 008-01");
-                yield return new TestCaseData("BE 55250200801").Returns("55.25.02 008-01");
+                yield return new TestCaseData("55250200801").Returns("55.25.02-008.01");
+                yield return new TestCaseData("BE 55250200801").Returns("55.25.02-008.01");
             }
         }
 
