@@ -247,6 +247,7 @@ limitations under the License.&#xD;
 &#xD;
 </s:String>
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/Abbreviations/=BBAN/@EntryIndexedValue">BBAN</s:String>
+	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/Abbreviations/=DMFA/@EntryIndexedValue">DMFA</s:String>
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/Abbreviations/=IBAN/@EntryIndexedValue">IBAN</s:String>
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/Abbreviations/=KBO/@EntryIndexedValue">KBO</s:String>
 	<s:String x:Key="/Default/CodeStyle/Naming/CSharpNaming/Abbreviations/=VAT/@EntryIndexedValue">VAT</s:String>
