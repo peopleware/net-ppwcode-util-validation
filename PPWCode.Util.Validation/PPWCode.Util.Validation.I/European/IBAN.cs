@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -296,6 +297,7 @@ namespace PPWCode.Util.Validation.I.European
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public override char PaddingCharacter => throw new InvalidOperationException();
 
         public override int StandardMaxLength => 34;
