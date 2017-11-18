@@ -125,7 +125,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
                                    : Sexe.FEMALE;
                 }
 
-                if (calcBirthDate)
+                if (calcBirthDate && mm > 0 && dd > 0)
                 {
                     try
                     {
@@ -135,9 +135,9 @@ namespace PPWCode.Util.Validation.I.European.Belgium
                             birthdate = null;
                         }
                     }
+                    // ReSharper disable once EmptyGeneralCatchClause
                     catch
                     {
-                        birthdate = null;
                     }
                 }
             }
