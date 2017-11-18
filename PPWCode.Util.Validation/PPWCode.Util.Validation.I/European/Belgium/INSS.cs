@@ -30,7 +30,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
         public override char PaddingCharacter => '0';
 
-        public override int StandardLength => 11;
+        public override int StandardMinLength => 11;
 
         public DateTime? BirthDate
         {

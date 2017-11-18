@@ -51,7 +51,9 @@ namespace PPWCode.Util.Validation.I
 
         public string RawVersion { get; }
 
-        public abstract int StandardLength { get; }
+        public abstract int StandardMinLength { get; }
+
+        public virtual int? StandardMaxLength => null;
 
         protected abstract bool OnValidate(string identification);
 
@@ -59,7 +61,9 @@ namespace PPWCode.Util.Validation.I
 
         protected virtual bool Validate(string identification)
         {
-            if (identification != null && identification.Length == StandardLength)
+            if (identification != null 
+                && StandardMinLength <= identification.Length 
+                && (StandardMaxLength == null || identification.Length <= StandardMaxLength.Value))
             {
                 return OnValidate(identification);
             }
@@ -83,6 +87,6 @@ namespace PPWCode.Util.Validation.I
             return sb.ToString();
         }
 
-        protected string Pad(string identification) => identification?.PadLeft(StandardLength, PaddingCharacter);
+        protected string Pad(string identification) => identification?.PadLeft(StandardMaxLength ?? StandardMinLength, PaddingCharacter);
     }
 }

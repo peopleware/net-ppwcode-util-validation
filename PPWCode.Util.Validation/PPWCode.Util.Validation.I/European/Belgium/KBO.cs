@@ -26,7 +26,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
         public override char PaddingCharacter => '0';
 
-        public override int StandardLength => 10;
+        public override int StandardMinLength => 10;
 
         protected override bool OnValidate(string identification)
         {
