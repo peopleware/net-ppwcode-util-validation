@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.RegularExpressions;
+using PPWCode.Util.Validation.I.European.Belgium;
 
 namespace PPWCode.Util.Validation.I
 {
@@ -271,6 +272,8 @@ namespace PPWCode.Util.Validation.I
                 {'Z', 35}
             };
 
+        private string _twoLetterISOLanguageName;
+
         public IBAN(string rawVersion) : base(rawVersion)
         {
         }
@@ -303,6 +306,13 @@ namespace PPWCode.Util.Validation.I
         public override int StandardMaxLength => 34;
 
         public override int StandardMinLength => 14;
+
+        public BBAN AsBBAN =>
+            IsValid && string.Equals(Country, "BE", StringComparison.InvariantCulture)
+                ? new BBAN(CleanedVersion.Substring(4, 12))
+                : null;
+
+        public string Country => _twoLetterISOLanguageName ?? (_twoLetterISOLanguageName = CleanedVersion.Substring(0, 2));
 
         protected override string Pad(string identification) => identification;
 

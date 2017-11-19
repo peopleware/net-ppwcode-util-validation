@@ -13,9 +13,12 @@
 // limitations under the License.
 // 
 
+using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using NUnit.Framework;
+using PPWCode.Util.Validation.I.European.Belgium;
 
 namespace PPWCode.Util.Validation.I.UnitTests
 {
@@ -35,7 +38,7 @@ namespace PPWCode.Util.Validation.I.UnitTests
         }
 
         /// <summary>
-        /// see <see href="http://www.xe.com/ibancalculator/"/>
+        ///     see <see href="http://www.xe.com/ibancalculator/" />
         /// </summary>
         public static IEnumerable StrictValidIndentifications
         {
@@ -196,6 +199,11 @@ namespace PPWCode.Util.Validation.I.UnitTests
             }
         }
 
+        private static IEnumerable ValidBEIndentifications =>
+            ValidIndentifications
+                .Cast<string>()
+                .Where(i => string.Equals(i.Substring(0, 2), "BE", StringComparison.InvariantCulture));
+
         public static IEnumerable PaperVersions
         {
             get
@@ -218,6 +226,38 @@ namespace PPWCode.Util.Validation.I.UnitTests
             Assert.That(bban.IsValid, Is.True);
             Assert.That(bban.ElectronicVersion, Is.Not.Null);
             return bban.PaperVersion;
+        }
+
+        [Test]
+        [TestCaseSource(nameof(ValidBEIndentifications))]
+        public void iban_can_convert_valid_BE_identifications_to_bban(string identification)
+        {
+            // Arrange
+            IBAN iban = new IBAN(identification);
+            Assert.That(iban.IsValid, Is.True);
+
+            // Act
+            BBAN actual = iban.AsBBAN;
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.IsValid, Is.True);
+            Assert.That(actual.IsStrictValid, Is.True);
+        }
+
+        [Test]
+        [TestCaseSource(nameof(InvalidIdentifications))]
+        public void iban_can_not_convert_invalid_identifications_to_bban(string identification)
+        {
+            // Arrange
+            IBAN iban = new IBAN(identification);
+            Assert.That(iban.IsValid, Is.False);
+
+            // Act
+            BBAN actual = iban.AsBBAN;
+
+            // Assert
+            Assert.That(actual, Is.Null);
         }
 
         [Test]
