@@ -90,5 +90,7 @@ namespace PPWCode.Util.Validation.I
         protected virtual bool IsValidChar(char ch) => char.IsDigit(ch);
 
         protected virtual string Pad(string identification) => identification?.PadLeft(StandardMaxLength, PaddingCharacter);
+
+        public override string ToString() => PaperVersion ?? RawVersion;
     }
 }
