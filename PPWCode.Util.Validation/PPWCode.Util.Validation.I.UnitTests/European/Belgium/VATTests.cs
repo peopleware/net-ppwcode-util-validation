@@ -24,7 +24,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Test")]
     public class VATTests : BaseTests
     {
-        private static IEnumerable InvalidVATs
+        public static IEnumerable InvalidIdentifications
         {
             get
             {
@@ -35,16 +35,16 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable StrictValidVATs
+        public static IEnumerable StrictValidIdentifications
         {
             get { yield return "0453834195"; }
         }
 
-        private static IEnumerable ValidVATs
+        public static IEnumerable ValidIdentifications
         {
             get
             {
-                foreach (object vat in StrictValidVATs)
+                foreach (object vat in StrictValidIdentifications)
                 {
                     yield return vat;
                 }
@@ -56,7 +56,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable PaperVersions
+        public static IEnumerable PaperVersions
         {
             get
             {
@@ -81,7 +81,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(InvalidVATs))]
+        [TestCaseSource(nameof(InvalidIdentifications))]
         public void vat_is_not_valid(string identification)
         {
             // Arrange
@@ -97,7 +97,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(StrictValidVATs))]
+        [TestCaseSource(nameof(StrictValidIdentifications))]
         public void vat_is_strict_valid(string identification)
         {
             // Arrange
@@ -114,7 +114,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(ValidVATs))]
+        [TestCaseSource(nameof(ValidIdentifications))]
         public void vat_is_valid(string identification)
         {
             // Arrange

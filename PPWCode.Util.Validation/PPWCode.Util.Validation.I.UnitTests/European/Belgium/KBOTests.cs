@@ -24,7 +24,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Test")]
     public class KBOTests : BaseTests
     {
-        private static IEnumerable InvalidKBOs
+        public static IEnumerable InvalidIdentifications
         {
             get
             {
@@ -35,16 +35,16 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable StrictValidKBOs
+        public static IEnumerable StrictValidIdentifications
         {
             get { yield return "0453834195"; }
         }
 
-        private static IEnumerable ValidKBOs
+        public static IEnumerable ValidIdentifications
         {
             get
             {
-                foreach (object kbo in StrictValidKBOs)
+                foreach (object kbo in StrictValidIdentifications)
                 {
                     yield return kbo;
                 }
@@ -56,7 +56,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable PaperVersions
+        public static IEnumerable PaperVersions
         {
             get
             {
@@ -81,7 +81,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(InvalidKBOs))]
+        [TestCaseSource(nameof(InvalidIdentifications))]
         public void kbo_is_not_valid(string identification)
         {
             // Arrange
@@ -97,7 +97,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(StrictValidKBOs))]
+        [TestCaseSource(nameof(StrictValidIdentifications))]
         public void kbo_is_strict_valid(string identification)
         {
             // Arrange
@@ -114,7 +114,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(ValidKBOs))]
+        [TestCaseSource(nameof(ValidIdentifications))]
         public void kbo_is_valid(string identification)
         {
             // Arrange

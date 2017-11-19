@@ -25,7 +25,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Test")]
     public class INSSTests : BaseTests
     {
-        private static IEnumerable InvalidINSSs
+        public static IEnumerable InvalidIdentifications
         {
             get
             {
@@ -36,7 +36,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable StrictValidINSSs
+        public static IEnumerable StrictValidIdentifications
         {
             get
             {
@@ -46,11 +46,11 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable ValidINSSs
+        public static IEnumerable ValidIdentifications
         {
             get
             {
-                foreach (object inss in StrictValidINSSs)
+                foreach (object inss in StrictValidIdentifications)
                 {
                     yield return inss;
                 }
@@ -62,7 +62,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable PaperVersions
+        public static IEnumerable PaperVersions
         {
             get
             {
@@ -75,7 +75,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         {
             get
             {
-                foreach (object inss in InvalidINSSs)
+                foreach (object inss in InvalidIdentifications)
                 {
                     yield return new TestCaseData(inss).Returns(null);
                 }
@@ -153,7 +153,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(InvalidINSSs))]
+        [TestCaseSource(nameof(InvalidIdentifications))]
         public void inss_is_not_valid(string identification)
         {
             // Arrange
@@ -169,7 +169,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(StrictValidINSSs))]
+        [TestCaseSource(nameof(StrictValidIdentifications))]
         public void inss_is_strict_valid(string identification)
         {
             // Arrange
@@ -186,7 +186,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(ValidINSSs))]
+        [TestCaseSource(nameof(ValidIdentifications))]
         public void inss_is_valid(string identification)
         {
             // Arrange

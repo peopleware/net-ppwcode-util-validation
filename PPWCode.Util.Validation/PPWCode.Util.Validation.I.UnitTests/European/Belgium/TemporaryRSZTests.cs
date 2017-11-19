@@ -24,7 +24,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Test")]
     public class TemporaryRSZTests : BaseTests
     {
-        private static IEnumerable InvalidTemporaryRSZs
+        public static IEnumerable InvalidIdentifications
         {
             get
             {
@@ -35,16 +35,16 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable StrictValidTemporaryRSZs
+        public static IEnumerable StrictValidIdentifications
         {
             get { yield return "5105009119"; }
         }
 
-        private static IEnumerable ValidTemporaryRSZs
+        public static IEnumerable ValidIdentifications
         {
             get
             {
-                foreach (object kbo in StrictValidTemporaryRSZs)
+                foreach (object kbo in StrictValidIdentifications)
                 {
                     yield return kbo;
                 }
@@ -54,7 +54,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable PaperVersions
+        public static IEnumerable PaperVersions
         {
             get
             {
@@ -79,7 +79,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(InvalidTemporaryRSZs))]
+        [TestCaseSource(nameof(InvalidIdentifications))]
         public void temporary_rsz_is_not_valid(string identification)
         {
             // Arrange
@@ -95,7 +95,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(StrictValidTemporaryRSZs))]
+        [TestCaseSource(nameof(StrictValidIdentifications))]
         public void temporary_rsz_is_strict_valid(string identification)
         {
             // Arrange
@@ -112,7 +112,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(ValidTemporaryRSZs))]
+        [TestCaseSource(nameof(ValidIdentifications))]
         public void temporary_rsz_is_valid(string identification)
         {
             // Arrange

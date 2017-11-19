@@ -24,7 +24,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Test")]
     public class BBANTests : BaseTests
     {
-        private static IEnumerable InvalidBBANs
+        public static IEnumerable InvalidIdentifications
         {
             get
             {
@@ -35,16 +35,16 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable StrictValidBBANs
+        public static IEnumerable StrictValidIdentifications
         {
             get { yield return "850895676978"; }
         }
 
-        private static IEnumerable ValidBBANs
+        public static IEnumerable ValidIndentifications
         {
             get
             {
-                foreach (object bban in StrictValidBBANs)
+                foreach (object bban in StrictValidIdentifications)
                 {
                     yield return bban;
                 }
@@ -56,7 +56,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable PaperVersions
+        public static IEnumerable PaperVersions
         {
             get
             {
@@ -81,7 +81,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(InvalidBBANs))]
+        [TestCaseSource(nameof(InvalidIdentifications))]
         public void bban_is_not_valid(string identification)
         {
             // Arrange
@@ -97,7 +97,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(StrictValidBBANs))]
+        [TestCaseSource(nameof(StrictValidIdentifications))]
         public void bban_is_strict_valid(string identification)
         {
             // Arrange
@@ -114,7 +114,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(ValidBBANs))]
+        [TestCaseSource(nameof(ValidIndentifications))]
         public void bban_is_valid(string identification)
         {
             // Arrange

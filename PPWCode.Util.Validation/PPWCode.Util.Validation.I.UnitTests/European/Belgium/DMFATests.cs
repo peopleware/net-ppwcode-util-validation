@@ -25,7 +25,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
     public class DMFATests : BaseTests
     {
         // TODO Add additional cases
-        private static IEnumerable InvalidDMFAs
+        public static IEnumerable InvalidIdentifications
         {
             get
             {
@@ -37,7 +37,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable StrictValidDMFAs
+        public static IEnumerable StrictValidIdentifications
         {
             get
             {
@@ -50,18 +50,18 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             }
         }
 
-        private static IEnumerable ValidDMFAs => StrictValidDMFAs;
+        public static IEnumerable ValidIdentifications => StrictValidIdentifications;
 
-        private static IEnumerable PaperVersions
+        public static IEnumerable PaperVersions
         {
             get { yield break; }
         }
 
-        private static IEnumerable DMFANumberCases
+        private static IEnumerable IdentificationToNumberCases
         {
             get
             {
-                foreach (object invalidDMFA in InvalidDMFAs)
+                foreach (object invalidDMFA in InvalidIdentifications)
                 {
                     yield return new TestCaseData(invalidDMFA).Returns(null);
                 }
@@ -90,7 +90,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(DMFANumberCases))]
+        [TestCaseSource(nameof(IdentificationToNumberCases))]
         public long? dmfa_check_as_number(string identification)
         {
             // Arrange
@@ -103,7 +103,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(InvalidDMFAs))]
+        [TestCaseSource(nameof(InvalidIdentifications))]
         public void dmfa_is_not_valid(string identification)
         {
             // Arrange
@@ -119,7 +119,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(StrictValidDMFAs))]
+        [TestCaseSource(nameof(StrictValidIdentifications))]
         public void dmfa_is_strict_valid(string identification)
         {
             // Arrange
@@ -136,7 +136,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(ValidDMFAs))]
+        [TestCaseSource(nameof(ValidIdentifications))]
         public void dmfa_is_valid(string identification)
         {
             // Arrange
