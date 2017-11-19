@@ -31,18 +31,6 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
         public override int StandardMinLength => 12;
 
-        protected override bool OnValidate(string identification)
-        {
-            long rest = Mod97Checknumber(long.Parse(identification.Substring(0, 10)));
-            return rest == long.Parse(identification.Substring(10, 2));
-        }
-
-        private long Mod97Checknumber(long baseNum)
-        {
-            long result = baseNum % 97;
-            return result == 0 ? 97 : result;
-        }
-
         public IBAN AsIBAN
         {
             get
@@ -74,7 +62,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
                         mod97 = int.Parse(s9) % 97;
                         if (sb.Length > 0)
                         {
-                            n = (mod97 < 10) ? 8 : 7;
+                            n = mod97 < 10 ? 8 : 7;
                             n = sb.Length < n ? sb.Length : n;
                             s9 = string.Concat(mod97.ToString(CultureInfo.InvariantCulture), sb.ToString().Substring(0, n));
                         }
@@ -90,6 +78,18 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
                 return null;
             }
+        }
+
+        protected override bool OnValidate(string identification)
+        {
+            long rest = Mod97Checknumber(long.Parse(identification.Substring(0, 10)));
+            return rest == long.Parse(identification.Substring(10, 2));
+        }
+
+        private long Mod97Checknumber(long baseNum)
+        {
+            long result = baseNum % 97;
+            return result == 0 ? 97 : result;
         }
     }
 }

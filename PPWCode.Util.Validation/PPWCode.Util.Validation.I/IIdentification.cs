@@ -27,8 +27,8 @@ namespace PPWCode.Util.Validation.I
 
         string RawVersion { get; }
 
-        int StandardMinLength { get; }
-
         int StandardMaxLength { get; }
+
+        int StandardMinLength { get; }
     }
 }

@@ -30,7 +30,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
         protected override bool OnValidate(string identification)
         {
-            long rest = 96 - long.Parse(identification.Substring(0, identification.Length - 2)) * 100 % 97;
+            long rest = 96 - ((long.Parse(identification.Substring(0, identification.Length - 2)) * 100) % 97);
             if (rest == 0)
             {
                 rest = 97;
