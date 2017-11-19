@@ -16,15 +16,14 @@
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using NUnit.Framework;
-using PPWCode.Util.Validation.I.European;
 
-namespace PPWCode.Util.Validation.I.UnitTests.European
+namespace PPWCode.Util.Validation.I.UnitTests
 {
     [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Test")]
     [SuppressMessage("ReSharper", "UnusedMember.Local", Justification = "Test")]
     public class IBANTests : BaseTests
     {
-        private static IEnumerable InvalidIBANs
+        public static IEnumerable InvalidIdentifications
         {
             get
             {
@@ -38,7 +37,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European
         /// <summary>
         /// see <see href="http://www.xe.com/ibancalculator/"/>
         /// </summary>
-        private static IEnumerable StrictValidIBANs
+        public static IEnumerable StrictValidIndentifications
         {
             get
             {
@@ -115,11 +114,11 @@ namespace PPWCode.Util.Validation.I.UnitTests.European
             }
         }
 
-        private static IEnumerable ValidIBANs
+        public static IEnumerable ValidIndentifications
         {
             get
             {
-                foreach (object iban in StrictValidIBANs)
+                foreach (object iban in StrictValidIndentifications)
                 {
                     yield return iban;
                 }
@@ -197,7 +196,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European
             }
         }
 
-        private static IEnumerable PaperVersions
+        public static IEnumerable PaperVersions
         {
             get
             {
@@ -222,7 +221,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European
         }
 
         [Test]
-        [TestCaseSource(nameof(InvalidIBANs))]
+        [TestCaseSource(nameof(InvalidIdentifications))]
         public void iban_is_not_valid(string identification)
         {
             // Arrange
@@ -238,7 +237,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European
         }
 
         [Test]
-        [TestCaseSource(nameof(StrictValidIBANs))]
+        [TestCaseSource(nameof(StrictValidIndentifications))]
         public void iban_is_strict_valid(string identification)
         {
             // Arrange
@@ -255,7 +254,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European
         }
 
         [Test]
-        [TestCaseSource(nameof(ValidIBANs))]
+        [TestCaseSource(nameof(ValidIndentifications))]
         public void iban_is_valid(string identification)
         {
             // Arrange

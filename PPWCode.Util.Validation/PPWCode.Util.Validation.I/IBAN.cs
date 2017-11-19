@@ -19,48 +19,14 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace PPWCode.Util.Validation.I.European
+namespace PPWCode.Util.Validation.I
 {
     public class IBAN : AbstractIdentification
     {
-        private static readonly Regex BBANFormatRegex =
-            new Regex("^(?<n>\\d+)(?<t>(n|a|c))$", RegexOptions.Compiled | RegexOptions.CultureInvariant);
-
-        private static readonly IDictionary<char, int> IBANConversions =
-            new Dictionary<char, int>
-            {
-                {'A', 10},
-                {'B', 11},
-                {'C', 12},
-                {'D', 13},
-                {'E', 14},
-                {'F', 15},
-                {'G', 16},
-                {'H', 17},
-                {'I', 18},
-                {'J', 19},
-                {'K', 20},
-                {'L', 21},
-                {'M', 22},
-                {'N', 23},
-                {'O', 24},
-                {'P', 25},
-                {'Q', 26},
-                {'R', 27},
-                {'S', 28},
-                {'T', 29},
-                {'U', 30},
-                {'V', 31},
-                {'W', 32},
-                {'X', 33},
-                {'Y', 34},
-                {'Z', 35}
-            };
-
         /// <summary>
         ///     see <see href="https://en.wikipedia.org/wiki/International_Bank_Account_Number" />
         /// </summary>
-        private static readonly IDictionary<string, IbanCountry> IBANCountries =
+        public static readonly IDictionary<string, IbanCountry> IBANCountryInformation =
             new Dictionary<string, IbanCountry>
             {
                 // Albania
@@ -271,6 +237,40 @@ namespace PPWCode.Util.Validation.I.European
                 {"VG", new IbanCountry(24, "4c,16n")}
             };
 
+        private static readonly Regex IBANFormatRegex =
+            new Regex("^(?<n>\\d+)(?<t>(n|a|c))$", RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
+        public static readonly IDictionary<char, int> LetterConversions =
+            new Dictionary<char, int>
+            {
+                {'A', 10},
+                {'B', 11},
+                {'C', 12},
+                {'D', 13},
+                {'E', 14},
+                {'F', 15},
+                {'G', 16},
+                {'H', 17},
+                {'I', 18},
+                {'J', 19},
+                {'K', 20},
+                {'L', 21},
+                {'M', 22},
+                {'N', 23},
+                {'O', 24},
+                {'P', 25},
+                {'Q', 26},
+                {'R', 27},
+                {'S', 28},
+                {'T', 29},
+                {'U', 30},
+                {'V', 31},
+                {'W', 32},
+                {'X', 33},
+                {'Y', 34},
+                {'Z', 35}
+            };
+
         public IBAN(string rawVersion) : base(rawVersion)
         {
         }
@@ -312,7 +312,7 @@ namespace PPWCode.Util.Validation.I.European
         {
             // Step 1. Check country code
             string countryCode = identification.Substring(0, 2).ToUpper();
-            if (!IBANCountries.TryGetValue(countryCode, out IbanCountry ibanCountry))
+            if (!IBANCountryInformation.TryGetValue(countryCode, out IbanCountry ibanCountry))
             {
                 return false;
             }
@@ -347,7 +347,7 @@ namespace PPWCode.Util.Validation.I.European
                 char ch = tmp[i];
                 if (char.IsLetter(ch))
                 {
-                    if (IBANConversions.TryGetValue(ch, out int num))
+                    if (LetterConversions.TryGetValue(ch, out int num))
                     {
                         sb2.Append(num.ToString());
                     }
@@ -403,7 +403,7 @@ namespace PPWCode.Util.Validation.I.European
                             StringSplitOptions.RemoveEmptyEntries);
                 foreach (string item in items)
                 {
-                    Match match = BBANFormatRegex.Match(item);
+                    Match match = IBANFormatRegex.Match(item);
                     if (match.Success)
                     {
                         string t = match.Groups["t"].Value;
@@ -429,7 +429,7 @@ namespace PPWCode.Util.Validation.I.European
             return null;
         }
 
-        private struct IbanCountry
+        public struct IbanCountry
         {
             public IbanCountry(int ibanLength, string pattern)
 
