@@ -13,7 +13,8 @@
 // limitations under the License.
 // 
 
-using System;
+using System.Globalization;
+using System.Text;
 
 namespace PPWCode.Util.Validation.I.European.Belgium
 {
@@ -40,6 +41,55 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         {
             long result = baseNum % 97;
             return result == 0 ? 97 : result;
+        }
+
+        public IBAN AsIBAN
+        {
+            get
+            {
+                if (IsValid)
+                {
+                    StringBuilder sb = new StringBuilder(CleanedVersion);
+
+                    // Move BE + '00' at the end
+                    sb.Append(IBAN.LetterConversions['B'].ToString(CultureInfo.InvariantCulture));
+                    sb.Append(IBAN.LetterConversions['E'].ToString(CultureInfo.InvariantCulture));
+                    sb.Append("00");
+
+                    // Calculate Check Digits
+                    // Calculate MOD 97-10 (see ISO 7064)
+                    // For the check digits to be correct, 
+                    // the remainder after calculating the modulus 97 must be 1.
+                    // We will use integers instead of floating point numnbers for precision.
+                    // BUT if the number is too long for the software implementation of
+                    // integers (a signed 32/64 bits represents 9/18 digits), then the 
+                    // calculation can be split up into sonsecutive remainder calculations
+                    // on integers with a maximum of 9 or 18 digits.
+                    // I will choose 32 bit integers.
+                    int mod97 = 0, n = 9;
+                    string s9 = sb.ToString().Substring(0, n);
+                    while (s9.Length > 0)
+                    {
+                        sb.Remove(0, n);
+                        mod97 = int.Parse(s9) % 97;
+                        if (sb.Length > 0)
+                        {
+                            n = (mod97 < 10) ? 8 : 7;
+                            n = sb.Length < n ? sb.Length : n;
+                            s9 = string.Concat(mod97.ToString(CultureInfo.InvariantCulture), sb.ToString().Substring(0, n));
+                        }
+                        else
+                        {
+                            s9 = string.Empty;
+                        }
+                    }
+                    mod97 = 98 - mod97;
+
+                    return new IBAN(string.Concat("BE", mod97.ToString("00"), CleanedVersion));
+                }
+
+                return null;
+            }
         }
     }
 }

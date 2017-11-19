@@ -66,18 +66,35 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(PaperVersions))]
-        public string check_paperversion(string identification)
+        [TestCaseSource(nameof(InvalidIdentifications))]
+        public void bban_can_not_convert_invalid_identifications_to_iban(string identification)
         {
             // Arrange
             BBAN bban = new BBAN(identification);
+            Assert.That(bban.IsValid, Is.False);
 
             // Act
+            IBAN actual = bban.AsIBAN;
 
             // Assert
+            Assert.That(actual, Is.Null);
+        }
+
+        [Test]
+        [TestCaseSource(nameof(ValidIndentifications))]
+        public void bban_can_convert_valid_identifications_to_iban(string identification)
+        {
+            // Arrange
+            BBAN bban = new BBAN(identification);
             Assert.That(bban.IsValid, Is.True);
-            Assert.That(bban.ElectronicVersion, Is.Not.Null);
-            return bban.PaperVersion;
+
+            // Act
+            IBAN actual = bban.AsIBAN;
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.IsValid, Is.True);
+            Assert.That(actual.IsStrictValid, Is.True);
         }
 
         [Test]
@@ -126,6 +143,21 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             Assert.That(bban.IsValid, Is.True);
             Assert.That(bban.ElectronicVersion, Is.Not.Null);
             Assert.That(bban.PaperVersion, Is.Not.Null);
+        }
+
+        [Test]
+        [TestCaseSource(nameof(PaperVersions))]
+        public string check_paperversion(string identification)
+        {
+            // Arrange
+            BBAN bban = new BBAN(identification);
+
+            // Act
+
+            // Assert
+            Assert.That(bban.IsValid, Is.True);
+            Assert.That(bban.ElectronicVersion, Is.Not.Null);
+            return bban.PaperVersion;
         }
     }
 }
