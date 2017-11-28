@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\version.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <AssemblyVersion>$(GacVersion)</AssemblyVersion>
+    <FileVersion>$(PackageVersion)</FileVersion>
+    <Version>$(PackageVersion)</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net462|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.I.Test" Version="4.0.0-rc0100053" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PPWCode.Util.Validation.I.NHibernate\PPWCode.Util.Validation.I.NHibernate.csproj" />
+    <ProjectReference Include="..\PPWCode.Util.Validation.I\PPWCode.Util.Validation.I.csproj" />
+  </ItemGroup>
+
+</Project>
