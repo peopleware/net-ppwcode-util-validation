@@ -25,12 +25,14 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         {
         }
 
-        protected override string OnPaperVersion =>
-            $"{CleanedVersion.Substring(0, 2)}.{CleanedVersion.Substring(2, 2)}.{CleanedVersion.Substring(4, 2)}-{CleanedVersion.Substring(6, 3)}.{CleanedVersion.Substring(9, 2)}";
+        protected override string OnPaperVersion
+            => $"{CleanedVersion.Substring(0, 2)}.{CleanedVersion.Substring(2, 2)}.{CleanedVersion.Substring(4, 2)}-{CleanedVersion.Substring(6, 3)}.{CleanedVersion.Substring(9, 2)}";
 
-        public override char PaddingCharacter => '0';
+        public override char PaddingCharacter
+            => '0';
 
-        public override int StandardMinLength => 11;
+        public override int StandardMinLength
+            => 11;
 
         public DateTime? BirthDate
         {
@@ -63,7 +65,8 @@ namespace PPWCode.Util.Validation.I.European.Belgium
             }
         }
 
-        public bool? IsNationalNumber => !IsBisNumber;
+        public bool? IsNationalNumber
+            => !IsBisNumber;
 
         public Sexe Sexe
         {
@@ -78,7 +81,8 @@ namespace PPWCode.Util.Validation.I.European.Belgium
             }
         }
 
-        protected override bool OnValidate(string identification) => ValidBefore2000(identification) || ValidAfter2000(identification);
+        protected override bool OnValidate(string identification)
+            => ValidBefore2000(identification) || ValidAfter2000(identification);
 
         private ParseResult ParseINSS()
         {

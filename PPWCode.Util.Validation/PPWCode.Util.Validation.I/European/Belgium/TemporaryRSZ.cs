@@ -21,6 +21,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         {
         }
 
-        protected override bool Validate(string identification) => base.Validate(identification) && CleanedVersion[0] == '5';
+        protected override bool Validate(string identification)
+            => base.Validate(identification) && CleanedVersion[0] == '5';
     }
 }

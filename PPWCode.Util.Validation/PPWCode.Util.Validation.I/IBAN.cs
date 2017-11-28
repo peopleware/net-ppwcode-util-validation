@@ -301,22 +301,28 @@ namespace PPWCode.Util.Validation.I
         }
 
         [ExcludeFromCodeCoverage]
-        public override char PaddingCharacter => throw new InvalidOperationException();
+        public override char PaddingCharacter
+            => throw new InvalidOperationException();
 
-        public override int StandardMaxLength => 34;
+        public override int StandardMaxLength
+            => 34;
 
-        public override int StandardMinLength => 14;
+        public override int StandardMinLength
+            => 14;
 
-        public BBAN AsBBAN =>
-            IsValid && string.Equals(Country, "BE", StringComparison.InvariantCulture)
-                ? new BBAN(CleanedVersion.Substring(4, 12))
-                : null;
+        public BBAN AsBBAN
+            => IsValid && string.Equals(Country, "BE", StringComparison.InvariantCulture)
+                   ? new BBAN(CleanedVersion.Substring(4, 12))
+                   : null;
 
-        public string Country => _twoLetterISOLanguageName ?? (_twoLetterISOLanguageName = CleanedVersion.Substring(0, 2));
+        public string Country
+            => _twoLetterISOLanguageName ?? (_twoLetterISOLanguageName = CleanedVersion.Substring(0, 2));
 
-        protected override string Pad(string identification) => identification;
+        protected override string Pad(string identification)
+            => identification;
 
-        protected override bool IsValidChar(char ch) => char.IsLetterOrDigit(ch);
+        protected override bool IsValidChar(char ch)
+            => char.IsLetterOrDigit(ch);
 
         protected override bool OnValidate(string identification)
         {

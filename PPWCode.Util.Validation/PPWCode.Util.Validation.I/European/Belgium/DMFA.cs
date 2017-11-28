@@ -31,22 +31,28 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         {
         }
 
-        public virtual long? AsNumber =>
-            RawVersion != null && DMFARegex.IsMatch(RawVersion)
-                ? (long?) long.Parse(RawVersion.Substring(5, 9))
-                : null;
+        public virtual long? AsNumber
+            => RawVersion != null && DMFARegex.IsMatch(RawVersion)
+                   ? (long?) long.Parse(RawVersion.Substring(5, 9))
+                   : null;
 
-        protected override string OnPaperVersion => CleanedVersion;
+        protected override string OnPaperVersion
+            => CleanedVersion;
 
         [ExcludeFromCodeCoverage]
-        public override char PaddingCharacter => throw new InvalidOperationException();
+        public override char PaddingCharacter
+            => throw new InvalidOperationException();
 
-        public override int StandardMinLength => 15;
+        public override int StandardMinLength
+            => 15;
 
-        protected override string Pad(string identification) => identification;
+        protected override string Pad(string identification)
+            => identification;
 
-        protected override bool IsValidChar(char ch) => char.IsLetterOrDigit(ch);
+        protected override bool IsValidChar(char ch)
+            => char.IsLetterOrDigit(ch);
 
-        protected override bool OnValidate(string identification) => AsNumber != null;
+        protected override bool OnValidate(string identification)
+            => AsNumber != null;
     }
 }

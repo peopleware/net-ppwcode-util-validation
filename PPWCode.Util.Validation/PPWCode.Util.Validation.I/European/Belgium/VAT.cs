@@ -21,6 +21,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         {
         }
 
-        protected override string OnPaperVersion => $"BE {base.OnPaperVersion}";
+        protected override string OnPaperVersion
+            => $"BE {base.OnPaperVersion}";
     }
 }

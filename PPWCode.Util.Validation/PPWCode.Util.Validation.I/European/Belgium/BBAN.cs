@@ -24,12 +24,14 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         {
         }
 
-        protected override string OnPaperVersion =>
-            $"{CleanedVersion.Substring(0, 3)}-{CleanedVersion.Substring(3, 7)}-{CleanedVersion.Substring(10, 2)}";
+        protected override string OnPaperVersion
+            => $"{CleanedVersion.Substring(0, 3)}-{CleanedVersion.Substring(3, 7)}-{CleanedVersion.Substring(10, 2)}";
 
-        public override char PaddingCharacter => '0';
+        public override char PaddingCharacter
+            => '0';
 
-        public override int StandardMinLength => 12;
+        public override int StandardMinLength
+            => 12;
 
         public IBAN AsIBAN
         {
