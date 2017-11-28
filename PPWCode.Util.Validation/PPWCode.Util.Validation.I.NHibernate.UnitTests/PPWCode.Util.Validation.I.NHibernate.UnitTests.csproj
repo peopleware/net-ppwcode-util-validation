@@ -14,7 +14,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="PPWCode.Vernacular.NHibernate.I.Test" Version="4.0.0-rc0100053" />
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.I.Test" Version="4.0.1-rc0100054" />
   </ItemGroup>
 
   <ItemGroup>
