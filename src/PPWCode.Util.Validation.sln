@@ -1,20 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPWCode.Util.Validation.I", "PPWCode.Util.Validation.I\PPWCode.Util.Validation.I.csproj", "{EAD7ED87-F2E9-46AD-A175-126085CBB635}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{E8DD09C4-CC41-428D-AD87-EA21B92E601A}"
 	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
 		version.props = version.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPWCode.Util.Validation.I.UnitTests", "PPWCode.Util.Validation.I.UnitTests\PPWCode.Util.Validation.I.UnitTests.csproj", "{4A0E96AF-C081-44A8-8F99-0BAFAAC24D8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPWCode.Util.Validation.I.NHibernate", "PPWCode.Util.Validation.I.NHibernate\PPWCode.Util.Validation.I.NHibernate.csproj", "{4B63D1D2-FFED-4134-B080-CC0F2B92DA4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPWCode.Util.Validation.I.NHibernate", "PPWCode.Util.Validation.I.NHibernate\PPWCode.Util.Validation.I.NHibernate.csproj", "{4B63D1D2-FFED-4134-B080-CC0F2B92DA4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPWCode.Util.Validation.I.NHibernate.UnitTests", "PPWCode.Util.Validation.I.NHibernate.UnitTests\PPWCode.Util.Validation.I.NHibernate.UnitTests.csproj", "{A897494B-79EE-4CA1-9280-7A4A3F7F92D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPWCode.Util.Validation.I.NHibernate.UnitTests", "PPWCode.Util.Validation.I.NHibernate.UnitTests\PPWCode.Util.Validation.I.NHibernate.UnitTests.csproj", "{A897494B-79EE-4CA1-9280-7A4A3F7F92D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

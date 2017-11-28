@@ -1,24 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\version.props" />
+    <PropertyGroup>
+        <!-- target frameworks -->
+        <TargetFrameworks>net462</TargetFrameworks>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
-    <AssemblyVersion>$(GacVersion)</AssemblyVersion>
-    <FileVersion>$(PackageVersion)</FileVersion>
-    <Version>$(PackageVersion)</Version>
-  </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="PPWCode.Vernacular.NHibernate.I" Version="4.0.1-rc0100054" />
+    </ItemGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net462|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="PPWCode.Vernacular.NHibernate.I" Version="4.0.1-rc0100054" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\PPWCode.Util.Validation.I\PPWCode.Util.Validation.I.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\PPWCode.Util.Validation.I\PPWCode.Util.Validation.I.csproj" />
+    </ItemGroup>
 
 </Project>
