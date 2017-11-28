@@ -13,84 +13,136 @@
 // limitations under the License.
 // 
 
+using System;
 using System.Linq;
 using System.Text;
 
 namespace PPWCode.Util.Validation.I
 {
-    public abstract class AbstractIdentification : IIdentification
-    {
-        private string _cleanedVersion;
-        private string _electronicVersion;
-        private bool? _isStrictValid;
-        private bool? _isValid;
-        private string _paperVersion;
+	public abstract class AbstractIdentification : IIdentification, IEquatable<AbstractIdentification>
+	{
+		private string _cleanedVersion;
+		private string _electronicVersion;
+		private bool? _isStrictValid;
+		private bool? _isValid;
+		private string _paperVersion;
 
-        protected AbstractIdentification(string rawVersion) => RawVersion = rawVersion;
+		protected AbstractIdentification(string rawVersion)
+			=> RawVersion = rawVersion;
 
-        protected abstract string OnPaperVersion { get; }
+		protected abstract string OnPaperVersion { get; }
 
-        public abstract char PaddingCharacter { get; }
+		public abstract char PaddingCharacter { get; }
 
-        protected virtual string OnElectronicVersion => CleanedVersion;
+		protected virtual string OnElectronicVersion
+			=> CleanedVersion;
 
-        public string CleanedVersion =>
-            _cleanedVersion ?? (_cleanedVersion = Cleanup(RawVersion));
+		public string CleanedVersion
+			=> _cleanedVersion ?? (_cleanedVersion = Cleanup(RawVersion));
 
-        public string ElectronicVersion =>
-            _electronicVersion ?? (_electronicVersion = IsValid ? OnElectronicVersion : null);
+		public bool Equals(AbstractIdentification other)
+		{
+			if (ReferenceEquals(null, other))
+			{
+				return false;
+			}
 
-        public bool IsStrictValid =>
-            _isStrictValid ?? (bool) (_isStrictValid = Validate(RawVersion));
+			if (ReferenceEquals(this, other))
+			{
+				return true;
+			}
 
-        public bool IsValid =>
-            _isValid ?? (bool) (_isValid = Validate(CleanedVersion));
+			return string.Equals(CleanedVersion, other.CleanedVersion);
+		}
 
-        public string PaperVersion =>
-            _paperVersion ?? (_paperVersion = IsValid ? OnPaperVersion : null);
+		public string ElectronicVersion
+			=> _electronicVersion ?? (_electronicVersion = IsValid ? OnElectronicVersion : null);
 
-        public string RawVersion { get; }
+		public bool IsStrictValid
+			=> _isStrictValid ?? (bool) (_isStrictValid = Validate(RawVersion));
 
-        public virtual int StandardMaxLength => StandardMinLength;
+		public bool IsValid
+			=> _isValid ?? (bool) (_isValid = Validate(CleanedVersion));
 
-        public abstract int StandardMinLength { get; }
+		public string PaperVersion
+			=> _paperVersion ?? (_paperVersion = IsValid ? OnPaperVersion : null);
 
-        protected abstract bool OnValidate(string identification);
+		public string RawVersion { get; }
 
-        protected virtual string Cleanup(string identification) => Pad(GetValidStream(identification));
+		public virtual int StandardMaxLength
+			=> StandardMinLength;
 
-        protected virtual bool Validate(string identification)
-        {
-            if (identification != null
-                && StandardMinLength <= identification.Length
-                && identification.Length <= StandardMaxLength)
-            {
-                return OnValidate(identification);
-            }
+		public abstract int StandardMinLength { get; }
 
-            return false;
-        }
+		protected abstract bool OnValidate(string identification);
 
-        protected virtual string GetValidStream(string stream)
-        {
-            if (stream == null)
-            {
-                return string.Empty;
-            }
+		protected virtual string Cleanup(string identification)
+			=> Pad(GetValidStream(identification));
 
-            StringBuilder sb = new StringBuilder(stream.Length);
-            foreach (char ch in stream.Where(IsValidChar))
-            {
-                sb.Append(ch);
-            }
+		protected virtual bool Validate(string identification)
+		{
+			if (identification != null
+			    && StandardMinLength <= identification.Length
+			    && identification.Length <= StandardMaxLength)
+			{
+				return OnValidate(identification);
+			}
 
-            return sb.ToString();
-        }
+			return false;
+		}
 
-        protected virtual bool IsValidChar(char ch) => char.IsDigit(ch);
+		protected virtual string GetValidStream(string stream)
+		{
+			if (stream == null)
+			{
+				return string.Empty;
+			}
 
-        protected virtual string Pad(string identification) => identification?.PadLeft(StandardMaxLength, PaddingCharacter);
+			StringBuilder sb = new StringBuilder(stream.Length);
+			foreach (char ch in stream.Where(IsValidChar))
+			{
+				sb.Append(ch);
+			}
 
-        public override string ToString() => PaperVersion ?? RawVersion;
-    }
+			return sb.ToString();
+		}
+
+		protected virtual bool IsValidChar(char ch)
+			=> char.IsDigit(ch);
+
+		protected virtual string Pad(string identification)
+			=> identification?.PadLeft(StandardMaxLength, PaddingCharacter);
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+			{
+				return false;
+			}
+
+			if (ReferenceEquals(this, obj))
+			{
+				return true;
+			}
+
+			if (obj.GetType() != GetType())
+			{
+				return false;
+			}
+
+			return Equals((AbstractIdentification) obj);
+		}
+
+		public override int GetHashCode()
+			=> CleanedVersion != null ? CleanedVersion.GetHashCode() : 0;
+
+		public override string ToString()
+			=> PaperVersion ?? RawVersion;
+
+		public static bool operator ==(AbstractIdentification left, AbstractIdentification right)
+			=> Equals(left, right);
+
+		public static bool operator !=(AbstractIdentification left, AbstractIdentification right)
+			=> !Equals(left, right);
+	}
 }
