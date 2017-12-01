@@ -8,8 +8,8 @@
     <PropertyGroup>
         <!-- version numbers -->
         <AssemblyVersion>$(GacVersion)</AssemblyVersion>
-        <FileVersion>$(PackageVersion)</FileVersion>
         <Version>$(PackageVersion)</Version>
+        <FileVersion>$(InformationalVersion)</FileVersion>
 
         <!-- compiler configuration -->
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
