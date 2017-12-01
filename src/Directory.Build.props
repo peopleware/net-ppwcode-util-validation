@@ -22,6 +22,24 @@
         <IntermediateOutputPath>..\..\scratch\obj\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</IntermediateOutputPath>
         <BaseIntermediateOutputPath>..\..\scratch\bob\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</BaseIntermediateOutputPath>
         <DocumentationFile>..\..\scratch\bin\$(MSBuildProjectName)-$(Configuration)-$(Platform)\$(MSBuildProjectName).xml</DocumentationFile>
+
+        <!-- nuget package -->
+        <Authors>dvdwouwe;rvdginste</Authors>
+        <Description>Library containing multiple validations</Description>
+        <PackageTags>ppwcode util validation</PackageTags>
+        <PackageProjectUrl>https://github.com/peopleware/net-ppwcode-util-validation</PackageProjectUrl>
+
+        <PackageReleaseNotes>
+1.0.0 Initial release PPWCode.Util.Validation.I and PPWCode.Util.Validation.I.NHibernate
+        </PackageReleaseNotes>
+
+        <Copyright>Copyright 2017 (c) PeopleWare nv</Copyright>
+
+        <PackageIconUrl>http://peopleware.github.io/net-ppwcode-util-oddsandends/ppwcode_logo.jpg</PackageIconUrl>
+
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseUrl>http://opensource.org/licenses/Apache-2.0</PackageLicenseUrl>
+
     </PropertyGroup>
 
 </Project>

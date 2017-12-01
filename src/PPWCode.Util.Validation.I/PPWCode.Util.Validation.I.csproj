@@ -3,6 +3,9 @@
     <PropertyGroup>
         <!-- target frameworks -->
         <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+
+        <!-- nuget package -->
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
 </Project>

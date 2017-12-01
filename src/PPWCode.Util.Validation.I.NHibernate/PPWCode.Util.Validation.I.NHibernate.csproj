@@ -3,6 +3,9 @@
     <PropertyGroup>
         <!-- target frameworks -->
         <TargetFrameworks>net462</TargetFrameworks>
+
+        <!-- nuget package -->
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
