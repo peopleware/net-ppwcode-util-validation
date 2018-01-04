@@ -16,9 +16,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace PPWCode.Util.Validation.I.European.Belgium
 {
+    [Serializable]
+    [DataContract]
     public class CompanyLocalUnitNumber : KBO
     {
         private static readonly ISet<CompanyLocalUnitNumber> _validFictiveNumbers =

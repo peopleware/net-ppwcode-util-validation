@@ -13,8 +13,13 @@
 // limitations under the License.
 // 
 
+using System;
+using System.Runtime.Serialization;
+
 namespace PPWCode.Util.Validation.I.European.Belgium
 {
+    [Serializable]
+    [DataContract]
     public class KBO : AbstractIdentification
     {
         public KBO(string rawVersion) : base(rawVersion)

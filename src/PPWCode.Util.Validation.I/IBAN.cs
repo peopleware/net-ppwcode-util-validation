@@ -16,12 +16,15 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using PPWCode.Util.Validation.I.European.Belgium;
 
 namespace PPWCode.Util.Validation.I
 {
+    [Serializable]
+    [DataContract]
     public class IBAN : AbstractIdentification
     {
         /// <summary>
@@ -238,6 +241,7 @@ namespace PPWCode.Util.Validation.I
                 {"VG", new IbanCountry(24, "4c,16n")}
             };
 
+        // ReSharper disable once InconsistentNaming
         private static readonly Regex IBANFormatRegex =
             new Regex("^(?<n>\\d+)(?<t>(n|a|c))$", RegexOptions.Compiled | RegexOptions.CultureInvariant);
 

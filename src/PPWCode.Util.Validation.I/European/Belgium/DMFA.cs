@@ -15,10 +15,13 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
 namespace PPWCode.Util.Validation.I.European.Belgium
 {
+    [Serializable]
+    [DataContract]
     public class DMFA : AbstractIdentification
     {
         /// <summary>

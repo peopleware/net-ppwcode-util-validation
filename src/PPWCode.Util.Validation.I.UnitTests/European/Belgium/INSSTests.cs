@@ -212,5 +212,35 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             // Assert
             return inss.Sexe;
         }
+
+        [Test]
+        [TestCaseSource(nameof(ValidIdentifications))]
+        public void check_xml_serializable(string identification)
+        {
+            // Arrange
+            INSS expected = new INSS(identification);
+
+            // Act
+            INSS actual = DeepCloneUsingXml(expected);
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
+        }
+
+        [Test]
+        [TestCaseSource(nameof(ValidIdentifications))]
+        public void check_binairy_serializable(string identification)
+        {
+            // Arrange
+            INSS expected = new INSS(identification);
+
+            // Act
+            INSS actual = DeepCloneUsingBinaryFormatter(expected);
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
+        }
     }
 }

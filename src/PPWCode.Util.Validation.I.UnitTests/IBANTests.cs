@@ -117,7 +117,7 @@ namespace PPWCode.Util.Validation.I.UnitTests
             }
         }
 
-        public static IEnumerable ValidIndentifications
+        public static IEnumerable ValidIdentifications
         {
             get
             {
@@ -200,7 +200,7 @@ namespace PPWCode.Util.Validation.I.UnitTests
         }
 
         private static IEnumerable ValidBEIndentifications =>
-            ValidIndentifications
+            ValidIdentifications
                 .Cast<string>()
                 .Where(i => string.Equals(i.Substring(0, 2), "BE", StringComparison.InvariantCulture));
 
@@ -294,7 +294,7 @@ namespace PPWCode.Util.Validation.I.UnitTests
         }
 
         [Test]
-        [TestCaseSource(nameof(ValidIndentifications))]
+        [TestCaseSource(nameof(ValidIdentifications))]
         public void iban_is_valid(string identification)
         {
             // Arrange
@@ -306,6 +306,36 @@ namespace PPWCode.Util.Validation.I.UnitTests
             Assert.That(iban.IsValid, Is.True);
             Assert.That(iban.ElectronicVersion, Is.Not.Null);
             Assert.That(iban.PaperVersion, Is.Not.Null);
+        }
+
+        [Test]
+        [TestCaseSource(nameof(ValidIdentifications))]
+        public void check_xml_serializable(string identification)
+        {
+            // Arrange
+            INSS expected = new INSS(identification);
+
+            // Act
+            INSS actual = DeepCloneUsingXml(expected);
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
+        }
+
+        [Test]
+        [TestCaseSource(nameof(ValidIdentifications))]
+        public void check_binairy_serializable(string identification)
+        {
+            // Arrange
+            INSS expected = new INSS(identification);
+
+            // Act
+            INSS actual = DeepCloneUsingBinaryFormatter(expected);
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
         }
     }
 }

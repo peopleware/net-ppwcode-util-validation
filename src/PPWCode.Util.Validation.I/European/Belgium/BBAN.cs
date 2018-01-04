@@ -13,11 +13,15 @@
 // limitations under the License.
 // 
 
+using System;
 using System.Globalization;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace PPWCode.Util.Validation.I.European.Belgium
 {
+    [Serializable]
+    [DataContract]
     public class BBAN : AbstractIdentification
     {
         public BBAN(string rawVersion) : base(rawVersion)

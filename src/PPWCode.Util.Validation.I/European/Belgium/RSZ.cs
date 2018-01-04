@@ -13,8 +13,13 @@
 // limitations under the License.
 // 
 
+using System;
+using System.Runtime.Serialization;
+
 namespace PPWCode.Util.Validation.I.European.Belgium
 {
+    [Serializable]
+    [DataContract]
     public class RSZ : AbstractIdentification
     {
         public RSZ(string rawVersion) : base(rawVersion)
