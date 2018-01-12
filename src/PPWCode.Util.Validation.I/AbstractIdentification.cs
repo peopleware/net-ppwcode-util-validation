@@ -99,7 +99,8 @@ namespace PPWCode.Util.Validation.I
         {
             if (identification != null
                 && StandardMinLength <= identification.Length
-                && identification.Length <= StandardMaxLength)
+                && identification.Length <= StandardMaxLength
+                && identification.All(IsValidChar))
             {
                 return OnValidate(identification);
             }
