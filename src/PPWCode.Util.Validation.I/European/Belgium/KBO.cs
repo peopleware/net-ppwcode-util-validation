@@ -20,7 +20,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 {
     [Serializable]
     [DataContract]
-    public class KBO : AbstractIdentification
+    public class KBO : AbstractBeIdentification
     {
         public KBO(string rawVersion) : base(rawVersion)
         {

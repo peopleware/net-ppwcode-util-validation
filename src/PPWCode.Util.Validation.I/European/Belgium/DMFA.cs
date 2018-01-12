@@ -22,7 +22,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 {
     [Serializable]
     [DataContract]
-    public class DMFA : AbstractIdentification
+    public class DMFA : AbstractBeIdentification
     {
         /// <summary>
         ///     see <see href="https://www.ksz-bcss.fgov.be/sites/default/files/assets/diensten_en_support/documentatie/dmfa_stromen_xml.pdf" />

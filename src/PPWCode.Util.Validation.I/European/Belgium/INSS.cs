@@ -19,7 +19,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 {
     [Serializable]
     [DataContract]
-    public class INSS : AbstractIdentification
+    public class INSS : AbstractBeIdentification
     {
         private ParseResult _parseResult;
 

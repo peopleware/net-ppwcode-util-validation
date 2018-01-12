@@ -22,7 +22,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 {
     [Serializable]
     [DataContract]
-    public class BBAN : AbstractIdentification
+    public class BBAN : AbstractBeIdentification
     {
         public BBAN(string rawVersion) : base(rawVersion)
         {

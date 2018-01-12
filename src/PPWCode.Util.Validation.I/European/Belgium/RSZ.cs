@@ -20,7 +20,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 {
     [Serializable]
     [DataContract]
-    public class RSZ : AbstractIdentification
+    public class RSZ : AbstractBeIdentification
     {
         public RSZ(string rawVersion) : base(rawVersion)
         {
