@@ -202,7 +202,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
 
         [Test]
         [TestCaseSource(nameof(Sexes))]
-        public Sexe inss_sexe(string identification)
+        public Sexe? inss_sexe(string identification)
         {
             // Arrange
             INSS inss = new INSS(identification);

@@ -24,7 +24,9 @@ namespace PPWCode.Util.Validation.I.European.France
     /// </summary>
     [Serializable]
     [DataContract]
-    public class NIR : AbstractFrIdentification
+    public class NIR
+        : AbstractFrIdentification,
+          INationalNumberIdentification
     {
         private ParseResult _parseResult;
 
@@ -38,6 +40,19 @@ namespace PPWCode.Util.Validation.I.European.France
 
         public override char PaddingCharacter
             => '0';
+
+        public Sexe? Sexe
+        {
+            get
+            {
+                if (_parseResult == null)
+                {
+                    _parseResult = ParseINSEE();
+                }
+
+                return _parseResult.Sexe;
+            }
+        }
 
         public override int StandardMinLength
             => 15;
@@ -55,23 +70,10 @@ namespace PPWCode.Util.Validation.I.European.France
             }
         }
 
-        public Sexe Sexe
-        {
-            get
-            {
-                if (_parseResult == null)
-                {
-                    _parseResult = ParseINSEE();
-                }
-
-                return _parseResult.Sexe;
-            }
-        }
-
         private ParseResult ParseINSEE()
         {
             DateTime? birthdate = null;
-            Sexe sexe = Sexe.NOT_APPLICABLE;
+            Sexe sexe = I.Sexe.NOT_APPLICABLE;
 
             if (IsValid)
             {
@@ -79,16 +81,16 @@ namespace PPWCode.Util.Validation.I.European.France
                 {
                     case 1:
                     case 7:
-                        sexe = Sexe.MALE;
+                        sexe = I.Sexe.MALE;
                         break;
 
                     case 2:
                     case 8:
-                        sexe = Sexe.FEMALE;
+                        sexe = I.Sexe.FEMALE;
                         break;
 
                     default:
-                        sexe = Sexe.NOT_KNOWN;
+                        sexe = I.Sexe.NOT_KNOWN;
                         break;
                 }
 

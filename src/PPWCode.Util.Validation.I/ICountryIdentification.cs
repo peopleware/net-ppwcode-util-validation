@@ -1,4 +1,4 @@
-﻿// Copyright 2017 by PeopleWare n.v..
+﻿// Copyright 2018 by PeopleWare n.v..
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,20 +14,8 @@
 
 namespace PPWCode.Util.Validation.I
 {
-    public interface IIdentification
+    public interface ICountryIdentification : IIdentification
     {
-        string ElectronicVersion { get; }
-
-        bool IsStrictValid { get; }
-
-        bool IsValid { get; }
-
-        string PaperVersion { get; }
-
-        string RawVersion { get; }
-
-        int StandardMaxLength { get; }
-
-        int StandardMinLength { get; }
+        string TwoIsoLetterCountryCode { get; }
     }
 }

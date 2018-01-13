@@ -19,7 +19,9 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 {
     [Serializable]
     [DataContract]
-    public class INSS : AbstractBeIdentification
+    public class INSS
+        : AbstractBeIdentification,
+          INationalNumberIdentification
     {
         private ParseResult _parseResult;
 
@@ -33,22 +35,6 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
         public override char PaddingCharacter
             => '0';
-
-        public override int StandardMinLength
-            => 11;
-
-        public DateTime? BirthDate
-        {
-            get
-            {
-                if (_parseResult == null)
-                {
-                    _parseResult = ParseINSS();
-                }
-
-                return _parseResult.BirthDate;
-            }
-        }
 
         /// <summary>
         ///     see <see href="https://www.ksz-bcss.fgov.be/nl/diensten-en-support/diensten/ksz-registers" /> for more information
@@ -71,7 +57,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         public bool? IsNationalNumber
             => !IsBisNumber;
 
-        public Sexe Sexe
+        public Sexe? Sexe
         {
             get
             {
@@ -84,13 +70,29 @@ namespace PPWCode.Util.Validation.I.European.Belgium
             }
         }
 
+        public override int StandardMinLength
+            => 11;
+
+        public DateTime? BirthDate
+        {
+            get
+            {
+                if (_parseResult == null)
+                {
+                    _parseResult = ParseINSS();
+                }
+
+                return _parseResult.BirthDate;
+            }
+        }
+
         protected override bool OnValidate(string identification)
             => ValidBefore2000(identification) || ValidAfter2000(identification);
 
         private ParseResult ParseINSS()
         {
             DateTime? birthdate = null;
-            Sexe sexe = Sexe.NOT_APPLICABLE;
+            Sexe sexe = I.Sexe.NOT_APPLICABLE;
 
             if (IsValid)
             {
@@ -128,10 +130,10 @@ namespace PPWCode.Util.Validation.I.European.Belgium
                 if (calcSexe)
                 {
                     sexe = vvv == 0 || vvv == 999
-                               ? Sexe.NOT_KNOWN
+                               ? I.Sexe.NOT_KNOWN
                                : vvv % 2 == 1
-                                   ? Sexe.MALE
-                                   : Sexe.FEMALE;
+                                   ? I.Sexe.MALE
+                                   : I.Sexe.FEMALE;
                 }
 
                 if (calcBirthDate && mm > 0 && dd > 0)

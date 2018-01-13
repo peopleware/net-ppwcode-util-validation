@@ -188,7 +188,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.France
 
         [Test]
         [TestCaseSource(nameof(Sexes))]
-        public Sexe nir_sexe(string identification)
+        public Sexe? nir_sexe(string identification)
         {
             // Arrange
             NIR nir = new NIR(identification);

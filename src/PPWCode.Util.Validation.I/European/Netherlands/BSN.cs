@@ -18,57 +18,65 @@ using System.Runtime.Serialization;
 
 namespace PPWCode.Util.Validation.I.European.Netherlands
 {
-	/// <summary>
-	///     see <see href="https://nl.wikipedia.org/wiki/Burgerservicenummer" />.
-	/// </summary>
-	[Serializable]
-	[DataContract]
-	public class BSN : AbstractNlIdentification
-	{
-		public BSN(string rawVersion)
-			: base(rawVersion)
-		{
-		}
+    /// <summary>
+    ///     see <see href="https://nl.wikipedia.org/wiki/Burgerservicenummer" />.
+    /// </summary>
+    [Serializable]
+    [DataContract]
+    public class BSN
+        : AbstractNlIdentification,
+          INationalNumberIdentification
+    {
+        public BSN(string rawVersion)
+            : base(rawVersion)
+        {
+        }
 
-		public override char PaddingCharacter
-			=> '0';
+        public override char PaddingCharacter
+            => '0';
 
-		public override int StandardMinLength
-			=> 8;
+        protected override string OnPaperVersion
+            => CleanedVersion;
 
-		public override int StandardMaxLength
-			=> 9;
+        public override int StandardMinLength
+            => 8;
 
-		protected override string OnPaperVersion
-			=> CleanedVersion;
+        public override int StandardMaxLength
+            => 9;
 
-		protected override bool OnValidate(string identification)
-		{
-			if (identification.Length != StandardMaxLength)
-			{
-				return false;
-			}
+        public DateTime? BirthDate
+            => null;
 
-			if (identification == new string('0', StandardMaxLength))
-			{
-				return false;
-			}
+        public Sexe? Sexe
+            => null;
 
-			long checkSum = 0L;
-			for (int i = 0; i < StandardMaxLength; i++)
-			{
-				int n = 9 - i;
-				int product = CharUnicodeInfo.GetDecimalDigitValue(identification[i]) * n;
-				if (n == 1)
-				{
-					product = -product;
-				}
+        protected override bool OnValidate(string identification)
+        {
+            if (identification.Length != StandardMaxLength)
+            {
+                return false;
+            }
 
-				checkSum += product;
-			}
+            if (identification == new string('0', StandardMaxLength))
+            {
+                return false;
+            }
 
-			long modulo11 = checkSum % 11;
-			return modulo11 == 0;
-		}
-	}
+            long checkSum = 0L;
+            for (int i = 0; i < StandardMaxLength; i++)
+            {
+                int n = 9 - i;
+                int product = CharUnicodeInfo.GetDecimalDigitValue(identification[i]) * n;
+                if (n == 1)
+                {
+                    product = -product;
+                }
+
+                checkSum += product;
+            }
+
+            long modulo11 = checkSum % 11;
+            return modulo11 == 0;
+        }
+    }
 }

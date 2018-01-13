@@ -17,15 +17,17 @@ using System.Runtime.Serialization;
 
 namespace PPWCode.Util.Validation.I
 {
-	[Serializable]
-	[DataContract]
-	public abstract class AbstractCountryIdentification : AbstractIdentification
-	{
-		protected AbstractCountryIdentification(string rawVersion)
-			: base(rawVersion)
-		{
-		}
+    [Serializable]
+    [DataContract]
+    public abstract class AbstractCountryIdentification
+        : AbstractIdentification,
+          ICountryIdentification
+    {
+        protected AbstractCountryIdentification(string rawVersion)
+            : base(rawVersion)
+        {
+        }
 
-		public abstract string TwoIsoLetterCountryCode { get; }
-	}
+        public abstract string TwoIsoLetterCountryCode { get; }
+    }
 }
