@@ -92,7 +92,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         private ParseResult ParseINSS()
         {
             DateTime? birthdate = null;
-            Sexe sexe = I.Sexe.NOT_APPLICABLE;
+            Sexe? sexe = null;
 
             if (IsValid)
             {
@@ -176,7 +176,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         [DataContract]
         private class ParseResult
         {
-            public ParseResult(DateTime? birthDate, Sexe sexe)
+            public ParseResult(DateTime? birthDate, Sexe? sexe)
             {
                 BirthDate = birthDate;
                 Sexe = sexe;
@@ -186,7 +186,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
             public DateTime? BirthDate { get; }
 
             [DataMember]
-            public Sexe Sexe { get; }
+            public Sexe? Sexe { get; }
         }
     }
 }

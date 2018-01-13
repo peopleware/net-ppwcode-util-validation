@@ -106,7 +106,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
             get
             {
                 yield return new TestCaseData("06102614576").Returns(Sexe.MALE);
-                yield return new TestCaseData("08290801251").Returns(Sexe.NOT_APPLICABLE);
+                yield return new TestCaseData("08290801251").Returns(null);
                 yield return new TestCaseData("09051132455").Returns(Sexe.FEMALE);
             }
         }
