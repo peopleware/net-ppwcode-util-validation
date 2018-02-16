@@ -39,7 +39,11 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.France
 
         public static IEnumerable StrictValidIdentifications
         {
-            get { yield return "151024610204372"; }
+            get
+            {
+                yield return "151024610204372";
+                yield return "278112B05000211";
+            }
         }
 
         public static IEnumerable ValidIdentifications
