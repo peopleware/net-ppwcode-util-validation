@@ -26,6 +26,9 @@ namespace PPWCode.Util.Validation.I
           IEquatable<AbstractIdentification>
     {
         [NonSerialized]
+        private string _cleanedVersionWithoutPadding;
+
+        [NonSerialized]
         private string _cleanedVersion;
 
         [NonSerialized]
@@ -53,8 +56,11 @@ namespace PPWCode.Util.Validation.I
         protected virtual string OnElectronicVersion
             => CleanedVersion;
 
+        public string CleanedVersionWithoutPadding
+            => _cleanedVersionWithoutPadding ?? (_cleanedVersionWithoutPadding = GetValidStream(RawVersion));
+
         public string CleanedVersion
-            => _cleanedVersion ?? (_cleanedVersion = Cleanup(RawVersion));
+            => _cleanedVersion ?? (_cleanedVersion = Pad(CleanedVersionWithoutPadding));
 
         public bool Equals(AbstractIdentification other)
         {
@@ -91,9 +97,6 @@ namespace PPWCode.Util.Validation.I
         public abstract int StandardMinLength { get; }
 
         protected abstract bool OnValidate(string identification);
-
-        protected virtual string Cleanup(string identification)
-            => Pad(GetValidStream(identification));
 
         protected virtual bool Validate(string identification)
         {
