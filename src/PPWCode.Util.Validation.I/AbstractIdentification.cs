@@ -56,8 +56,11 @@ namespace PPWCode.Util.Validation.I
         protected virtual string OnElectronicVersion
             => CleanedVersion;
 
+        protected virtual string OnCleanedVersionWithoutPadding
+            => GetValidStream(RawVersion);
+
         public string CleanedVersionWithoutPadding
-            => _cleanedVersionWithoutPadding ?? (_cleanedVersionWithoutPadding = GetValidStream(RawVersion));
+            => _cleanedVersionWithoutPadding ?? (_cleanedVersionWithoutPadding = OnCleanedVersionWithoutPadding);
 
         public string CleanedVersion
             => _cleanedVersion ?? (_cleanedVersion = Pad(CleanedVersionWithoutPadding));

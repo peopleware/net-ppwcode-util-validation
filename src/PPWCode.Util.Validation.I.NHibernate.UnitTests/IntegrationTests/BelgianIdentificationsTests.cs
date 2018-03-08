@@ -44,6 +44,7 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.IntegrationTests
                     KBO = new KBO("0453.834.195"),
                     RSZ = new RSZ("0133-296 720"),
                     IBAN = new IBAN("AL472 1211 0090 0000 0023 5698 741"),
+                    BIC = new BIC("KREDBEBB"),
                     TemporaryRSZ = new TemporaryRSZ("5 105009119"),
                     VAT = new VAT("0453.834.195"),
                     CompanyLocalUnitNumber = new CompanyLocalUnitNumber("2.069.315153")

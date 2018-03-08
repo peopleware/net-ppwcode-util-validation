@@ -26,6 +26,7 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.Models
         public virtual BBAN BBAN { get; set; }
         public virtual DMFA DMFA { get; set; }
         public virtual IBAN IBAN { get; set; }
+        public virtual BIC BIC { get; set; }
         public virtual INSS INSS { get; set; }
         public virtual KBO KBO { get; set; }
         public virtual RSZ RSZ { get; set; }
@@ -62,6 +63,7 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.Models
                 return Equals(x.BBAN, y.BBAN)
                        && Equals(x.DMFA, y.DMFA)
                        && Equals(x.IBAN, y.IBAN)
+                       && Equals(x.BIC, y.BIC)
                        && Equals(x.INSS, y.INSS)
                        && Equals(x.KBO, y.KBO)
                        && Equals(x.RSZ, y.RSZ)
@@ -77,6 +79,7 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.Models
                     int hashCode = obj.BBAN != null ? obj.BBAN.GetHashCode() : 0;
                     hashCode = (hashCode * 397) ^ (obj.DMFA != null ? obj.DMFA.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (obj.IBAN != null ? obj.IBAN.GetHashCode() : 0);
+                    hashCode = (hashCode * 397) ^ (obj.BIC != null ? obj.BIC.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (obj.INSS != null ? obj.INSS.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (obj.KBO != null ? obj.KBO.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (obj.RSZ != null ? obj.RSZ.GetHashCode() : 0);
@@ -96,6 +99,7 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.Models
             Property(c => c.BBAN, m => m.Type<ValidBBAN>());
             Property(c => c.DMFA, m => m.Type<ValidDMFA>());
             Property(c => c.IBAN, m => m.Type<ValidIBAN>());
+            Property(c => c.BIC, m => m.Type<ValidBIC>());
             Property(c => c.INSS, m => m.Type<ValidINSS>());
             Property(c => c.KBO, m => m.Type<ValidKBO>());
             Property(c => c.RSZ, m => m.Type<ValidRSZ>());
