@@ -29,5 +29,9 @@ namespace PPWCode.Util.Validation.I
         int StandardMaxLength { get; }
 
         int StandardMinLength { get; }
+
+        string CleanedVersionWithoutPadding { get; }
+
+        string CleanedVersion { get; }
     }
 }
