@@ -24,6 +24,8 @@ namespace PPWCode.Util.Validation.I.European.Belgium
     [DataContract]
     public class CompanyLocalUnitNumber : KBO
     {
+        private static readonly char[] _validFirstChars = { '2', '3', '4', '5', '6', '7', '8' };
+
         private static readonly ISet<CompanyLocalUnitNumber> _validFictiveNumbers =
             new HashSet<CompanyLocalUnitNumber>
             {
@@ -37,10 +39,8 @@ namespace PPWCode.Util.Validation.I.European.Belgium
             };
 
         /// <summary>
-        ///     see
-        ///     <see
-        ///         href="https://www.socialsecurity.be/portail/glossaires/dmfa.nsf/ConsultFrImprPDF/BE5F2EE14FD71E23C1258194002DA178/$FILE/VersComplDMFA174_N.pdf" />
-        ///     page 44.
+        ///     See
+        ///     <see href="http://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=nl&la=N&cn=2003062432&table_name=wet" />
         /// </summary>
         public CompanyLocalUnitNumber(string rawVersion)
             : base(rawVersion)
@@ -63,15 +63,7 @@ namespace PPWCode.Util.Validation.I.European.Belgium
         protected override string Pad(string identification)
             => identification;
 
-        protected override bool OnValidate(string identification)
-        {
-            if (new[] { '0', '1', '9' }.Contains(identification[0]))
-            {
-                return false;
-            }
-
-            long rest = 97 - long.Parse(identification.Substring(0, StandardMaxLength - 2)) % 97;
-            return rest == long.Parse(identification.Substring(StandardMaxLength - 2, 2));
-        }
+        protected override bool IsValidFirstChar(char ch)
+            => _validFirstChars.Contains(ch);
     }
 }
