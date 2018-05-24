@@ -32,6 +32,7 @@ namespace PPWCode.Util.Validation.I.UnitTests.European.Belgium
                 yield return string.Empty;
                 yield return "1";
                 yield return "12341234";
+                yield return "2069315153";
             }
         }
 
