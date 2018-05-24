@@ -37,7 +37,12 @@ namespace PPWCode.Util.Validation.I.European.Belgium
 
         protected override bool OnValidate(string identification)
         {
-            long rest = 97 - (long.Parse(identification.Substring(0, StandardMaxLength - 2)) % 97);
+            if (identification[0] != '0')
+            {
+                return false;
+            }
+
+            long rest = 97 - long.Parse(identification.Substring(0, StandardMaxLength - 2)) % 97;
             return rest == long.Parse(identification.Substring(StandardMaxLength - 2, 2));
         }
     }

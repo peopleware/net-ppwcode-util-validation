@@ -70,7 +70,8 @@ namespace PPWCode.Util.Validation.I.European.Belgium
                 return false;
             }
 
-            return base.OnValidate(identification);
+            long rest = 97 - long.Parse(identification.Substring(0, StandardMaxLength - 2)) % 97;
+            return rest == long.Parse(identification.Substring(StandardMaxLength - 2, 2));
         }
     }
 }
