@@ -29,7 +29,7 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.IntegrationTests
     public class BelgianIdentificationsTests : BaseRepositoryTests<BelgianIdentifications>
     {
         protected override Func<ILinqRepository<BelgianIdentifications, int>> RepositoryFactory
-            => () => new BelgianIdentificationsRepository(Session);
+            => () => new BelgianIdentificationsRepository(SessionProvider);
 
         [Test]
         public void can_handle_belgian_identifications()

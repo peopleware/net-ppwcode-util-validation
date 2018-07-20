@@ -29,7 +29,7 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests
 
         protected override string DefaultSchemaName => @"dbo";
 
-        protected override bool QuoteIdentifiers => true;
+        public override bool QuoteIdentifiers => true;
 
         protected override void OnBeforeMapProperty(IModelInspector modelInspector, PropertyPath member, IPropertyMapper propertyCustomizer)
         {

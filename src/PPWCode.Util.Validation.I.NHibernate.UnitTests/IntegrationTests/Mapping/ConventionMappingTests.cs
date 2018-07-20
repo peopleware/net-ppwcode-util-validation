@@ -17,7 +17,6 @@ using System;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Mapping.ByCode;
 using NUnit.Framework;
-using PPWCode.Vernacular.NHibernate.I.Interfaces;
 
 namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.IntegrationTests.Mapping
 {
@@ -27,8 +26,8 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.IntegrationTests.Mappin
 		[Test, Explicit]
 		public void XmlMapping()
 		{
-			IHbmMapping mapper = new TestsSimpleModelMapper(new TestsMappingAssemblies());
-			HbmMapping hbmMapping = mapper.GetHbmMapping();
+			TestsSimpleModelMapper mapper = new TestsSimpleModelMapper(new TestsMappingAssemblies());
+			HbmMapping hbmMapping = mapper.HbmMapping;
 			if (hbmMapping != null)
 			{
 				Console.WriteLine(hbmMapping.AsString());

@@ -13,10 +13,9 @@
 // limitations under the License.
 // 
 
-using System.Data;
-using NHibernate;
 using PPWCode.Util.Validation.I.NHibernate.UnitTests.Models;
 using PPWCode.Vernacular.NHibernate.I.Implementations;
+using PPWCode.Vernacular.NHibernate.I.Interfaces;
 
 namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.Repositories
 {
@@ -24,11 +23,8 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests.Repositories
         : LinqRepository<BelgianIdentifications, int>,
           IBelgianIdentifications
     {
-        public BelgianIdentificationsRepository(ISession session) : base(session)
+        public BelgianIdentificationsRepository(ISessionProvider sessionProvider) : base(sessionProvider)
         {
         }
-
-        protected override IsolationLevel IsolationLevel
-            => IsolationLevel.ReadCommitted;
     }
 }

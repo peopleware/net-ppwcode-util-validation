@@ -13,7 +13,6 @@
 // limitations under the License.
 // 
 
-using NHibernate.Cfg.MappingSchema;
 using PPWCode.Vernacular.NHibernate.I.Interfaces;
 using PPWCode.Vernacular.NHibernate.I.Test;
 
@@ -27,13 +26,10 @@ namespace PPWCode.Util.Validation.I.NHibernate.UnitTests
 		protected override string ConnectionString
 			=> FixedConnectionString;
 
-		protected override HbmMapping GetHbmMapping()
-		{
-			IHbmMapping mapper = new TestsSimpleModelMapper(new TestsMappingAssemblies());
-			return mapper.GetHbmMapping();
-		}
+	    protected override IPpwHbmMapping PpwHbmMapping
+	        => new TestsSimpleModelMapper(new TestsMappingAssemblies());
 
-		protected override string IdentityName
+	    protected override string IdentityName
 			=> "Test - IdentityName";
 	}
 }
