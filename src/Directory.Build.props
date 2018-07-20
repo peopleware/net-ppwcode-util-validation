@@ -33,7 +33,7 @@
 1.0.0 Initial release PPWCode.Util.Validation.I and PPWCode.Util.Validation.I.NHibernate
         </PackageReleaseNotes>
 
-        <Copyright>Copyright 2017 (c) PeopleWare nv</Copyright>
+        <Copyright>Copyright 2017-2018 (c) PeopleWare nv</Copyright>
 
         <PackageIconUrl>http://peopleware.github.io/net-ppwcode-util-oddsandends/ppwcode_logo.jpg</PackageIconUrl>
 
