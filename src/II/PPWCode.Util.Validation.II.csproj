@@ -1,11 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <!-- target frameworks -->
-        <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+  <PropertyGroup>
+    <!-- target frameworks -->
+    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
 
-        <!-- nuget package -->
-        <IsPackable>true</IsPackable>
-    </PropertyGroup>
+    <!-- nuget package -->
+    <IsPackable>true</IsPackable>
+
+    <!-- Stylecop -->
+    <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta008">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

@@ -22,7 +22,7 @@ using PPWCode.Vernacular.NHibernate.II.Interfaces;
 namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.IntegrationTests
 {
     [Explicit]
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Tests")]
     public class BelgianIdentificationsTests : BaseRepositoryTests<BelgianIdentifications>
     {
         protected override Func<ILinqRepository<BelgianIdentifications, int>> RepositoryFactory
@@ -58,7 +58,7 @@ namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.IntegrationTests
 
             BelgianIdentifications actual = Repository.GetById(subject.Id);
 
-            // Assert 
+            // Assert
             Assert.That(BelgianIdentifications.Comparer.Equals(subject, actual), Is.True);
         }
     }

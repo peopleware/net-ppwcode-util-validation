@@ -33,7 +33,7 @@ namespace PPWCode.Util.Validation.II
                 // Albania
                 { "AL", new IbanCountry(28, "8n,16c") },
 
-                // Andorra	
+                // Andorra
                 { "AD", new IbanCountry(24, "8n,12c") },
 
                 // Austria
@@ -45,7 +45,7 @@ namespace PPWCode.Util.Validation.II
                 // Bahrain
                 { "BH", new IbanCountry(22, "4a,14c") },
 
-                // Belarus	
+                // Belarus
                 { "BY", new IbanCountry(28, "4c,20n") },
 
                 // Belgium
@@ -57,181 +57,181 @@ namespace PPWCode.Util.Validation.II
                 // Brazil
                 { "BR", new IbanCountry(29, "23n,1a,1c") },
 
-                // Bulgaria	
+                // Bulgaria
                 { "BG", new IbanCountry(22, "4a,6n,8c") },
 
-                // Costa Rica	
+                // Costa Rica
                 { "CR", new IbanCountry(22, "18n") },
 
-                // Croatia	
+                // Croatia
                 { "HR", new IbanCountry(21, "17n") },
 
-                // Cyprus	
+                // Cyprus
                 { "CY", new IbanCountry(28, "8n,16c") },
 
-                // Czech Republic	
+                // Czech Republic
                 { "CZ", new IbanCountry(24, "20n") },
 
-                // Denmark	
+                // Denmark
                 { "DK", new IbanCountry(18, "14n") },
 
-                // Dominican Republic	
+                // Dominican Republic
                 { "DO", new IbanCountry(28, "4a,20n") },
 
-                // East Timor	
+                // East Timor
                 { "TL", new IbanCountry(23, "19n") },
 
-                // Estonia	
+                // Estonia
                 { "EE", new IbanCountry(20, "16n") },
 
-                // Faroe Islands	
+                // Faroe Islands
                 { "FO", new IbanCountry(18, "14n") },
 
-                // Finland	
+                // Finland
                 { "FI", new IbanCountry(18, "14n") },
 
-                // France	
+                // France
                 { "FR", new IbanCountry(27, "10n,11c,2n") },
 
-                // Georgia	
+                // Georgia
                 { "GE", new IbanCountry(22, "2c,16n") },
 
-                // Germany	
+                // Germany
                 { "DE", new IbanCountry(22, "18n") },
 
-                // Gibraltar	
+                // Gibraltar
                 { "GI", new IbanCountry(23, "4a,15c") },
 
-                // Greece	
+                // Greece
                 { "GR", new IbanCountry(27, "7n,16c") },
 
-                // Greenland	
+                // Greenland
                 { "GL", new IbanCountry(18, "14n") },
 
-                // Guatemala	
+                // Guatemala
                 { "GT", new IbanCountry(28, "4c,20c") },
 
-                // Hungary	
+                // Hungary
                 { "HU", new IbanCountry(28, "24n") },
 
-                // Iceland	
+                // Iceland
                 { "IS", new IbanCountry(26, "22n") },
 
-                // Ireland	
+                // Ireland
                 { "IE", new IbanCountry(22, "4c,14n") },
 
-                // Israel	
+                // Israel
                 { "IL", new IbanCountry(23, "19n") },
 
-                // Italy	
+                // Italy
                 { "IT", new IbanCountry(27, "1a,10n,12c") },
 
-                // Jordan	
+                // Jordan
                 { "JO", new IbanCountry(30, "4a,22n") },
 
-                // Kazakhstan	
+                // Kazakhstan
                 { "KZ", new IbanCountry(20, "3n,13c") },
 
-                // Kosovo	
+                // Kosovo
                 { "XK", new IbanCountry(20, "4n,10n,2n") },
 
-                // Kuwait	
+                // Kuwait
                 { "KW", new IbanCountry(30, "4a,22c") },
 
-                // Latvia	
+                // Latvia
                 { "LV", new IbanCountry(21, "4a,13c") },
 
-                // Lebanon	
+                // Lebanon
                 { "LB", new IbanCountry(28, "4n,20c") },
 
-                // Liechtenstein	
+                // Liechtenstein
                 { "LI", new IbanCountry(21, "5n,12c") },
 
-                // Lithuania	
+                // Lithuania
                 { "LT", new IbanCountry(20, "16n") },
 
-                // Luxembourg	
+                // Luxembourg
                 { "LU", new IbanCountry(20, "3n,13c") },
 
-                // Macedonia	
+                // Macedonia
                 { "MK", new IbanCountry(19, "3n,10c,2n") },
 
-                // Malta	
+                // Malta
                 { "MT", new IbanCountry(31, "4a,5n,18c") },
 
-                // Mauritania	
+                // Mauritania
                 { "MR", new IbanCountry(27, "23n") },
 
-                // Mauritius	
+                // Mauritius
                 { "MU", new IbanCountry(30, "4a,19n,3a") },
 
-                // Monaco	
+                // Monaco
                 { "MC", new IbanCountry(27, "10n,11c,2n") },
 
-                // Moldova	
+                // Moldova
                 { "MD", new IbanCountry(24, "2c,18c") },
 
-                // Montenegro	
+                // Montenegro
                 { "ME", new IbanCountry(22, "18n") },
 
-                // Netherlands	
+                // Netherlands
                 { "NL", new IbanCountry(18, "4a,10n") },
 
-                // Norway	
+                // Norway
                 { "NO", new IbanCountry(15, "11n") },
 
-                // Pakistan	
+                // Pakistan
                 { "PK", new IbanCountry(24, "4c,16n") },
 
-                // Palestinian territories	
+                // Palestinian territories
                 { "PS", new IbanCountry(29, "4c,21n") },
 
-                // Poland	
+                // Poland
                 { "PL", new IbanCountry(28, "24n") },
 
-                // Portugal	
+                // Portugal
                 { "PT", new IbanCountry(25, "21n") },
 
-                // Qatar	
+                // Qatar
                 { "QA", new IbanCountry(29, "4a,21c") },
 
-                // Romania	
+                // Romania
                 { "RO", new IbanCountry(24, "4a,16c") },
 
-                // San Marino	
+                // San Marino
                 { "SM", new IbanCountry(27, "1a,10n,12c") },
 
-                // Saudi Arabia	
+                // Saudi Arabia
                 { "SA", new IbanCountry(24, "2n,18c") },
 
-                // Serbia	
+                // Serbia
                 { "RS", new IbanCountry(22, "18n") },
 
-                // Slovakia	
+                // Slovakia
                 { "SK", new IbanCountry(24, "20n") },
 
-                // Slovenia	
+                // Slovenia
                 { "SI", new IbanCountry(19, "15n") },
 
-                // Spain	
+                // Spain
                 { "ES", new IbanCountry(24, "20n") },
 
-                // Sweden	
+                // Sweden
                 { "SE", new IbanCountry(24, "20n") },
 
-                // Switzerland	
+                // Switzerland
                 { "CH", new IbanCountry(21, "5n,12c") },
 
-                // Tunisia	
+                // Tunisia
                 { "TN", new IbanCountry(24, "20n") },
 
-                // Turkey	
+                // Turkey
                 { "TR", new IbanCountry(26, "5n,17c") },
 
-                // United Arab Emirates	
+                // United Arab Emirates
                 { "AE", new IbanCountry(23, "3n,16n") },
 
-                // United Kingdom	
+                // United Kingdom
                 { "GB", new IbanCountry(22, "4a,14n") },
 
                 // Virgin Islands British
@@ -358,6 +358,7 @@ namespace PPWCode.Util.Validation.II
             sb.Remove(0, 4);
 
             string tmp = sb.ToString();
+
             // Fase 5: Convert the letters into numerics in accordance with the conversion table.
             StringBuilder sb2 = new StringBuilder(50);
             for (int i = 0; i < tmp.Length; i++)
@@ -376,12 +377,12 @@ namespace PPWCode.Util.Validation.II
                 }
             }
 
-            // Fase 5: Check MOD 97-10 (see ISO 7064).  
-            // For the check digits to be correct, 
+            // Fase 5: Check MOD 97-10 (see ISO 7064).
+            // For the check digits to be correct,
             // the remainder after calculating the modulus 97 must be 1.
             // We will use integers instead of floating point numnbers for precision.
             // BUT if the number is too long for the software implementation of
-            // integers (a signed 32/64 bits represents 9/18 digits), then the 
+            // integers (a signed 32/64 bits represents 9/18 digits), then the
             // calculation can be split up into consecutive remainder calculations
             // on integers with a maximum of 9 or 18 digits.
             // I wil choose 32 bit integers.
@@ -450,7 +451,6 @@ namespace PPWCode.Util.Validation.II
         public struct IbanCountry
         {
             public IbanCountry(int ibanLength, string pattern)
-
             {
                 IBANLength = ibanLength;
                 Pattern = pattern;

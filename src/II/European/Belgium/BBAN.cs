@@ -49,12 +49,12 @@ namespace PPWCode.Util.Validation.II.European.Belgium
 
                     // Calculate Check Digits
                     // Calculate MOD 97-10 (see ISO 7064)
-                    // For the check digits to be correct, 
+                    // For the check digits to be correct,
                     // the remainder after calculating the modulus 97 must be 1.
-                    // We will use integers instead of floating point numnbers for precision.
+                    // We will use integers instead of floating point numbers for precision.
                     // BUT if the number is too long for the software implementation of
-                    // integers (a signed 32/64 bits represents 9/18 digits), then the 
-                    // calculation can be split up into sonsecutive remainder calculations
+                    // integers (a signed 32/64 bits represents 9/18 digits), then the
+                    // calculation can be split up into consecutive remainder calculations
                     // on integers with a maximum of 9 or 18 digits.
                     // I will choose 32 bit integers.
                     int mod97 = 0, n = 9;

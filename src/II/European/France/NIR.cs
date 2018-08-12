@@ -105,7 +105,6 @@ namespace PPWCode.Util.Validation.II.European.France
                             birthdate = null;
                         }
                     }
-                    // ReSharper disable once EmptyGeneralCatchClause
                     catch
                     {
                     }
@@ -223,7 +222,6 @@ namespace PPWCode.Util.Validation.II.European.France
         ///     Persons not born in France, excluded <see cref="CheckPlaceOfBirthB" />
         /// </summary>
         /// <param name="placeOfBirth">Code that represents where the person is born.</param>
-        /// <returns></returns>
         private bool CheckPlaceOfBirthC(string placeOfBirth)
         {
             bool result = true;

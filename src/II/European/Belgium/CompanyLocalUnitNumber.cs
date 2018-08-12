@@ -39,10 +39,14 @@ namespace PPWCode.Util.Validation.II.European.Belgium
         ///     See
         ///     <see href="http://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=nl&la=N&cn=2003062432&table_name=wet" />
         /// </summary>
+        /// <param name="rawVersion">The raw local unit number.</param>
         public CompanyLocalUnitNumber(string rawVersion)
             : base(rawVersion)
         {
         }
+
+        public static IEnumerable<CompanyLocalUnitNumber> ValidFictiveNumbers
+            => _validFictiveNumbers;
 
         protected override string OnPaperVersion
             => $"{CleanedVersion.Substring(0, 1)}.{CleanedVersion.Substring(1, 3)}.{CleanedVersion.Substring(4, 3)}.{CleanedVersion.Substring(7, 3)}";
@@ -50,9 +54,6 @@ namespace PPWCode.Util.Validation.II.European.Belgium
         [ExcludeFromCodeCoverage]
         public override char PaddingCharacter
             => throw new InvalidOperationException();
-
-        public static IEnumerable<CompanyLocalUnitNumber> ValidFictiveNumbers
-            => _validFictiveNumbers;
 
         public bool IsFictiveNumber(string identification)
             => _validFictiveNumbers.Contains(new CompanyLocalUnitNumber(identification));

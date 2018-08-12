@@ -20,6 +20,9 @@ namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.Models
 {
     public class BelgianIdentifications : PersistentObject<int>
     {
+        public static IEqualityComparer<BelgianIdentifications> Comparer { get; }
+            = new BelgianIdentificationsEqualityComparer();
+
         public virtual BBAN BBAN { get; set; }
         public virtual DMFA DMFA { get; set; }
         public virtual IBAN IBAN { get; set; }
@@ -30,8 +33,6 @@ namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.Models
         public virtual TemporaryRSZ TemporaryRSZ { get; set; }
         public virtual VAT VAT { get; set; }
         public virtual CompanyLocalUnitNumber CompanyLocalUnitNumber { get; set; }
-
-        public static IEqualityComparer<BelgianIdentifications> Comparer { get; } = new BelgianIdentificationsEqualityComparer();
 
         private sealed class BelgianIdentificationsEqualityComparer : IEqualityComparer<BelgianIdentifications>
         {

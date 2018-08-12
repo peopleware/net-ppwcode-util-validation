@@ -1,19 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <!-- target frameworks -->
-        <TargetFrameworks>net462</TargetFrameworks>
+  <PropertyGroup>
+    <!-- target frameworks -->
+    <TargetFrameworks>net462</TargetFrameworks>
 
-        <!-- nuget package -->
-        <IsPackable>false</IsPackable>
-    </PropertyGroup>
+    <!-- nuget package -->
+    <IsPackable>false</IsPackable>
 
-    <ItemGroup>
-        <PackageReference Include="PPWCode.Vernacular.NHibernate.II.Test" Version="[1, 2)" />
-    </ItemGroup>
+    <!-- Stylecop -->
+    <CodeAnalysisRuleSet>..\StyleCop-Tests.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\II.NHibernate\PPWCode.Util.Validation.II.NHibernate.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta008">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.II.Test" Version="[1, 2)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\II.NHibernate\PPWCode.Util.Validation.II.NHibernate.csproj" />
+  </ItemGroup>
 
 </Project>

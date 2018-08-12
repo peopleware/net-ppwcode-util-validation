@@ -143,7 +143,6 @@ namespace PPWCode.Util.Validation.II.European.Belgium
                             birthdate = null;
                         }
                     }
-                    // ReSharper disable once EmptyGeneralCatchClause
                     catch
                     {
                     }

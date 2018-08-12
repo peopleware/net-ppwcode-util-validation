@@ -3,13 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "II", "II\PPWCode.Util.Validation.II.csproj", "{EAD7ED87-F2E9-46AD-A175-126085CBB635}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{E8DD09C4-CC41-428D-AD87-EA21B92E601A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{788185DD-7404-47DF-AFF3-698298A6F934}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
+		StyleCop-Tests.ruleset = StyleCop-Tests.ruleset
+		StyleCop.ruleset = StyleCop.ruleset
 		version.props = version.props
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "psake", "psake", "{90949B3E-8AD7-4771-856E-47D86A5FAD33}"
+	ProjectSection(SolutionItems) = preProject
+		..\init-psake.ps1 = ..\init-psake.ps1
+		..\psakefile.ps1 = ..\psakefile.ps1
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "II", "II\PPWCode.Util.Validation.II.csproj", "{EAD7ED87-F2E9-46AD-A175-126085CBB635}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "II.UnitTests", "II.UnitTests\PPWCode.Util.Validation.II.UnitTests.csproj", "{4A0E96AF-C081-44A8-8F99-0BAFAAC24D8B}"
 EndProject
