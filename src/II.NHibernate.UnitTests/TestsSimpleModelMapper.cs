@@ -13,7 +13,7 @@ using System;
 
 using NHibernate.Mapping.ByCode;
 
-using PPWCode.Vernacular.NHibernate.II.Interfaces;
+using PPWCode.Vernacular.NHibernate.II;
 using PPWCode.Vernacular.NHibernate.II.MappingByCode;
 
 namespace PPWCode.Util.Validation.II.NHibernate.UnitTests

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Reflection;
 
 using PPWCode.Util.Validation.II.NHibernate.UnitTests.Models;
-using PPWCode.Vernacular.NHibernate.II.Interfaces;
+using PPWCode.Vernacular.NHibernate.II;
 
 namespace PPWCode.Util.Validation.II.NHibernate.UnitTests
 {

@@ -17,7 +17,7 @@ using NUnit.Framework;
 using PPWCode.Util.Validation.II.European.Belgium;
 using PPWCode.Util.Validation.II.NHibernate.UnitTests.Models;
 using PPWCode.Util.Validation.II.NHibernate.UnitTests.Repositories;
-using PPWCode.Vernacular.NHibernate.II.Interfaces;
+using PPWCode.Vernacular.NHibernate.II;
 
 namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.IntegrationTests
 {

@@ -18,7 +18,7 @@ using NHibernate.Engine;
 using NHibernate.SqlTypes;
 
 using PPWCode.Vernacular.Exceptions.III;
-using PPWCode.Vernacular.NHibernate.II.Implementations;
+using PPWCode.Vernacular.NHibernate.II;
 
 namespace PPWCode.Util.Validation.II.NHibernate
 {

@@ -9,7 +9,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using PPWCode.Vernacular.NHibernate.II.Interfaces;
+using PPWCode.Vernacular.NHibernate.II;
 using PPWCode.Vernacular.NHibernate.II.Test;
 
 namespace PPWCode.Util.Validation.II.NHibernate.UnitTests
