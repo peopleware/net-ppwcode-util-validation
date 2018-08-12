@@ -1,17 +1,13 @@
-﻿// Copyright 2017-2017 by PeopleWare n.v..
-// 
-// Licensed under the Apache License, Version 2.0 (the "License";
+﻿// Copyright 2017 by PeopleWare n.v..
+// Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-//  
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// 
 
 using System;
 using System.Collections;
@@ -201,8 +197,8 @@ namespace PPWCode.Util.Validation.II.UnitTests
             }
         }
 
-        private static IEnumerable ValidBEIndentifications =>
-            ValidIdentifications
+        private static IEnumerable ValidBEIndentifications
+            => ValidIdentifications
                 .Cast<string>()
                 .Where(i => string.Equals(i.Substring(0, 2), "BE", StringComparison.InvariantCulture));
 
@@ -213,6 +209,21 @@ namespace PPWCode.Util.Validation.II.UnitTests
                 yield return new TestCaseData(" NO938601 1117 947").Returns("NO93 8601 1117 947");
                 yield return new TestCaseData("QA58DOHB 0000 12345678 90AB CDEFG").Returns("QA58 DOHB 0000 1234 5678 90AB CDEF G");
             }
+        }
+
+        [Test]
+        [TestCaseSource(nameof(ValidIdentifications))]
+        public void check_binairy_serializable(string identification)
+        {
+            // Arrange
+            INSS expected = new INSS(identification);
+
+            // Act
+            INSS actual = DeepCloneUsingBinaryFormatter(expected);
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
         }
 
         [Test]
@@ -228,6 +239,21 @@ namespace PPWCode.Util.Validation.II.UnitTests
             Assert.That(bban.IsValid, Is.True);
             Assert.That(bban.ElectronicVersion, Is.Not.Null);
             return bban.PaperVersion;
+        }
+
+        [Test]
+        [TestCaseSource(nameof(ValidIdentifications))]
+        public void check_xml_serializable(string identification)
+        {
+            // Arrange
+            INSS expected = new INSS(identification);
+
+            // Act
+            INSS actual = DeepCloneUsingXml(expected);
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
         }
 
         [Test]
@@ -308,36 +334,6 @@ namespace PPWCode.Util.Validation.II.UnitTests
             Assert.That(iban.IsValid, Is.True);
             Assert.That(iban.ElectronicVersion, Is.Not.Null);
             Assert.That(iban.PaperVersion, Is.Not.Null);
-        }
-
-        [Test]
-        [TestCaseSource(nameof(ValidIdentifications))]
-        public void check_xml_serializable(string identification)
-        {
-            // Arrange
-            INSS expected = new INSS(identification);
-
-            // Act
-            INSS actual = DeepCloneUsingXml(expected);
-
-            // Assert
-            Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
-        }
-
-        [Test]
-        [TestCaseSource(nameof(ValidIdentifications))]
-        public void check_binairy_serializable(string identification)
-        {
-            // Arrange
-            INSS expected = new INSS(identification);
-
-            // Act
-            INSS actual = DeepCloneUsingBinaryFormatter(expected);
-
-            // Assert
-            Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
         }
     }
 }

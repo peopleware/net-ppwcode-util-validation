@@ -1,11 +1,8 @@
 // Copyright 2017 by PeopleWare n.v..
-// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -40,13 +37,13 @@ namespace PPWCode.Util.Validation.II.European.Belgium
             => 10;
 
         protected virtual bool IsValidFirstChar(char ch)
-            => ch == '0' || ch == '1';
+            => (ch == '0') || (ch == '1');
 
         protected override bool OnValidate(string identification)
         {
             if (IsValidFirstChar(identification[0]))
             {
-                long rest = 97 - long.Parse(identification.Substring(0, StandardMaxLength - 2)) % 97;
+                long rest = 97 - (long.Parse(identification.Substring(0, StandardMaxLength - 2)) % 97);
                 return rest == long.Parse(identification.Substring(StandardMaxLength - 2, 2));
             }
 

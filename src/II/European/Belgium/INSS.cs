@@ -1,11 +1,8 @@
 ﻿// Copyright 2017 by PeopleWare n.v..
-// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -115,12 +112,12 @@ namespace PPWCode.Util.Validation.II.European.Belgium
                     calcSexe = true;
                     calcBirthDate = true;
                 }
-                else if (20 <= mm && mm < 40)
+                else if ((20 <= mm) && (mm < 40))
                 {
                     mm -= 20;
                     calcBirthDate = true;
                 }
-                else if (40 <= mm && mm < 60)
+                else if ((40 <= mm) && (mm < 60))
                 {
                     mm -= 40;
                     calcSexe = true;
@@ -129,14 +126,14 @@ namespace PPWCode.Util.Validation.II.European.Belgium
 
                 if (calcSexe)
                 {
-                    sexe = vvv == 0 || vvv == 999
+                    sexe = (vvv == 0) || (vvv == 999)
                                ? II.Sexe.NOT_KNOWN
                                : vvv % 2 == 1
                                    ? II.Sexe.MALE
                                    : II.Sexe.FEMALE;
                 }
 
-                if (calcBirthDate && mm > 0 && dd > 0)
+                if (calcBirthDate && (mm > 0) && (dd > 0))
                 {
                     try
                     {

@@ -1,17 +1,13 @@
-﻿// Copyright 2017-2017 by PeopleWare n.v..
-// 
+﻿// Copyright 2017 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-//  
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// 
 
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
@@ -68,21 +64,6 @@ namespace PPWCode.Util.Validation.II.UnitTests.European.Belgium
         }
 
         [Test]
-        [TestCaseSource(nameof(InvalidIdentifications))]
-        public void bban_can_not_convert_invalid_identifications_to_iban(string identification)
-        {
-            // Arrange
-            BBAN bban = new BBAN(identification);
-            Assert.That(bban.IsValid, Is.False);
-
-            // Act
-            IBAN actual = bban.AsIBAN;
-
-            // Assert
-            Assert.That(actual, Is.Null);
-        }
-
-        [Test]
         [TestCaseSource(nameof(ValidIdentifications))]
         public void bban_can_convert_valid_identifications_to_iban(string identification)
         {
@@ -97,6 +78,21 @@ namespace PPWCode.Util.Validation.II.UnitTests.European.Belgium
             Assert.That(actual, Is.Not.Null);
             Assert.That(actual.IsValid, Is.True);
             Assert.That(actual.IsStrictValid, Is.True);
+        }
+
+        [Test]
+        [TestCaseSource(nameof(InvalidIdentifications))]
+        public void bban_can_not_convert_invalid_identifications_to_iban(string identification)
+        {
+            // Arrange
+            BBAN bban = new BBAN(identification);
+            Assert.That(bban.IsValid, Is.False);
+
+            // Act
+            IBAN actual = bban.AsIBAN;
+
+            // Assert
+            Assert.That(actual, Is.Null);
         }
 
         [Test]
@@ -148,6 +144,21 @@ namespace PPWCode.Util.Validation.II.UnitTests.European.Belgium
         }
 
         [Test]
+        [TestCaseSource(nameof(ValidIdentifications))]
+        public void check_binairy_serializable(string identification)
+        {
+            // Arrange
+            INSS expected = new INSS(identification);
+
+            // Act
+            INSS actual = DeepCloneUsingBinaryFormatter(expected);
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
+        }
+
+        [Test]
         [TestCaseSource(nameof(PaperVersions))]
         public string check_paperversion(string identification)
         {
@@ -171,21 +182,6 @@ namespace PPWCode.Util.Validation.II.UnitTests.European.Belgium
 
             // Act
             INSS actual = DeepCloneUsingXml(expected);
-
-            // Assert
-            Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
-        }
-
-        [Test]
-        [TestCaseSource(nameof(ValidIdentifications))]
-        public void check_binairy_serializable(string identification)
-        {
-            // Arrange
-            INSS expected = new INSS(identification);
-
-            // Act
-            INSS actual = DeepCloneUsingBinaryFormatter(expected);
 
             // Assert
             Assert.That(actual, Is.Not.Null);

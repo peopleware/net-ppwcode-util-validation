@@ -1,11 +1,8 @@
 ﻿// Copyright 2017 by PeopleWare n.v..
-// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -25,11 +22,14 @@ namespace PPWCode.Util.Validation.II
         : IIdentification,
           IEquatable<AbstractIdentification>
     {
-        [NonSerialized]
-        private string _cleanedVersionWithoutPadding;
+        [DataMember]
+        private readonly string _rawVersion;
 
         [NonSerialized]
         private string _cleanedVersion;
+
+        [NonSerialized]
+        private string _cleanedVersionWithoutPadding;
 
         [NonSerialized]
         private string _electronicVersion;
@@ -43,11 +43,10 @@ namespace PPWCode.Util.Validation.II
         [NonSerialized]
         private string _paperVersion;
 
-        [DataMember]
-        private readonly string _rawVersion;
-
         protected AbstractIdentification(string rawVersion)
-            => _rawVersion = rawVersion;
+        {
+            _rawVersion = rawVersion;
+        }
 
         protected abstract string OnPaperVersion { get; }
 
@@ -58,12 +57,6 @@ namespace PPWCode.Util.Validation.II
 
         protected virtual string OnCleanedVersionWithoutPadding
             => GetValidStream(RawVersion);
-
-        public string CleanedVersionWithoutPadding
-            => _cleanedVersionWithoutPadding ?? (_cleanedVersionWithoutPadding = OnCleanedVersionWithoutPadding);
-
-        public string CleanedVersion
-            => _cleanedVersion ?? (_cleanedVersion = Pad(CleanedVersionWithoutPadding));
 
         public bool Equals(AbstractIdentification other)
         {
@@ -80,6 +73,12 @@ namespace PPWCode.Util.Validation.II
             return string.Equals(CleanedVersion, other.CleanedVersion);
         }
 
+        public string CleanedVersionWithoutPadding
+            => _cleanedVersionWithoutPadding ?? (_cleanedVersionWithoutPadding = OnCleanedVersionWithoutPadding);
+
+        public string CleanedVersion
+            => _cleanedVersion ?? (_cleanedVersion = Pad(CleanedVersionWithoutPadding));
+
         public string ElectronicVersion
             => _electronicVersion ?? (_electronicVersion = IsValid ? OnElectronicVersion : null);
 
@@ -92,7 +91,8 @@ namespace PPWCode.Util.Validation.II
         public string PaperVersion
             => _paperVersion ?? (_paperVersion = IsValid ? OnPaperVersion : null);
 
-        public string RawVersion => _rawVersion;
+        public string RawVersion
+            => _rawVersion;
 
         public virtual int StandardMaxLength
             => StandardMinLength;
@@ -103,9 +103,9 @@ namespace PPWCode.Util.Validation.II
 
         protected virtual bool Validate(string identification)
         {
-            if (identification != null
-                && StandardMinLength <= identification.Length
-                && identification.Length <= StandardMaxLength
+            if ((identification != null)
+                && (StandardMinLength <= identification.Length)
+                && (identification.Length <= StandardMaxLength)
                 && identification.All(IsValidChar))
             {
                 return OnValidate(identification);

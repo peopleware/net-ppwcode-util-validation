@@ -1,17 +1,13 @@
-﻿// Copyright 2017-2017 by PeopleWare n.v..
-// 
+﻿// Copyright 2017 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-//  
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// 
 
 using System;
 using System.Collections.Generic;
@@ -35,211 +31,211 @@ namespace PPWCode.Util.Validation.II
             new Dictionary<string, IbanCountry>
             {
                 // Albania
-                {"AL", new IbanCountry(28, "8n,16c")},
+                { "AL", new IbanCountry(28, "8n,16c") },
 
                 // Andorra	
-                {"AD", new IbanCountry(24, "8n,12c")},
+                { "AD", new IbanCountry(24, "8n,12c") },
 
                 // Austria
-                {"AT", new IbanCountry(20, "16n")},
+                { "AT", new IbanCountry(20, "16n") },
 
                 // Azerbaijan
-                {"AZ", new IbanCountry(28, "4c,20n")},
+                { "AZ", new IbanCountry(28, "4c,20n") },
 
                 // Bahrain
-                {"BH", new IbanCountry(22, "4a,14c")},
+                { "BH", new IbanCountry(22, "4a,14c") },
 
                 // Belarus	
-                {"BY", new IbanCountry(28, "4c,20n")},
+                { "BY", new IbanCountry(28, "4c,20n") },
 
                 // Belgium
-                {"BE", new IbanCountry(16, "12n")},
+                { "BE", new IbanCountry(16, "12n") },
 
                 // Bosnia and Herzegovina
-                {"BA", new IbanCountry(20, "16n")},
+                { "BA", new IbanCountry(20, "16n") },
 
                 // Brazil
-                {"BR", new IbanCountry(29, "23n,1a,1c")},
+                { "BR", new IbanCountry(29, "23n,1a,1c") },
 
                 // Bulgaria	
-                {"BG", new IbanCountry(22, "4a,6n,8c")},
+                { "BG", new IbanCountry(22, "4a,6n,8c") },
 
                 // Costa Rica	
-                {"CR", new IbanCountry(22, "18n")},
+                { "CR", new IbanCountry(22, "18n") },
 
                 // Croatia	
-                {"HR", new IbanCountry(21, "17n")},
+                { "HR", new IbanCountry(21, "17n") },
 
                 // Cyprus	
-                {"CY", new IbanCountry(28, "8n,16c")},
+                { "CY", new IbanCountry(28, "8n,16c") },
 
                 // Czech Republic	
-                {"CZ", new IbanCountry(24, "20n")},
+                { "CZ", new IbanCountry(24, "20n") },
 
                 // Denmark	
-                {"DK", new IbanCountry(18, "14n")},
+                { "DK", new IbanCountry(18, "14n") },
 
                 // Dominican Republic	
-                {"DO", new IbanCountry(28, "4a,20n")},
+                { "DO", new IbanCountry(28, "4a,20n") },
 
                 // East Timor	
-                {"TL", new IbanCountry(23, "19n")},
+                { "TL", new IbanCountry(23, "19n") },
 
                 // Estonia	
-                {"EE", new IbanCountry(20, "16n")},
+                { "EE", new IbanCountry(20, "16n") },
 
                 // Faroe Islands	
-                {"FO", new IbanCountry(18, "14n")},
+                { "FO", new IbanCountry(18, "14n") },
 
                 // Finland	
-                {"FI", new IbanCountry(18, "14n")},
+                { "FI", new IbanCountry(18, "14n") },
 
                 // France	
-                {"FR", new IbanCountry(27, "10n,11c,2n")},
+                { "FR", new IbanCountry(27, "10n,11c,2n") },
 
                 // Georgia	
-                {"GE", new IbanCountry(22, "2c,16n")},
+                { "GE", new IbanCountry(22, "2c,16n") },
 
                 // Germany	
-                {"DE", new IbanCountry(22, "18n")},
+                { "DE", new IbanCountry(22, "18n") },
 
                 // Gibraltar	
-                {"GI", new IbanCountry(23, "4a,15c")},
+                { "GI", new IbanCountry(23, "4a,15c") },
 
                 // Greece	
-                {"GR", new IbanCountry(27, "7n,16c")},
+                { "GR", new IbanCountry(27, "7n,16c") },
 
                 // Greenland	
-                {"GL", new IbanCountry(18, "14n")},
+                { "GL", new IbanCountry(18, "14n") },
 
                 // Guatemala	
-                {"GT", new IbanCountry(28, "4c,20c")},
+                { "GT", new IbanCountry(28, "4c,20c") },
 
                 // Hungary	
-                {"HU", new IbanCountry(28, "24n")},
+                { "HU", new IbanCountry(28, "24n") },
 
                 // Iceland	
-                {"IS", new IbanCountry(26, "22n")},
+                { "IS", new IbanCountry(26, "22n") },
 
                 // Ireland	
-                {"IE", new IbanCountry(22, "4c,14n")},
+                { "IE", new IbanCountry(22, "4c,14n") },
 
                 // Israel	
-                {"IL", new IbanCountry(23, "19n")},
+                { "IL", new IbanCountry(23, "19n") },
 
                 // Italy	
-                {"IT", new IbanCountry(27, "1a,10n,12c")},
+                { "IT", new IbanCountry(27, "1a,10n,12c") },
 
                 // Jordan	
-                {"JO", new IbanCountry(30, "4a,22n")},
+                { "JO", new IbanCountry(30, "4a,22n") },
 
                 // Kazakhstan	
-                {"KZ", new IbanCountry(20, "3n,13c")},
+                { "KZ", new IbanCountry(20, "3n,13c") },
 
                 // Kosovo	
-                {"XK", new IbanCountry(20, "4n,10n,2n")},
+                { "XK", new IbanCountry(20, "4n,10n,2n") },
 
                 // Kuwait	
-                {"KW", new IbanCountry(30, "4a,22c")},
+                { "KW", new IbanCountry(30, "4a,22c") },
 
                 // Latvia	
-                {"LV", new IbanCountry(21, "4a,13c")},
+                { "LV", new IbanCountry(21, "4a,13c") },
 
                 // Lebanon	
-                {"LB", new IbanCountry(28, "4n,20c")},
+                { "LB", new IbanCountry(28, "4n,20c") },
 
                 // Liechtenstein	
-                {"LI", new IbanCountry(21, "5n,12c")},
+                { "LI", new IbanCountry(21, "5n,12c") },
 
                 // Lithuania	
-                {"LT", new IbanCountry(20, "16n")},
+                { "LT", new IbanCountry(20, "16n") },
 
                 // Luxembourg	
-                {"LU", new IbanCountry(20, "3n,13c")},
+                { "LU", new IbanCountry(20, "3n,13c") },
 
                 // Macedonia	
-                {"MK", new IbanCountry(19, "3n,10c,2n")},
+                { "MK", new IbanCountry(19, "3n,10c,2n") },
 
                 // Malta	
-                {"MT", new IbanCountry(31, "4a,5n,18c")},
+                { "MT", new IbanCountry(31, "4a,5n,18c") },
 
                 // Mauritania	
-                {"MR", new IbanCountry(27, "23n")},
+                { "MR", new IbanCountry(27, "23n") },
 
                 // Mauritius	
-                {"MU", new IbanCountry(30, "4a,19n,3a")},
+                { "MU", new IbanCountry(30, "4a,19n,3a") },
 
                 // Monaco	
-                {"MC", new IbanCountry(27, "10n,11c,2n")},
+                { "MC", new IbanCountry(27, "10n,11c,2n") },
 
                 // Moldova	
-                {"MD", new IbanCountry(24, "2c,18c")},
+                { "MD", new IbanCountry(24, "2c,18c") },
 
                 // Montenegro	
-                {"ME", new IbanCountry(22, "18n")},
+                { "ME", new IbanCountry(22, "18n") },
 
                 // Netherlands	
-                {"NL", new IbanCountry(18, "4a,10n")},
+                { "NL", new IbanCountry(18, "4a,10n") },
 
                 // Norway	
-                {"NO", new IbanCountry(15, "11n")},
+                { "NO", new IbanCountry(15, "11n") },
 
                 // Pakistan	
-                {"PK", new IbanCountry(24, "4c,16n")},
+                { "PK", new IbanCountry(24, "4c,16n") },
 
                 // Palestinian territories	
-                {"PS", new IbanCountry(29, "4c,21n")},
+                { "PS", new IbanCountry(29, "4c,21n") },
 
                 // Poland	
-                {"PL", new IbanCountry(28, "24n")},
+                { "PL", new IbanCountry(28, "24n") },
 
                 // Portugal	
-                {"PT", new IbanCountry(25, "21n")},
+                { "PT", new IbanCountry(25, "21n") },
 
                 // Qatar	
-                {"QA", new IbanCountry(29, "4a,21c")},
+                { "QA", new IbanCountry(29, "4a,21c") },
 
                 // Romania	
-                {"RO", new IbanCountry(24, "4a,16c")},
+                { "RO", new IbanCountry(24, "4a,16c") },
 
                 // San Marino	
-                {"SM", new IbanCountry(27, "1a,10n,12c")},
+                { "SM", new IbanCountry(27, "1a,10n,12c") },
 
                 // Saudi Arabia	
-                {"SA", new IbanCountry(24, "2n,18c")},
+                { "SA", new IbanCountry(24, "2n,18c") },
 
                 // Serbia	
-                {"RS", new IbanCountry(22, "18n")},
+                { "RS", new IbanCountry(22, "18n") },
 
                 // Slovakia	
-                {"SK", new IbanCountry(24, "20n")},
+                { "SK", new IbanCountry(24, "20n") },
 
                 // Slovenia	
-                {"SI", new IbanCountry(19, "15n")},
+                { "SI", new IbanCountry(19, "15n") },
 
                 // Spain	
-                {"ES", new IbanCountry(24, "20n")},
+                { "ES", new IbanCountry(24, "20n") },
 
                 // Sweden	
-                {"SE", new IbanCountry(24, "20n")},
+                { "SE", new IbanCountry(24, "20n") },
 
                 // Switzerland	
-                {"CH", new IbanCountry(21, "5n,12c")},
+                { "CH", new IbanCountry(21, "5n,12c") },
 
                 // Tunisia	
-                {"TN", new IbanCountry(24, "20n")},
+                { "TN", new IbanCountry(24, "20n") },
 
                 // Turkey	
-                {"TR", new IbanCountry(26, "5n,17c")},
+                { "TR", new IbanCountry(26, "5n,17c") },
 
                 // United Arab Emirates	
-                {"AE", new IbanCountry(23, "3n,16n")},
+                { "AE", new IbanCountry(23, "3n,16n") },
 
                 // United Kingdom	
-                {"GB", new IbanCountry(22, "4a,14n")},
+                { "GB", new IbanCountry(22, "4a,14n") },
 
                 // Virgin Islands British
-                {"VG", new IbanCountry(24, "4c,16n")}
+                { "VG", new IbanCountry(24, "4c,16n") }
             };
 
         // ReSharper disable once InconsistentNaming
@@ -249,37 +245,38 @@ namespace PPWCode.Util.Validation.II
         public static readonly IDictionary<char, int> LetterConversions =
             new Dictionary<char, int>
             {
-                {'A', 10},
-                {'B', 11},
-                {'C', 12},
-                {'D', 13},
-                {'E', 14},
-                {'F', 15},
-                {'G', 16},
-                {'H', 17},
-                {'I', 18},
-                {'J', 19},
-                {'K', 20},
-                {'L', 21},
-                {'M', 22},
-                {'N', 23},
-                {'O', 24},
-                {'P', 25},
-                {'Q', 26},
-                {'R', 27},
-                {'S', 28},
-                {'T', 29},
-                {'U', 30},
-                {'V', 31},
-                {'W', 32},
-                {'X', 33},
-                {'Y', 34},
-                {'Z', 35}
+                { 'A', 10 },
+                { 'B', 11 },
+                { 'C', 12 },
+                { 'D', 13 },
+                { 'E', 14 },
+                { 'F', 15 },
+                { 'G', 16 },
+                { 'H', 17 },
+                { 'I', 18 },
+                { 'J', 19 },
+                { 'K', 20 },
+                { 'L', 21 },
+                { 'M', 22 },
+                { 'N', 23 },
+                { 'O', 24 },
+                { 'P', 25 },
+                { 'Q', 26 },
+                { 'R', 27 },
+                { 'S', 28 },
+                { 'T', 29 },
+                { 'U', 30 },
+                { 'V', 31 },
+                { 'W', 32 },
+                { 'X', 33 },
+                { 'Y', 34 },
+                { 'Z', 35 }
             };
 
         private string _twoLetterISOLanguageName;
 
-        public IBAN(string rawVersion) : base(rawVersion)
+        public IBAN(string rawVersion)
+            : base(rawVersion)
         {
         }
 

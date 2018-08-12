@@ -1,11 +1,8 @@
 ﻿// Copyright 2018 by PeopleWare n.v..
-// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -98,7 +95,7 @@ namespace PPWCode.Util.Validation.II.European.France
 
                 int yy = 1900 + int.Parse(CleanedVersion.Substring(1, 2));
                 int mm = int.Parse(CleanedVersion.Substring(3, 2));
-                if (1 <= mm && mm <= 12)
+                if ((1 <= mm) && (mm <= 12))
                 {
                     try
                     {
@@ -119,7 +116,7 @@ namespace PPWCode.Util.Validation.II.European.France
         }
 
         protected override bool IsValidChar(char ch)
-            => char.IsDigit(ch) || ch == 'A' || ch == 'B';
+            => char.IsDigit(ch) || (ch == 'A') || (ch == 'B');
 
         protected override bool OnValidate(string identification)
         {
@@ -167,7 +164,7 @@ namespace PPWCode.Util.Validation.II.European.France
         /// </summary>
         /// <param name="placeOfBirth">Code that represents where the person is born.</param>
         private bool CheckPlaceOfBirth(string placeOfBirth)
-            => placeOfBirth.Length == 5
+            => (placeOfBirth.Length == 5)
                && (CheckPlaceOfBirthA(placeOfBirth)
                    || CheckPlaceOfBirthB(placeOfBirth)
                    || CheckPlaceOfBirthC(placeOfBirth));
@@ -183,9 +180,9 @@ namespace PPWCode.Util.Validation.II.European.France
             string departmentAsString = placeOfBirth.Substring(0, 2);
             if (int.TryParse(departmentAsString, out int department))
             {
-                result = 1 <= department && department <= 19
-                         || 21 <= department && department <= 95
-                         || 96 <= department && department <= 99;
+                result = ((1 <= department) && (department <= 19))
+                         || ((21 <= department) && (department <= 95))
+                         || ((96 <= department) && (department <= 99));
             }
             else
             {
@@ -195,7 +192,7 @@ namespace PPWCode.Util.Validation.II.European.France
 
             if (result)
             {
-                result = int.TryParse(placeOfBirth.Substring(2, 3), out int code) && 1 <= code && code <= 990;
+                result = int.TryParse(placeOfBirth.Substring(2, 3), out int code) && (1 <= code) && (code <= 990);
             }
 
             return result;
@@ -211,12 +208,12 @@ namespace PPWCode.Util.Validation.II.European.France
 
             if (int.TryParse(placeOfBirth.Substring(0, 3), out int department))
             {
-                result = 970 <= department && department <= 989;
+                result = (970 <= department) && (department <= 989);
             }
 
             if (result)
             {
-                result = int.TryParse(placeOfBirth.Substring(3, 2), out int code) && 1 <= code && code <= 90;
+                result = int.TryParse(placeOfBirth.Substring(3, 2), out int code) && (1 <= code) && (code <= 90);
             }
 
             return result;
@@ -238,7 +235,7 @@ namespace PPWCode.Util.Validation.II.European.France
 
             if (result)
             {
-                result = int.TryParse(placeOfBirth.Substring(2, 3), out int code) && 1 <= code && code <= 990;
+                result = int.TryParse(placeOfBirth.Substring(2, 3), out int code) && (1 <= code) && (code <= 990);
             }
 
             return result;

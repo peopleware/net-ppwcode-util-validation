@@ -1,11 +1,8 @@
 ﻿// Copyright 2018 by PeopleWare n.v..
-// 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -82,21 +79,6 @@ namespace PPWCode.Util.Validation.II.UnitTests
         }
 
         [Test]
-        [TestCaseSource(nameof(PaperVersions))]
-        public string check_paperversion(string identification)
-        {
-            // Arrange
-            BIC bic = new BIC(identification);
-
-            // Act
-
-            // Assert
-            Assert.That(bic.IsValid, Is.True);
-            Assert.That(bic.ElectronicVersion, Is.Not.Null);
-            return bic.PaperVersion;
-        }
-
-        [Test]
         [TestCaseSource(nameof(InvalidIdentifications))]
         public void bic_is_not_valid(string identification)
         {
@@ -146,21 +128,6 @@ namespace PPWCode.Util.Validation.II.UnitTests
 
         [Test]
         [TestCaseSource(nameof(ValidIdentifications))]
-        public void check_xml_serializable(string identification)
-        {
-            // Arrange
-            BIC expected = new BIC(identification);
-
-            // Act
-            BIC actual = DeepCloneUsingXml(expected);
-
-            // Assert
-            Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
-        }
-
-        [Test]
-        [TestCaseSource(nameof(ValidIdentifications))]
         public void check_binairy_serializable(string identification)
         {
             // Arrange
@@ -168,6 +135,36 @@ namespace PPWCode.Util.Validation.II.UnitTests
 
             // Act
             BIC actual = DeepCloneUsingBinaryFormatter(expected);
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.RawVersion, Is.EquivalentTo(expected.RawVersion));
+        }
+
+        [Test]
+        [TestCaseSource(nameof(PaperVersions))]
+        public string check_paperversion(string identification)
+        {
+            // Arrange
+            BIC bic = new BIC(identification);
+
+            // Act
+
+            // Assert
+            Assert.That(bic.IsValid, Is.True);
+            Assert.That(bic.ElectronicVersion, Is.Not.Null);
+            return bic.PaperVersion;
+        }
+
+        [Test]
+        [TestCaseSource(nameof(ValidIdentifications))]
+        public void check_xml_serializable(string identification)
+        {
+            // Arrange
+            BIC expected = new BIC(identification);
+
+            // Act
+            BIC actual = DeepCloneUsingXml(expected);
 
             // Assert
             Assert.That(actual, Is.Not.Null);
