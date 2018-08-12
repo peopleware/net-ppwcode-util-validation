@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <!-- target frameworks -->
+        <TargetFrameworks>net462</TargetFrameworks>
+
+        <!-- nuget package -->
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="PPWCode.Vernacular.NHibernate.II.Test" Version="[1, 2)" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\II.NHibernate\PPWCode.Util.Validation.II.NHibernate.csproj" />
+    </ItemGroup>
+
+</Project>
