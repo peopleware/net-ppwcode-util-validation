@@ -32,6 +32,7 @@
         <PackageReleaseNotes>
 1.0.0 Initial release PPWCode.Util.Validation.I and PPWCode.Util.Validation.I.NHibernate
 1.1.0 Provide a symbols package
+1.2.0 Switch to SourceLink
         </PackageReleaseNotes>
 
         <Copyright>Copyright 2017-2018 (c) PeopleWare nv</Copyright>
