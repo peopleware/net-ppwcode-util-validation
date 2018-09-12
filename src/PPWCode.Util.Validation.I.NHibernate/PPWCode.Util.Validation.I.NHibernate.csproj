@@ -9,10 +9,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="PPWCode.Vernacular.NHibernate.I" Version="[4.0.1,5)" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02">
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="PPWCode.Vernacular.NHibernate.I" Version="[4.0.1,5)" />
     </ItemGroup>
 
     <ItemGroup>
