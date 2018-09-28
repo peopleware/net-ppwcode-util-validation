@@ -136,6 +136,16 @@ namespace PPWCode.Util.Validation.I
         protected virtual string Pad(string identification)
             => identification?.PadLeft(StandardMaxLength, PaddingCharacter);
 
+        public bool StartsWith(string value)
+        {
+            return CleanedVersion.StartsWith(value);
+        }
+
+        public bool StartsWith(AbstractIdentification value)
+        {
+            return CleanedVersion.StartsWith(value.CleanedVersion);
+        }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
