@@ -18,7 +18,8 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="PPWCode.Vernacular.NHibernate.II" Version="[1, 2)" />
+
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.II" Version="[1, 3)" />
   </ItemGroup>
 
   <ItemGroup>
