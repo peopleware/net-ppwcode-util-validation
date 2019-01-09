@@ -83,7 +83,7 @@ namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.Models
                     hashCode = (hashCode * 397) ^ (obj.RSZ != null ? obj.RSZ.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (obj.TemporaryRSZ != null ? obj.TemporaryRSZ.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (obj.VAT != null ? obj.VAT.GetHashCode() : 0);
-                    hashCode = (hashCode * 397) ^ (obj.VAT != null ? obj.CompanyLocalUnitNumber.GetHashCode() : 0);
+                    hashCode = (hashCode * 397) ^ (obj.CompanyLocalUnitNumber != null ? obj.CompanyLocalUnitNumber.GetHashCode() : 0);
                     return hashCode;
                 }
             }
