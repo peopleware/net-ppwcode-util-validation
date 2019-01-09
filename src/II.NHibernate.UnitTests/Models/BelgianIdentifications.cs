@@ -33,6 +33,7 @@ namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.Models
         public virtual TemporaryRSZ TemporaryRSZ { get; set; }
         public virtual VAT VAT { get; set; }
         public virtual CompanyLocalUnitNumber CompanyLocalUnitNumber { get; set; }
+        public virtual OGM OGM { get; set; }
 
         private sealed class BelgianIdentificationsEqualityComparer : IEqualityComparer<BelgianIdentifications>
         {
@@ -67,7 +68,8 @@ namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.Models
                        && Equals(x.RSZ, y.RSZ)
                        && Equals(x.TemporaryRSZ, y.TemporaryRSZ)
                        && Equals(x.VAT, y.VAT)
-                       && Equals(x.CompanyLocalUnitNumber, y.CompanyLocalUnitNumber);
+                       && Equals(x.CompanyLocalUnitNumber, y.CompanyLocalUnitNumber)
+                       && Equals(x.OGM, y.OGM);
             }
 
             public int GetHashCode(BelgianIdentifications obj)
@@ -84,6 +86,7 @@ namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.Models
                     hashCode = (hashCode * 397) ^ (obj.TemporaryRSZ != null ? obj.TemporaryRSZ.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (obj.VAT != null ? obj.VAT.GetHashCode() : 0);
                     hashCode = (hashCode * 397) ^ (obj.CompanyLocalUnitNumber != null ? obj.CompanyLocalUnitNumber.GetHashCode() : 0);
+                    hashCode = (hashCode * 397) ^ (obj.OGM != null ? obj.OGM.GetHashCode() : 0);
                     return hashCode;
                 }
             }
@@ -104,6 +107,7 @@ namespace PPWCode.Util.Validation.II.NHibernate.UnitTests.Models
             Property(c => c.TemporaryRSZ, m => m.Type<ValidTemporaryRSZ>());
             Property(c => c.VAT, m => m.Type<ValidVAT>());
             Property(c => c.CompanyLocalUnitNumber, m => m.Type<ValidCompanyLocalUnitNumber>());
+            Property(c => c.OGM, m => m.Type<ValidOGM>());
         }
     }
 }
