@@ -148,10 +148,10 @@ namespace PPWCode.Util.Validation.II.UnitTests.European.Belgium
         public void check_binairy_serializable(string identification)
         {
             // Arrange
-            INSS expected = new INSS(identification);
+            BBAN expected = new BBAN(identification);
 
             // Act
-            INSS actual = DeepCloneUsingBinaryFormatter(expected);
+            BBAN actual = DeepCloneUsingBinaryFormatter(expected);
 
             // Assert
             Assert.That(actual, Is.Not.Null);
@@ -178,10 +178,10 @@ namespace PPWCode.Util.Validation.II.UnitTests.European.Belgium
         public void check_xml_serializable(string identification)
         {
             // Arrange
-            INSS expected = new INSS(identification);
+            BBAN expected = new BBAN(identification);
 
             // Act
-            INSS actual = DeepCloneUsingXml(expected);
+            BBAN actual = DeepCloneUsingXml(expected);
 
             // Assert
             Assert.That(actual, Is.Not.Null);
