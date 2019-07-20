@@ -52,7 +52,7 @@ Properties {
     $chocoIncludePdb = $true
 
     # used nunit version
-    $nunitVersion = '3.9.0'
+    $nunitVersion = '3.10.0'
     $nUnitFramework = $null
 }
 
@@ -81,7 +81,7 @@ function PropertyDocumentation() {
     Write-Host "`$buildPlatformTarget          Build Target Platform (AnyCpu, x86, x64), defaults to AnyCpu."
     Write-Host "`$chocoIncludeXmlFiles        When creating a chocolatey-package, we can specify to include Xml-Files, defaults to $false."
     Write-Host "`$chocoIncludePdb              When creating a chocolatey-package, we can specify to include Pdb-Files, defaults to $false."
-    Write-Host "`$nunitVersion                 Version of nunit-runner, defaults to 3.9.0"
+    Write-Host "`$nunitVersion                 Version of nunit-runner, defaults to 3.10.0"
     Write-Host "`$nUnitFramework               RuntimeFramework for nunit-runner, defaults to $null, If not specified, tests will run under the framework they are compiled with"
 }
 
@@ -158,10 +158,10 @@ function Get-DefaultMsBuildParameters
 
     if ($chatter -eq 1) {
         $params += "/v:quiet"
-    } 
+    }
     elseif ($chatter -eq 2) {
         $params += "/v:minimal"
-    } 
+    }
     else {
         $params += "/v:normal"
     }
@@ -232,10 +232,10 @@ function Get-DefaultNugetParameters
 
     if ($chatter -eq 1) {
         $params += "-Verbosity quiet"
-    } 
+    }
     elseif ($chatter -eq 2) {
         $params += "-Verbosity normal"
-    } 
+    }
     else {
         $params += "-Verbosity detailed"
     }
