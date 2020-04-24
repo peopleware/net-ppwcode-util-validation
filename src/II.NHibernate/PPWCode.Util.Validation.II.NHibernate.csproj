@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <!-- target frameworks -->
@@ -19,7 +19,7 @@
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
 
-    <PackageReference Include="PPWCode.Vernacular.NHibernate.II" Version="[1, 4)" />
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.II" Version="[1, 5)" />
   </ItemGroup>
 
   <ItemGroup>
