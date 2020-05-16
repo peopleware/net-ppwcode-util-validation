@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- nuget package -->
+    <IsPackable>false</IsPackable>
+
+    <!-- Stylecop -->
+    <CodeAnalysisRuleSet>..\StyleCop-Tests.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.III.Test" Version="1.0.0-rc010027" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\III.NHibernate\PPWCode.Util.Validation.III.NHibernate.csproj" />
+  </ItemGroup>
+
+</Project>

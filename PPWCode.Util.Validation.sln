@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "psake", "psake", "{90949B3E
 		psakefile.ps1 = psakefile.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "II", "src\II\PPWCode.Util.Validation.II.csproj", "{EAD7ED87-F2E9-46AD-A175-126085CBB635}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "III", "src\III\PPWCode.Util.Validation.III.csproj", "{EAD7ED87-F2E9-46AD-A175-126085CBB635}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "II.UnitTests", "src\II.UnitTests\PPWCode.Util.Validation.II.UnitTests.csproj", "{4A0E96AF-C081-44A8-8F99-0BAFAAC24D8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "III.UnitTests", "src\III.UnitTests\PPWCode.Util.Validation.III.UnitTests.csproj", "{4A0E96AF-C081-44A8-8F99-0BAFAAC24D8B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "II.NHibernate", "src\II.NHibernate\PPWCode.Util.Validation.II.NHibernate.csproj", "{4B63D1D2-FFED-4134-B080-CC0F2B92DA4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "III.NHibernate", "src\III.NHibernate\PPWCode.Util.Validation.III.NHibernate.csproj", "{4B63D1D2-FFED-4134-B080-CC0F2B92DA4C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "II.NHibernate.UnitTests", "src\II.NHibernate.UnitTests\PPWCode.Util.Validation.II.NHibernate.UnitTests.csproj", "{A897494B-79EE-4CA1-9280-7A4A3F7F92D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "III.NHibernate.UnitTests", "src\III.NHibernate.UnitTests\PPWCode.Util.Validation.III.NHibernate.UnitTests.csproj", "{A897494B-79EE-4CA1-9280-7A4A3F7F92D6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{EAEDF7DC-DB16-48D4-9CC1-C87DEB80771F}"
 ProjectSection(SolutionItems) = preProject
