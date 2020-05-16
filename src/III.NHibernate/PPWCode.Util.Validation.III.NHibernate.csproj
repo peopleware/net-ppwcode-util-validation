@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PPWCode.Vernacular.NHibernate.III" Version="1.0.0-rc010027" />
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.III" Version="1.0.0-rc010028" />
   </ItemGroup>
 
   <ItemGroup>
