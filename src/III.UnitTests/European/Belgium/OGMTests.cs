@@ -66,6 +66,36 @@ namespace PPWCode.Util.Validation.III.UnitTests.European.Belgium
         }
 
         [Test]
+        [TestCaseSource(nameof(ValidIdentifications))]
+        public void check_binairy_serializable(string identification)
+        {
+            // Arrange
+            OGM ogm = new OGM(identification);
+
+            // Act
+            OGM actual = DeepCloneUsingBinaryFormatter(ogm);
+
+            // Assert
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.RawVersion, Is.EquivalentTo(ogm.RawVersion));
+        }
+
+        [Test]
+        [TestCaseSource(nameof(PaperVersions))]
+        public string check_paperversion(string identification)
+        {
+            // Arrange
+            OGM ogm = new OGM(identification);
+
+            // Act
+
+            // Assert
+            Assert.That(ogm.IsValid, Is.True);
+            Assert.That(ogm.ElectronicVersion, Is.Not.Null);
+            return ogm.PaperVersion;
+        }
+
+        [Test]
         [TestCaseSource(nameof(InvalidIdentifications))]
         public void ogm_is_not_valid(string identification)
         {
@@ -111,36 +141,6 @@ namespace PPWCode.Util.Validation.III.UnitTests.European.Belgium
             Assert.That(ogm.IsValid, Is.True);
             Assert.That(ogm.ElectronicVersion, Is.Not.Null);
             Assert.That(ogm.PaperVersion, Is.Not.Null);
-        }
-
-        [Test]
-        [TestCaseSource(nameof(ValidIdentifications))]
-        public void check_binairy_serializable(string identification)
-        {
-            // Arrange
-            OGM ogm = new OGM(identification);
-
-            // Act
-            OGM actual = DeepCloneUsingBinaryFormatter(ogm);
-
-            // Assert
-            Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.RawVersion, Is.EquivalentTo(ogm.RawVersion));
-        }
-
-        [Test]
-        [TestCaseSource(nameof(PaperVersions))]
-        public string check_paperversion(string identification)
-        {
-            // Arrange
-            OGM ogm = new OGM(identification);
-
-            // Act
-
-            // Assert
-            Assert.That(ogm.IsValid, Is.True);
-            Assert.That(ogm.ElectronicVersion, Is.Not.Null);
-            return ogm.PaperVersion;
         }
     }
 }
