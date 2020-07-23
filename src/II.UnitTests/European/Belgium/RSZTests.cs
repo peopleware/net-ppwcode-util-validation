@@ -37,8 +37,7 @@ namespace PPWCode.Util.Validation.II.UnitTests.European.Belgium
         {
             get
             {
-                yield return "0133296720";
-                yield return "5105009119";
+                yield return "133296720";
             }
         }
 
@@ -53,8 +52,8 @@ namespace PPWCode.Util.Validation.II.UnitTests.European.Belgium
 
                 yield return "133296720";
                 yield return "RSZ 133296720";
-                yield return "RSZ 0133296720";
-                yield return "01332967.20";
+                yield return "RSZ 133296720";
+                yield return "1332967.20";
             }
         }
 
@@ -62,8 +61,8 @@ namespace PPWCode.Util.Validation.II.UnitTests.European.Belgium
         {
             get
             {
-                yield return new TestCaseData("0133378103").Returns("01333781-03");
-                yield return new TestCaseData("BE 0133378103").Returns("01333781-03");
+                yield return new TestCaseData("133378103").Returns("1333781-03");
+                yield return new TestCaseData("BE 133378103").Returns("1333781-03");
             }
         }
 

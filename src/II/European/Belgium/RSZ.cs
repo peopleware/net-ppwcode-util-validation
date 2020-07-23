@@ -30,7 +30,7 @@ namespace PPWCode.Util.Validation.II.European.Belgium
             => '0';
 
         public override int StandardMinLength
-            => 10;
+            => 9;
 
         protected override bool OnValidate(string identification)
         {

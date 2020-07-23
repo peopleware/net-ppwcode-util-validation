@@ -23,6 +23,9 @@ namespace PPWCode.Util.Validation.II.European.Belgium
         {
         }
 
+        public override int StandardMinLength
+            => 10;
+
         protected override bool Validate(string identification)
             => base.Validate(identification) && (CleanedVersion[0] == '5');
     }
