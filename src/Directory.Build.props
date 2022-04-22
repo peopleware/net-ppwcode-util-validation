@@ -49,7 +49,9 @@
 
         <PackageReleaseNotes>
             <![CDATA[
-1.0.0 Initial release PPWCode.Util.Validation.III and PPWCode.Util.Validation.III.NHibernate]]>
+1.0.0 Initial release PPWCode.Util.Validation.III and PPWCode.Util.Validation.III.NHibernate
+1.1.0 Upgrading dependencies
+]]>
         </PackageReleaseNotes>
 
         <!-- SourceLink support -->
