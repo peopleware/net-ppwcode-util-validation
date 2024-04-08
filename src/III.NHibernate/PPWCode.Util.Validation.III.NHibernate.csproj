@@ -1,6 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <!-- Target frameworks -->
+    <TargetFrameworks>netstandard2.0;net60;net80</TargetFrameworks>
+
     <!-- nuget package -->
     <IsPackable>true</IsPackable>
 
@@ -9,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PPWCode.Vernacular.NHibernate.III" Version="[2.0.0, 3)" />
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.III" Version="3.0.0-rc010076" />
   </ItemGroup>
 
   <ItemGroup>

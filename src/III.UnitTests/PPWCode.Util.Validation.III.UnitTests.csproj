@@ -1,6 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <!-- Target frameworks -->
+    <TargetFrameworks>net48;net481;net60;net80</TargetFrameworks>
+
     <!-- nuget package -->
     <IsPackable>false</IsPackable>
 
@@ -14,6 +17,14 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
   </ItemGroup>
 
+  <Choose>
+    <When Condition=" '$(TargetFramework)' == 'net6.0' or '$(TargetFramework)' == 'net8.0' ">
+      <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="13.*" />
+      </ItemGroup>
+    </When>
+  </Choose>
+  
   <ItemGroup>
     <ProjectReference Include="..\III\PPWCode.Util.Validation.III.csproj" />
   </ItemGroup>
