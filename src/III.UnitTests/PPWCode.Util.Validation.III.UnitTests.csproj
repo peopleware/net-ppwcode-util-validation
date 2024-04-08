@@ -12,21 +12,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-    <PackageReference Include="NUnit" Version="4.1.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0"/>
+    <PackageReference Include="NUnit" Version="4.1.0"/>
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0"/>
   </ItemGroup>
 
   <Choose>
     <When Condition=" '$(TargetFramework)' == 'net6.0' or '$(TargetFramework)' == 'net8.0' ">
       <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.*" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.*"/>
       </ItemGroup>
     </When>
   </Choose>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\III\PPWCode.Util.Validation.III.csproj" />
+    <ProjectReference Include="..\III\PPWCode.Util.Validation.III.csproj"/>
   </ItemGroup>
 
 </Project>
