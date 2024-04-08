@@ -9,9 +9,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#if NETFRAMEWORK
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+#else
+using Newtonsoft.Json;
+#endif
 using NUnit.Framework;
 
 namespace PPWCode.Util.Validation.III.UnitTests
@@ -19,6 +22,15 @@ namespace PPWCode.Util.Validation.III.UnitTests
     [TestFixture]
     public abstract class BaseTests
     {
+#if !NETFRAMEWORK
+        private static readonly JsonSerializerSettings _settings =
+            new ()
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.All,
+                ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
+                TypeNameHandling = TypeNameHandling.All
+            };
+#endif
         [SetUp]
         public void Setup()
         {
@@ -42,6 +54,7 @@ namespace PPWCode.Util.Validation.III.UnitTests
         protected virtual T DeepCloneUsingBinaryFormatter<T>(T obj)
             where T : class
         {
+#if NETFRAMEWORK
             using (MemoryStream ms = new MemoryStream())
             {
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -50,6 +63,12 @@ namespace PPWCode.Util.Validation.III.UnitTests
 
                 return (T)formatter.Deserialize(ms);
             }
+#else
+            string serializedObject = JsonConvert.SerializeObject(obj, typeof(T), _settings);
+            object clone = JsonConvert.DeserializeObject(serializedObject, typeof(T), _settings);
+
+            return (T)clone;
+#endif
         }
     }
 }
