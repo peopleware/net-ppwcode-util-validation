@@ -12,11 +12,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PPWCode.Vernacular.NHibernate.III" Version="3.0.0-rc010076" />
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.III" Version="3.0.0-rc010076"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\III\PPWCode.Util.Validation.III.csproj" />
+    <ProjectReference Include="..\III\PPWCode.Util.Validation.III.csproj"/>
   </ItemGroup>
 
 </Project>
