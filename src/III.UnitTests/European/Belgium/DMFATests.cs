@@ -53,7 +53,14 @@ namespace PPWCode.Util.Validation.III.UnitTests.European.Belgium
 
         public static IEnumerable PaperVersions
         {
-            get { yield break; }
+            get
+            {
+                yield return new TestCaseData("DMFAP123456789A").Returns("DMFAP123456789A");
+                yield return new TestCaseData("DPPLP123456789A").Returns("DPPLP123456789A");
+
+                yield return new TestCaseData("DMFAP003456789A").Returns("DMFAP003456789A");
+                yield return new TestCaseData("DPPLP023456789A").Returns("DPPLP023456789A");
+            }
         }
 
         private static IEnumerable IdentificationToNumberCases
