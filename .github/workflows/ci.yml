@@ -1,0 +1,159 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [ "III/next", "III/feature/*", "III/bugfix/*" ]
+  pull_request:
+    branches: [ "III/next" ]
+
+jobs:
+  build-and-test:
+    name: Build & Test - ${{ matrix.name-suffix }}
+    runs-on: ${{ matrix.os }}
+    permissions:
+      checks: write
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-2022]
+        include:
+          - os: ubuntu-latest
+            name-suffix: 'Linux'
+            test-filter: 'Category=SqlServer|Category!=SqlServer'
+          - os: macos-latest
+            name-suffix: 'macOS'
+            test-filter: 'Category!=SqlServer'
+          - os: windows-2022
+            name-suffix: 'Windows'
+            test-filter: 'Category=SqlServer|Category!=SqlServer'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Generate SQL Server SA password
+        shell: bash
+        run: |
+          # Generate a random password for this test run
+          SA_PASSWORD="P@ssw0rd_$(openssl rand -base64 12 | tr -d '/+=' | head -c 16)"
+          echo "SA_PASSWORD=$SA_PASSWORD" >> $GITHUB_ENV
+          echo "Generated SA password"
+
+      - name: Start SQL Server container
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          docker run -d \
+            --name sql-server \
+            -e ACCEPT_EULA=Y \
+            -e MSSQL_SA_PASSWORD=${{ env.SA_PASSWORD }} \
+            -e MSSQL_COLLATION=SQL_Latin1_General_CP1_CI_AI \
+            -e MSSQL_MEMORY_LIMIT_MB=4096 \
+            -p 1433:1433 \
+            --health-cmd "sqlcmd -S localhost -U sa -P ${{ env.SA_PASSWORD }} -Q 'SELECT 1' -b" \
+            --health-interval 10s \
+            --health-timeout 5s \
+            --health-retries 5 \
+            mcr.microsoft.com/mssql/server:2017-latest
+
+          # Wait for SQL Server to be healthy
+          until docker inspect --format='{{.State.Health.Status}}' sql-server | grep -q healthy; do
+            echo "Waiting for SQL Server to be ready..."
+            sleep 2
+          done
+          echo "SQL Server is ready!"
+
+      - name: Run the action
+        if: matrix.os == 'windows-2022'
+        uses: potatoqualitee/mssqlsuite@v1.11
+        with:
+          install: sqlengine, sqlclient
+          version: 2019
+          sa-password: ${{ env.SA_PASSWORD }}
+          show-log: true
+          collation: SQL_Latin1_General_CP1_CI_AI
+
+      - name: Restore dependencies
+        shell: bash
+        # do not add ContinuousIntegrationBuild here
+        # since it will complain about the package lock file
+        # ContinuousIntegrationBuild=true excludes full-framework
+        # builds on Linux and macOS
+        run: |
+          dotnet restore PPWCode.Util.Validation.sln \
+            -p:Configuration=Release
+
+      - name: Build
+        shell: bash
+        run: |
+          dotnet build PPWCode.Util.Validation.sln \
+            --configuration Release \
+            --no-restore \
+            -p:ContinuousIntegrationBuild=true
+
+      - name: Test
+        shell: bash
+        env:
+          PPWCODE_APPSETTINGS__FIXEDCONNECTIONSTRING: ${{ format('Server=localhost;Database=master;User Id=sa;Password={0};TrustServerCertificate=True', env.SA_PASSWORD) }}
+        run: |
+          dotnet test PPWCode.Util.Validation.sln \
+            --configuration Release \
+            --no-build \
+            --verbosity normal \
+            --logger "trx;LogFilePrefix=test-results" \
+            --collect:"XPlat Code Coverage" \
+            --results-directory ./coverage \
+            --filter "${{ matrix.test-filter }}" \
+            -p:ContinuousIntegrationBuild=true
+
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v2
+        if: ${{ !cancelled() }} # run this step even if previous step failed
+        with:
+          name: Test Results - ${{ matrix.name-suffix }}
+          report-title: Test Results - ${{ matrix.name-suffix }}
+          path: 'coverage/test-results_*_*.trx'
+          reporter: dotnet-trx
+          fail-on-error: true
+
+      - name: Generate Coverage Report
+        if: always()
+        shell: bash
+        run: |
+          dotnet tool install -g dotnet-reportgenerator-globaltool
+          reportgenerator \
+            -reports:"coverage/*/coverage.cobertura.xml" \
+            -targetdir:"coveragereport-html" \
+            -reporttypes:"Html;MarkdownSummaryGithub" \
+            -title:"Coverage Report - ${{ matrix.name-suffix }}" \
+            -verbosity:Warning
+
+      - name: Add Coverage to Job Summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f coveragereport-html/SummaryGithub.md ]; then
+            # remove the "Summary -" prefix while we're at it
+            sed -e 's/^# Summary - \(.*\)$/# \1/' coveragereport-html/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload Coverage HTML Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report-html-${{ matrix.name-suffix }}
+          path: coveragereport-html/
+          retention-days: 30
+
+      - name: Upload Test and Coverage Raw Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-and-coverage-raw-${{ matrix.name-suffix }}
+          path: coverage/
+          retention-days: 30
