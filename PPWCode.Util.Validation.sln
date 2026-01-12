@@ -11,6 +11,35 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "III.NHibernate", "src\III.N
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "III.NHibernate.UnitTests", "src\III.NHibernate.UnitTests\PPWCode.Util.Validation.III.NHibernate.UnitTests.csproj", "{A897494B-79EE-4CA1-9280-7A4A3F7F92D6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "analyzers", "analyzers", "{0DA7905B-996A-446B-B286-EC9FC9C77822}"
+	ProjectSection(SolutionItems) = preProject
+		src\Analyzer-Tests.ruleset = src\Analyzer-Tests.ruleset
+		src\Analyzer.ruleset = src\Analyzer.ruleset
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{86D8DCF2-6820-4ACB-9DC5-5CF22C9319FA}"
+	ProjectSection(SolutionItems) = preProject
+		src\common-tests.props = src\common-tests.props
+		src\common.props = src\common.props
+		src\Directory.Build.props = src\Directory.Build.props
+		src\Directory.Packages.props = src\Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build-pipeline", "build-pipeline", "{420E9B72-3BFA-4DFA-BC64-EC83C44820D0}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+		.github\workflows\ci.yml = .github\workflows\ci.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "package", "package", "{EBA2E994-537C-4C99-9ED0-7AB19C5D4CC4}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		NOTICE = NOTICE
+		README.md = README.md
+		assets\ppw-logo-2.png = assets\ppw-logo-2.png
+		assets\ppw-logo.png = assets\ppw-logo.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
