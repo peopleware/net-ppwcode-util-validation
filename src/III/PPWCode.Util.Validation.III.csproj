@@ -1,14 +1,3 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <!-- Target frameworks -->
-    <TargetFrameworks>netstandard2.0;net60;net80</TargetFrameworks>
-
-    <!-- nuget package -->
-    <IsPackable>true</IsPackable>
-
-    <!-- Stylecop -->
-    <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\common.props" />
 </Project>

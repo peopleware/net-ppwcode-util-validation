@@ -1,18 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <!-- Target frameworks -->
-    <TargetFrameworks>netstandard2.0;net60;net80</TargetFrameworks>
-
-    <!-- nuget package -->
-    <IsPackable>true</IsPackable>
-
-    <!-- Stylecop -->
-    <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+  <Import Project="..\common.props" />
 
   <ItemGroup>
-    <PackageReference Include="PPWCode.Vernacular.NHibernate.III" Version="3.*"/>
+    <PackageReference Include="PPWCode.Vernacular.NHibernate.III" />
   </ItemGroup>
 
   <ItemGroup>
