@@ -21,7 +21,6 @@ using PPWCode.Vernacular.NHibernate.III;
 
 namespace PPWCode.Util.Validation.III.NHibernate.UnitTests.IntegrationTests
 {
-    [Explicit]
     [SuppressMessage("ReSharper", "InconsistentNaming", Justification = "Tests")]
     public class BelgianIdentificationsTests : BaseRepositoryTests<BelgianIdentifications>
     {
