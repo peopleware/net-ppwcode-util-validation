@@ -1,4 +1,4 @@
-﻿// Copyright 2024 by PeopleWare n.v..
+﻿// Copyright 2026 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -19,7 +19,9 @@ namespace PPWCode.Util.Validation.III.European.France
     /// <summary>
     ///     see <see href="https://fr.wikipedia.org/wiki/Num%C3%A9ro_de_s%C3%A9curit%C3%A9_sociale_en_France#ancrage_C" />
     /// </summary>
+#if NETSTANDARD2_0 || NET462_OR_GREATER
     [Serializable]
+#endif
     [DataContract]
     public class NIR
         : AbstractFrIdentification,
@@ -239,7 +241,9 @@ namespace PPWCode.Util.Validation.III.European.France
             return result;
         }
 
+#if NETSTANDARD2_0 || NET462_OR_GREATER
         [Serializable]
+#endif
         [DataContract]
         private class ParseResult
         {

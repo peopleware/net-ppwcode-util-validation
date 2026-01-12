@@ -1,4 +1,4 @@
-// Copyright 2024 by PeopleWare n.v..
+// Copyright 2026 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -9,7 +9,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#if NETSTANDARD2_0 || NET462_OR_GREATER
 using System;
+#endif
 using System.Runtime.Serialization;
 
 namespace PPWCode.Util.Validation.III.European.Belgium
@@ -18,7 +20,9 @@ namespace PPWCode.Util.Validation.III.European.Belgium
     ///     See
     ///     <see href="http://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=nl&la=N&cn=2003062432&table_name=wet" />
     /// </summary>
+#if NETSTANDARD2_0 || NET462_OR_GREATER
     [Serializable]
+#endif
     [DataContract]
     public class KBO : AbstractBeIdentification
     {
