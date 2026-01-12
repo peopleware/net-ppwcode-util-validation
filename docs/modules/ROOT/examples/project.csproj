@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <!-- ... -->
+
+    <ItemGroup>
+        <!-- nuget package dependencies -->
+        <PackageReference Include="PPWCode.Util.Validation.III" Version="2.0.0" />
+        <PackageReference Include="PPWCode.Util.Validation.III.NHibernate" Version="2.0.0" />
+    </ItemGroup>
+
+    <!-- ... -->
+</Project>
