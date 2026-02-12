@@ -8,5 +8,9 @@ This file is translated into markdown and used for the release notes in the GitH
 ////
 
 === Changes
-* Initial release of mark III
-* Supported target: `.NET Core App 3.1`
+* Initial release of mark `IV`
+** This generation adds support for Entity Framework Core
+** Support for NHibernate is planned, but not yet available
+* Supported targets: `.NET 8.0`, `.NET 9.0`, `.NET 10.0`
+* Code built using nullable reference types
+* Use of Microsoft attributes for nullable static analysis

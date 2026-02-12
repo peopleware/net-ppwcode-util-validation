@@ -3,8 +3,8 @@
 
     <ItemGroup>
         <!-- nuget package dependencies -->
-        <PackageReference Include="PPWCode.Util.Validation.III" Version="2.0.0" />
-        <PackageReference Include="PPWCode.Util.Validation.III.NHibernate" Version="2.0.0" />
+        <PackageReference Include="PPWCode.Util.Validation.IV" Version="1.0.0" />
+        <PackageReference Include="PPWCode.Util.Validation.IV.EntityFrameworkCore" Version="1.0.0" />
     </ItemGroup>
 
     <!-- ... -->

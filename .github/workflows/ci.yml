@@ -2,9 +2,9 @@ name: Build & Test
 
 on:
   push:
-    branches: [ "III/next", "III/feature/*", "III/bugfix/*" ]
+    branches: [ "IV/next", "IV/feature/*", "IV/bugfix/*" ]
   pull_request:
-    branches: [ "III/next" ]
+    branches: [ "IV/next" ]
 
 jobs:
   build-and-test:
@@ -19,12 +19,15 @@ jobs:
           - os: ubuntu-latest
             name-suffix: 'Linux'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
+            sqlserver: false
           - os: macos-latest
             name-suffix: 'macOS'
-            test-filter: 'Category!=SqlServer'
+            test-filter: 'Category=SqlServer|Category!=SqlServer'
+            sqlserver: false
           - os: windows-2022
             name-suffix: 'Windows'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
+            sqlserver: false
 
     steps:
       - uses: actions/checkout@v4
@@ -47,7 +50,7 @@ jobs:
           echo "Generated SA password"
 
       - name: Start SQL Server container
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'ubuntu-latest' && matrix.sqlserver == true
         run: |
           docker run -d \
             --name sql-server \
@@ -70,7 +73,7 @@ jobs:
           echo "SQL Server is ready!"
 
       - name: Install SQL Server
-        if: matrix.os == 'windows-2022'
+        if: matrix.os == 'windows-2022' && matrix.sqlserver == true
         uses: potatoqualitee/mssqlsuite@v1.11
         with:
           install: sqlengine, sqlclient
@@ -81,10 +84,6 @@ jobs:
 
       - name: Restore dependencies
         shell: bash
-        # do not add ContinuousIntegrationBuild here
-        # since it will complain about the package lock file
-        # ContinuousIntegrationBuild=true excludes full-framework
-        # builds on Linux and macOS
         run: |
           dotnet restore PPWCode.Util.Validation.sln \
             --locked-mode \

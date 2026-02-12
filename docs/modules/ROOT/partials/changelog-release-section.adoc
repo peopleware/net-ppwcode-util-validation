@@ -7,7 +7,7 @@ Note: double empty lines at the end of the file is done on purpose!
 * link:{github}{release}[GitHub]
 * NuGet
 ** link:{nuget-main}{release}[{main}]
-** link:{nuget-nhibernate}{release}[{nhibernate}]
+** link:{nuget-efc}{release}[{efc}]
 
 
 // do not remove the preceding empty lines!

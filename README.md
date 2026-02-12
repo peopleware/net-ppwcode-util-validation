@@ -1,6 +1,6 @@
 # PPWCode.Util.Validation
 
-This library is part of the .NET PPWCode project and (currently) contains specific types for the validation of country-specific identifiers.  A separate library is included that contains NHibernate user types for the types included in the main library. 
+This library is part of the .NET PPWCode project and (currently) contains specific types for the validation of country-specific identifiers.  A separate library is included that adds support for these types in Entity Framework Core. 
 
 For more information, see [PPWCode .NET Docs].
 

@@ -3,8 +3,8 @@ name: Publish to NuGet
 on:
   push:
     tags:
-      - 'III/[0-9]+.[0-9]+.[0-9]+'
-      - 'III/[0-9]+.[0-9]+.[0-9]+-*'
+      - 'IV/[0-9]+.[0-9]+.[0-9]+'
+      - 'IV/[0-9]+.[0-9]+.[0-9]+-*'
 
 jobs:
   build-and-test:
@@ -19,12 +19,15 @@ jobs:
           - os: ubuntu-latest
             name-suffix: 'Linux'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
+            sqlserver: false
           - os: macos-latest
             name-suffix: 'macOS'
-            test-filter: 'Category!=SqlServer'
+            test-filter: 'Category=SqlServer|Category!=SqlServer'
+            sqlserver: false
           - os: windows-2022
             name-suffix: 'Windows'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
+            sqlserver: false
 
     steps:
       - uses: actions/checkout@v4
@@ -47,7 +50,7 @@ jobs:
           echo "Generated SA password"
 
       - name: Start SQL Server container
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'ubuntu-latest' && matrix.sqlserver == true
         run: |
           docker run -d \
             --name sql-server \
@@ -70,7 +73,7 @@ jobs:
           echo "SQL Server is ready!"
 
       - name: Install SQL Server
-        if: matrix.os == 'windows-2022'
+        if: matrix.os == 'windows-2022' && matrix.sqlserver == true
         uses: potatoqualitee/mssqlsuite@v1.11
         with:
           install: sqlengine, sqlclient
@@ -81,10 +84,6 @@ jobs:
 
       - name: Restore dependencies
         shell: bash
-        # do not add ContinuousIntegrationBuild here
-        # since it will complain about the package lock file
-        # ContinuousIntegrationBuild=true excludes full-framework
-        # builds on Linux and macOS
         run: |
           dotnet restore PPWCode.Util.Validation.sln \
             --locked-mode \
@@ -178,9 +177,9 @@ jobs:
           FULL_TAG=${GITHUB_REF#refs/tags/}
 
           # Validate tag format with roman numeral prefix
-          if [[ ! $FULL_TAG =~ ^[IVX]+/[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
+          if [[ ! $FULL_TAG =~ ^IV/[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
             echo "ERROR: Tag '$FULL_TAG' does not match format {ROMAN}/{VERSION}"
-            echo "Expected format: I/1.2.3 or II/2.0.0-beta1"
+            echo "Expected format: IV/1.2.3 or IV/2.0.0-beta1"
             exit 1
           fi
 
@@ -250,13 +249,13 @@ jobs:
             echo ""
             echo "<br />"
             echo ""
-            echo "[View full changelog →](https://peopleware.github.io/net-ppwcode-docs/ppwcode-util-validation-iii/changelog.html#${{ steps.get_version.outputs.version_clean }})"
+            echo "[View full changelog →](https://peopleware.github.io/net-ppwcode-docs/ppwcode-util-validation-iv/changelog.html#${{ steps.get_version.outputs.version_clean }})"
           } > release_body.md
 
       - name: Add Release Notes to Job Summary
         run: |
           if [ -f release_body.md ]; then
-            echo "# PPWCode.Util.Validation.III ${{ steps.get_version.outputs.version_clean }}"
+            echo "# PPWCode.Util.Validation.IV ${{ steps.get_version.outputs.version_clean }}"
             echo ""
             cat release_body.md >> $GITHUB_STEP_SUMMARY
           fi
@@ -272,10 +271,6 @@ jobs:
 
       - name: Restore dependencies
         shell: bash
-        # do not add ContinuousIntegrationBuild here
-        # since it will complain about the package lock file
-        # ContinuousIntegrationBuild=true excludes full-framework
-        # builds on Linux and macOS
         run: |
           dotnet restore PPWCode.Util.Validation.sln \
             --locked-mode \
@@ -326,18 +321,18 @@ jobs:
           cd release-artifacts
 
           # Zip test and coverage raw per OS
-          zip -r -9 PPWCode.Util.Validation.III-test-output-raw_Linux_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Linux/
-          zip -r -9 PPWCode.Util.Validation.III-test-output-raw_macOS_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-macOS/
-          zip -r -9 PPWCode.Util.Validation.III-test-output-raw_Windows_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Windows/
+          zip -r -9 PPWCode.Util.Validation.IV-test-output-raw_Linux_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Linux/
+          zip -r -9 PPWCode.Util.Validation.IV-test-output-raw_macOS_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-macOS/
+          zip -r -9 PPWCode.Util.Validation.IV-test-output-raw_Windows_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Windows/
 
           # Zip coverage HTML per OS
-          zip -r -9 PPWCode.Util.Validation.III-coverage-report-html_Linux_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Linux/
-          zip -r -9 PPWCode.Util.Validation.III-coverage-report-html_macOS_${{ steps.get_version.outputs.version }}.zip coverage-report-html-macOS/
-          zip -r -9 PPWCode.Util.Validation.III-coverage-report-html_Windows_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Windows/
+          zip -r -9 PPWCode.Util.Validation.IV-coverage-report-html_Linux_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Linux/
+          zip -r -9 PPWCode.Util.Validation.IV-coverage-report-html_macOS_${{ steps.get_version.outputs.version }}.zip coverage-report-html-macOS/
+          zip -r -9 PPWCode.Util.Validation.IV-coverage-report-html_Windows_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Windows/
 
           # Zip all NuGet packages
           cd ../artifacts
-          zip -r -9 ../release-artifacts/PPWCode.Util.Validation.III-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip *.nupkg
+          zip -r -9 ../release-artifacts/PPWCode.Util.Validation.IV-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip *.nupkg
 
       - name: Create GitHub Release
         if: steps.get_version.outputs.is_prerelease == 'false'
@@ -346,6 +341,6 @@ jobs:
           files: |
             release-artifacts/*.zip
           generate_release_notes: false
-          name: PPWCode.Util.Validation.III ${{ steps.get_version.outputs.version }}
+          name: PPWCode.Util.Validation.IV ${{ steps.get_version.outputs.version }}
           body_path: release_body.md
           fail_on_unmatched_files: true

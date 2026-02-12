@@ -8,32 +8,13 @@ the link to the GitHub tag is only added once we are ready to release.
 ////
 
 // some helper attributes for the release links
-:github: https://github.com/peopleware/net-ppwcode-util-validation/releases/tag/III%2F
-:nuget-main: https://www.nuget.org/packages/PPWCode.Util.Validation.III/
-:nuget-nhibernate: https://www.nuget.org/packages/PPWCode.Util.Validation.III/
-:ppwcode-docs: https://peopleware.github.io/net-ppwcode-docs/ppwcode-util-validation-iii/
-:main: PPWCode.Util.Validation.III
-:nhibernate: PPWCode.Util.Validation.III.NHibernate
+:github: https://github.com/peopleware/net-ppwcode-util-validation/releases/tag/IV%2F
+:nuget-main: https://www.nuget.org/packages/PPWCode.Util.Validation.IV/
+:nuget-efc: https://www.nuget.org/packages/PPWCode.Util.Validation.IV.EntityFrameworkCore/
+:ppwcode-docs: https://peopleware.github.io/net-ppwcode-docs/ppwcode-util-validation-iv/
+:main: PPWCode.Util.Validation.IV
+:efc: PPWCode.Util.Validation.IV.EntityFrameworkCore
 
-:release: 2.1.0
-== `{release}`
-include::partial$changelog-release-section.adoc[]
-include::partial$changelog-{release}.adoc[]
-
-:release: 2.0.0
-== `{release}`
-include::partial$changelog-release-section.adoc[]
-include::partial$changelog-{release}.adoc[]
-
-:release: 1.2.0
-== `{release}`
-include::partial$changelog-release-section.adoc[]
-include::partial$changelog-{release}.adoc[]
-
-:release: 1.1.0
-== `{release}`
-include::partial$changelog-release-section.adoc[]
-include::partial$changelog-{release}.adoc[]
 
 :release: 1.0.0
 == `{release}`

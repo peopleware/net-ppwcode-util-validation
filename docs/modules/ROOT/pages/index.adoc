@@ -1,22 +1,22 @@
 = About
 
-The `PPWCode.Util.Validation.III` project is part of the .NET PPWCode project and provides types for country-specific identifiers with NHibernate support.
+The `PPWCode.Util.Validation.IV` project is part of the .NET PPWCode project and provides types for country-specific identifiers with Entity Framework Core support.
 
-The library supports both different versions of .NET full framework and more recent (supported) .NET SDKs.
+This library is supported on .NET SDK versions that are currently supported by Microsoft as part of their official support lifecycle.
 
 Note that this project contains the following libraries (and NuGet packages):
 
-- `PPWCode.Util.Validation.III`, identifier types
-- `PPWCode.Util.Validation.III.NHibernate`, NHibernate support for the identifier types
+- `PPWCode.Util.Validation.IV`, identifier types
+- `PPWCode.Util.Validation.IV.EntityFrameworkCore`, Entity Framework Core support for the identifier types
 
 These libraries are always released as a set and follow the same versioning.  Do not mix different versions of these libraries within the same project.
 
 
 == Development
 
-Development of the PPWCode is done on https://github.com/peopleware/net-ppwcode-util-validation/tree/III/next[GitHub].
+Development of the PPWCode is done on https://github.com/peopleware/net-ppwcode-util-validation/tree/IV/next[GitHub].
 
-Releases (both stable and pre-release) are published on https://www.nuget.org/packages/PPWCode.Util.Validation.III/[NuGet] by https://www.nuget.org/profiles/PeopleWare[PeopleWare].
+Releases (both stable and pre-release) are published on https://www.nuget.org/packages/PPWCode.Util.Validation.IV/[NuGet] by https://www.nuget.org/profiles/PeopleWare[PeopleWare].
 
 
 == License and Copyright
@@ -34,4 +34,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-

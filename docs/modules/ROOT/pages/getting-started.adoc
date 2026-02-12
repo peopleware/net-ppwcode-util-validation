@@ -1,19 +1,19 @@
 = Getting started
 
 // helper attributes for package links
-:nuget-main: https://www.nuget.org/packages/PPWCode.Util.Validation.III/
-:nuget-nhibernate: https://www.nuget.org/packages/PPWCode.Util.Validation.III/
-:main: PPWCode.Util.Validation.III
-:nhibernate: PPWCode.Util.Validation.III.NHibernate
+:nuget-main: https://www.nuget.org/packages/PPWCode.Util.Validation.IV/
+:nuget-efc: https://www.nuget.org/packages/PPWCode.Util.Validation.IV.EntityFrameworkCore/
+:main: PPWCode.Util.Validation.IV
+:efc: PPWCode.Util.Validation.IV.EntityFrameworkCore
 
 == Add NuGet package
 
-All libraries that are part of the `PPWCode.Util.Validation.III` project are published on NuGet. 
+All libraries that are part of the `PPWCode.Util.Validation.IV` project are published on NuGet.
 
 The following packages are available:
 
 - {nuget-main}[{main}], base library
-- {nuget-nhibernate}[{nhibernate}], NHibernate support
+- {nuget-efc}[{efc}], Entity Framework Core support
 
 
 You can use your IDE to add the required libraries as dependencies to your project, or manually add them in the `.csproj` file.  This would look similar to the following:
