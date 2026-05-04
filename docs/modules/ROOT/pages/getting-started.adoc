@@ -3,8 +3,10 @@
 // helper attributes for package links
 :nuget-main: https://www.nuget.org/packages/PPWCode.Util.Validation.IV/
 :nuget-efc: https://www.nuget.org/packages/PPWCode.Util.Validation.IV.EntityFrameworkCore/
+:nuget-nhibernate: https://www.nuget.org/packages/PPWCode.Util.Validation.IV.NHibernate/
 :main: PPWCode.Util.Validation.IV
 :efc: PPWCode.Util.Validation.IV.EntityFrameworkCore
+:nhibernate: PPWCode.Util.Validation.IV.NHibernate
 
 == Add NuGet package
 
@@ -14,11 +16,23 @@ The following packages are available:
 
 - {nuget-main}[{main}], base library
 - {nuget-efc}[{efc}], Entity Framework Core support
+- {nuget-nhibernate}[{nhibernate}], NHibernate support
 
 
 You can use your IDE to add the required libraries as dependencies to your project, or manually add them in the `.csproj` file.  This would look similar to the following:
 
+
+=== Entity Framework Core
+
 [source,xml]
 ----
-include::example$project.csproj[]
+include::example$project-efc.csproj[]
+----
+
+
+=== NHibernate
+
+[source,xml]
+----
+include::example$project-nhibernate.csproj[]
 ----
