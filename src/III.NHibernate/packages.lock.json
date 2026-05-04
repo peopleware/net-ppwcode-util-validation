@@ -24,14 +24,14 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "10.0.5"
         }
       },
       "StyleCop.Analyzers": {
@@ -139,8 +139,8 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ=="
+        "resolved": "10.0.5",
+        "contentHash": "9UHU7hldEOVgcOHUX7Pa+owDfpzhW+a1gshEvyknAoDA++G6FV+N1cPoUbtsXEO7GgPErGSg8MHrI/YqrLoiGA=="
       },
       "ppwcode.util.validation.iii": {
         "type": "Project"
@@ -181,14 +181,14 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "10.0.5"
         }
       },
       "StyleCop.Analyzers": {
@@ -296,8 +296,8 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ=="
+        "resolved": "10.0.5",
+        "contentHash": "9UHU7hldEOVgcOHUX7Pa+owDfpzhW+a1gshEvyknAoDA++G6FV+N1cPoUbtsXEO7GgPErGSg8MHrI/YqrLoiGA=="
       },
       "ppwcode.util.validation.iii": {
         "type": "Project"
@@ -338,14 +338,14 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "10.0.5"
         }
       },
       "StyleCop.Analyzers": {
@@ -453,8 +453,8 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ=="
+        "resolved": "10.0.5",
+        "contentHash": "9UHU7hldEOVgcOHUX7Pa+owDfpzhW+a1gshEvyknAoDA++G6FV+N1cPoUbtsXEO7GgPErGSg8MHrI/YqrLoiGA=="
       },
       "ppwcode.util.validation.iii": {
         "type": "Project"
@@ -495,14 +495,14 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "10.0.5"
         }
       },
       "StyleCop.Analyzers": {
@@ -610,8 +610,8 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ=="
+        "resolved": "10.0.5",
+        "contentHash": "9UHU7hldEOVgcOHUX7Pa+owDfpzhW+a1gshEvyknAoDA++G6FV+N1cPoUbtsXEO7GgPErGSg8MHrI/YqrLoiGA=="
       },
       "ppwcode.util.validation.iii": {
         "type": "Project"
@@ -652,14 +652,14 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "10.0.5"
         }
       },
       "StyleCop.Analyzers": {
@@ -767,8 +767,8 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ=="
+        "resolved": "10.0.5",
+        "contentHash": "9UHU7hldEOVgcOHUX7Pa+owDfpzhW+a1gshEvyknAoDA++G6FV+N1cPoUbtsXEO7GgPErGSg8MHrI/YqrLoiGA=="
       },
       "ppwcode.util.validation.iii": {
         "type": "Project"
@@ -809,14 +809,14 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "10.0.5"
         }
       },
       "StyleCop.Analyzers": {
@@ -924,8 +924,8 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ=="
+        "resolved": "10.0.5",
+        "contentHash": "9UHU7hldEOVgcOHUX7Pa+owDfpzhW+a1gshEvyknAoDA++G6FV+N1cPoUbtsXEO7GgPErGSg8MHrI/YqrLoiGA=="
       },
       "ppwcode.util.validation.iii": {
         "type": "Project"
@@ -966,15 +966,15 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "10.0.5"
         }
       },
       "StyleCop.Analyzers": {
@@ -1112,10 +1112,10 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ==",
+        "resolved": "10.0.5",
+        "contentHash": "9UHU7hldEOVgcOHUX7Pa+owDfpzhW+a1gshEvyknAoDA++G6FV+N1cPoUbtsXEO7GgPErGSg8MHrI/YqrLoiGA==",
         "dependencies": {
-          "System.Security.Cryptography.ProtectedData": "10.0.2"
+          "System.Security.Cryptography.ProtectedData": "10.0.5"
         }
       },
       "System.Memory": {
@@ -1171,8 +1171,8 @@
       },
       "System.Security.Cryptography.ProtectedData": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "me7W69hkjdu5EzHXCQSXv9OS3uAkMXT26oZuWTaabeoO5BPxSVuRVJ2FSfIW8xyGxBb6mKCE6ZKg7TLk3IzJBQ==",
+        "resolved": "10.0.5",
+        "contentHash": "kxR4O/8o32eNN3m4qbLe3UifYqeyEpallCyVAsLvL5ZFJVyT3JCb+9du/WHfC09VyJh1Q+p/Gd4+AwM7Rz4acg==",
         "dependencies": {
           "System.Memory": "4.6.3"
         }
@@ -1204,14 +1204,14 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "10.0.5"
         }
       },
       "StyleCop.Analyzers": {
@@ -1328,22 +1328,22 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ==",
+        "resolved": "10.0.5",
+        "contentHash": "9UHU7hldEOVgcOHUX7Pa+owDfpzhW+a1gshEvyknAoDA++G6FV+N1cPoUbtsXEO7GgPErGSg8MHrI/YqrLoiGA==",
         "dependencies": {
-          "System.Diagnostics.EventLog": "10.0.2",
-          "System.Security.Cryptography.ProtectedData": "10.0.2"
+          "System.Diagnostics.EventLog": "10.0.5",
+          "System.Security.Cryptography.ProtectedData": "10.0.5"
         }
       },
       "System.Diagnostics.EventLog": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "TJPpTLF5MFPobq09c9BQ5X8QuviQfsKvH0Jbm7MkGylGvfIdRqJQLZDPC5sMRFkk9aZhmgir1NJKekip2NxfaA=="
+        "resolved": "10.0.5",
+        "contentHash": "wugvy+pBVzjQEnRs9wMTWwoaeNFX3hsaHeVHFDIvJSWXp7wfmNWu3mxAwBIE6pyW+g6+rHa1Of5fTzb0QVqUTA=="
       },
       "System.Security.Cryptography.ProtectedData": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "me7W69hkjdu5EzHXCQSXv9OS3uAkMXT26oZuWTaabeoO5BPxSVuRVJ2FSfIW8xyGxBb6mKCE6ZKg7TLk3IzJBQ=="
+        "resolved": "10.0.5",
+        "contentHash": "kxR4O/8o32eNN3m4qbLe3UifYqeyEpallCyVAsLvL5ZFJVyT3JCb+9du/WHfC09VyJh1Q+p/Gd4+AwM7Rz4acg=="
       },
       "ppwcode.util.validation.iii": {
         "type": "Project"
@@ -1369,14 +1369,14 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "8.0.1"
         }
       },
       "StyleCop.Analyzers": {
@@ -1493,22 +1493,22 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ==",
+        "resolved": "8.0.1",
+        "contentHash": "gPYFPDyohW2gXNhdQRSjtmeS6FymL2crg4Sral1wtvEJ7DUqFCDWDVbbLobASbzxfic8U1hQEdC7hmg9LHncMw==",
         "dependencies": {
-          "System.Diagnostics.EventLog": "10.0.2",
-          "System.Security.Cryptography.ProtectedData": "10.0.2"
+          "System.Diagnostics.EventLog": "8.0.1",
+          "System.Security.Cryptography.ProtectedData": "8.0.0"
         }
       },
       "System.Diagnostics.EventLog": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "TJPpTLF5MFPobq09c9BQ5X8QuviQfsKvH0Jbm7MkGylGvfIdRqJQLZDPC5sMRFkk9aZhmgir1NJKekip2NxfaA=="
+        "resolved": "8.0.1",
+        "contentHash": "n1ZP7NM2Gkn/MgD8+eOT5MulMj6wfeQMNS2Pizvq5GHCZfjlFMXV2irQlQmJhwA2VABC57M0auudO89Iu2uRLg=="
       },
       "System.Security.Cryptography.ProtectedData": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "me7W69hkjdu5EzHXCQSXv9OS3uAkMXT26oZuWTaabeoO5BPxSVuRVJ2FSfIW8xyGxBb6mKCE6ZKg7TLk3IzJBQ=="
+        "resolved": "8.0.0",
+        "contentHash": "+TUFINV2q2ifyXauQXRwy4CiBhqvDEDZeVJU7qfxya4aRYOKzVBpN+4acx25VcPB9ywUN6C0n8drWl110PhZEg=="
       },
       "ppwcode.util.validation.iii": {
         "type": "Project"
@@ -1534,14 +1534,14 @@
       "PPWCode.Vernacular.NHibernate.III": {
         "type": "Direct",
         "requested": "[4.*, )",
-        "resolved": "4.1.0",
-        "contentHash": "QLEuQ65ggE05vGtzLsaKU9+/aBRmyy5UesslB0GMCcI+830GK5Gt9q/a0vnT0WjfT2aLlYV++aJH3kBSVcq4AA==",
+        "resolved": "4.2.0",
+        "contentHash": "Q+t7LYlCKBUOXIDeVJz5psyWPe0IFZn1jRf9vdG9Dpf1MPeh4cX7+QzMORl14/bo3U7cwCIFFNc2oKcS8KRhOA==",
         "dependencies": {
           "Common.Logging": "[3.4.1, 4.0.0)",
           "JetBrains.Annotations": "2025.2.4",
           "NHibernate": "5.6.0",
           "PPWCode.Vernacular.Persistence.IV": "2.1.1",
-          "System.Configuration.ConfigurationManager": "10.0.2"
+          "System.Configuration.ConfigurationManager": "9.0.14"
         }
       },
       "StyleCop.Analyzers": {
@@ -1658,22 +1658,22 @@
       },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "UpBPpVzF+xbB3GsBrraPvlYCwUiOhs+RLxnTMKLqDs2gNNaAtxQRlKjXfMV3zxE+hiQkGId5olZ+9tE6xXHdwQ==",
+        "resolved": "9.0.14",
+        "contentHash": "yKiORwQQFz3WhaRqlAzlADIz9Hl1Tnc/Kzgp4nanPCIz32AQlJ3DuhdrVF+LdndgqjK8U2mPfi+21Aa5n4tjUA==",
         "dependencies": {
-          "System.Diagnostics.EventLog": "10.0.2",
-          "System.Security.Cryptography.ProtectedData": "10.0.2"
+          "System.Diagnostics.EventLog": "9.0.14",
+          "System.Security.Cryptography.ProtectedData": "9.0.14"
         }
       },
       "System.Diagnostics.EventLog": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "TJPpTLF5MFPobq09c9BQ5X8QuviQfsKvH0Jbm7MkGylGvfIdRqJQLZDPC5sMRFkk9aZhmgir1NJKekip2NxfaA=="
+        "resolved": "9.0.14",
+        "contentHash": "65Z5r1XOAN4dqohIoWSDf+9iq3V1xVRdpS03LMvnRdlrEH+zAJ80PFbvqaRXtgG6VbQZTnCB2zqJP9Q/RjaQsw=="
       },
       "System.Security.Cryptography.ProtectedData": {
         "type": "Transitive",
-        "resolved": "10.0.2",
-        "contentHash": "me7W69hkjdu5EzHXCQSXv9OS3uAkMXT26oZuWTaabeoO5BPxSVuRVJ2FSfIW8xyGxBb6mKCE6ZKg7TLk3IzJBQ=="
+        "resolved": "9.0.14",
+        "contentHash": "HEhICxFgkdXfL1nbIouV4rz4Vo9X1wqDwyofTZ7FxoEP0Kz+xJawv6UT1lJgLuYy2ZPhZcr+MhCMGsreSV/6IA=="
       },
       "ppwcode.util.validation.iii": {
         "type": "Project"
