@@ -21,7 +21,7 @@ jobs:
             test-filter: 'Category=SqlServer|Category!=SqlServer'
           - os: macos-latest
             name-suffix: 'macOS'
-            test-filter: 'Category=SqlServer|Category!=SqlServer'
+            test-filter: 'Category!=SqlServer'
           - os: windows-2022
             name-suffix: 'Windows'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
