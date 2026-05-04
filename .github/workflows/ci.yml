@@ -19,15 +19,12 @@ jobs:
           - os: ubuntu-latest
             name-suffix: 'Linux'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
-            sqlserver: false
           - os: macos-latest
             name-suffix: 'macOS'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
-            sqlserver: false
           - os: windows-2022
             name-suffix: 'Windows'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
-            sqlserver: false
 
     steps:
       - uses: actions/checkout@v4
@@ -50,7 +47,7 @@ jobs:
           echo "Generated SA password"
 
       - name: Start SQL Server container
-        if: matrix.os == 'ubuntu-latest' && matrix.sqlserver == true
+        if: matrix.os == 'ubuntu-latest'
         run: |
           docker run -d \
             --name sql-server \
@@ -73,7 +70,7 @@ jobs:
           echo "SQL Server is ready!"
 
       - name: Install SQL Server
-        if: matrix.os == 'windows-2022' && matrix.sqlserver == true
+        if: matrix.os == 'windows-2022'
         uses: potatoqualitee/mssqlsuite@v1.11
         with:
           install: sqlengine, sqlclient
