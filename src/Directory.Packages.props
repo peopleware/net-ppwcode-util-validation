@@ -40,6 +40,10 @@
         <!-- PPWCode -->
         <PackageVersion Include="PPWCode.Vernacular.Contracts.I" Version="1.*" />
 
+        <!-- ppwcode -->
+        <PackageVersion Include="PPWCode.Vernacular.NHibernate.IV" Version="1.0-*" />
+        <PackageVersion Include="PPWCode.Vernacular.NHibernate.IV.Test" Version="1.0-*" />
+
         <!-- nunit -->
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.*" />
         <PackageVersion Include="NUnit" Version="4.*" />
