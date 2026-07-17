@@ -11,6 +11,14 @@
     <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
   </PropertyGroup>
 
+  <!-- Json serialization for .net (core) versions -->
+  <ItemGroup Condition="
+                     ('$(TargetFramework)' == 'net8.0')
+                     Or ('$(TargetFramework)' == 'net9.0')
+                     Or ('$(TargetFramework)' == 'net10.0') ">
+    <PackageReference Include="Newtonsoft.Json"/>
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\III\PPWCode.Util.Validation.III.csproj"/>
   </ItemGroup>
