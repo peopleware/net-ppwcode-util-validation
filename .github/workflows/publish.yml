@@ -82,14 +82,14 @@ jobs:
       - name: Restore dependencies
         shell: bash
         run: |
-          dotnet restore PPWCode.Util.Validation.sln \
+          dotnet restore PPWCode.Util.Validation.slnx \
             --locked-mode \
             -p:Configuration=Release
 
       - name: Build
         shell: bash
         run: |
-          dotnet build PPWCode.Util.Validation.sln \
+          dotnet build PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-restore \
             -p:ContinuousIntegrationBuild=true
@@ -99,7 +99,7 @@ jobs:
         env:
           PPWCODE_APPSETTINGS__FIXEDCONNECTIONSTRING: ${{ format('Server=localhost;Database=master;User Id=sa;Password={0};TrustServerCertificate=True', env.SA_PASSWORD) }}
         run: |
-          dotnet test PPWCode.Util.Validation.sln \
+          dotnet test PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-build \
             --verbosity normal \
@@ -269,14 +269,14 @@ jobs:
       - name: Restore dependencies
         shell: bash
         run: |
-          dotnet restore PPWCode.Util.Validation.sln \
+          dotnet restore PPWCode.Util.Validation.slnx \
             --locked-mode \
             -p:Configuration=Release
 
       - name: Build
         shell: bash
         run: |
-          dotnet build PPWCode.Util.Validation.sln \
+          dotnet build PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-restore \
             -p:ContinuousIntegrationBuild=true \
@@ -287,7 +287,7 @@ jobs:
       - name: Pack
         shell: bash
         run: |
-          dotnet pack PPWCode.Util.Validation.sln \
+          dotnet pack PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-build \
             --output ./artifacts \
