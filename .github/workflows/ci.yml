@@ -86,14 +86,14 @@ jobs:
         # ContinuousIntegrationBuild=true excludes full-framework
         # builds on Linux and macOS
         run: |
-          dotnet restore PPWCode.Util.Validation.sln \
+          dotnet restore PPWCode.Util.Validation.slnx \
             --locked-mode \
             -p:Configuration=Release
 
       - name: Build
         shell: bash
         run: |
-          dotnet build PPWCode.Util.Validation.sln \
+          dotnet build PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-restore \
             -p:ContinuousIntegrationBuild=true
@@ -103,7 +103,7 @@ jobs:
         env:
           PPWCODE_APPSETTINGS__FIXEDCONNECTIONSTRING: ${{ format('Server=localhost;Database=master;User Id=sa;Password={0};TrustServerCertificate=True', env.SA_PASSWORD) }}
         run: |
-          dotnet test PPWCode.Util.Validation.sln \
+          dotnet test PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-build \
             --verbosity normal \
