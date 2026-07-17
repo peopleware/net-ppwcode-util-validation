@@ -21,8 +21,8 @@
         <PackageVersion Include="JetBrains.Annotations" Version="2025.2.4" />
 
         <!-- ppwcode -->
-        <PackageVersion Include="PPWCode.Vernacular.NHibernate.III" Version="4.*" />
-        <PackageVersion Include="PPWCode.Vernacular.NHibernate.III.Test" Version="4.*" />
+        <PackageVersion Include="PPWCode.Vernacular.NHibernate.III" Version="5.*" />
+        <PackageVersion Include="PPWCode.Vernacular.NHibernate.III.Test" Version="5.*" />
 
         <!-- system -->
         <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
