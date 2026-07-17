@@ -1278,6 +1278,12 @@
           "Microsoft.TestPlatform.TestHost": "18.8.1"
         }
       },
+      "Newtonsoft.Json": {
+        "type": "Direct",
+        "requested": "[13.*, )",
+        "resolved": "13.0.4",
+        "contentHash": "pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A=="
+      },
       "NUnit": {
         "type": "Direct",
         "requested": "[4.*, )",
@@ -1411,6 +1417,12 @@
           "Microsoft.TestPlatform.TestHost": "18.8.1"
         }
       },
+      "Newtonsoft.Json": {
+        "type": "Direct",
+        "requested": "[13.*, )",
+        "resolved": "13.0.4",
+        "contentHash": "pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A=="
+      },
       "NUnit": {
         "type": "Direct",
         "requested": "[4.*, )",
@@ -1543,6 +1555,12 @@
           "Microsoft.CodeCoverage": "18.8.1",
           "Microsoft.TestPlatform.TestHost": "18.8.1"
         }
+      },
+      "Newtonsoft.Json": {
+        "type": "Direct",
+        "requested": "[13.*, )",
+        "resolved": "13.0.4",
+        "contentHash": "pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A=="
       },
       "NUnit": {
         "type": "Direct",
