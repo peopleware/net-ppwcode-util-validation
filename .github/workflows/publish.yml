@@ -19,15 +19,12 @@ jobs:
           - os: ubuntu-latest
             name-suffix: 'Linux'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
-            sqlserver: false
           - os: macos-latest
             name-suffix: 'macOS'
-            test-filter: 'Category=SqlServer|Category!=SqlServer'
-            sqlserver: false
+            test-filter: 'Category!=SqlServer'
           - os: windows-2022
             name-suffix: 'Windows'
             test-filter: 'Category=SqlServer|Category!=SqlServer'
-            sqlserver: false
 
     steps:
       - uses: actions/checkout@v4
@@ -50,7 +47,7 @@ jobs:
           echo "Generated SA password"
 
       - name: Start SQL Server container
-        if: matrix.os == 'ubuntu-latest' && matrix.sqlserver == true
+        if: matrix.os == 'ubuntu-latest'
         run: |
           docker run -d \
             --name sql-server \
@@ -73,7 +70,7 @@ jobs:
           echo "SQL Server is ready!"
 
       - name: Install SQL Server
-        if: matrix.os == 'windows-2022' && matrix.sqlserver == true
+        if: matrix.os == 'windows-2022'
         uses: potatoqualitee/mssqlsuite@v1.11
         with:
           install: sqlengine, sqlclient
@@ -85,14 +82,14 @@ jobs:
       - name: Restore dependencies
         shell: bash
         run: |
-          dotnet restore PPWCode.Util.Validation.sln \
+          dotnet restore PPWCode.Util.Validation.slnx \
             --locked-mode \
             -p:Configuration=Release
 
       - name: Build
         shell: bash
         run: |
-          dotnet build PPWCode.Util.Validation.sln \
+          dotnet build PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-restore \
             -p:ContinuousIntegrationBuild=true
@@ -102,7 +99,7 @@ jobs:
         env:
           PPWCODE_APPSETTINGS__FIXEDCONNECTIONSTRING: ${{ format('Server=localhost;Database=master;User Id=sa;Password={0};TrustServerCertificate=True', env.SA_PASSWORD) }}
         run: |
-          dotnet test PPWCode.Util.Validation.sln \
+          dotnet test PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-build \
             --verbosity normal \
@@ -272,14 +269,14 @@ jobs:
       - name: Restore dependencies
         shell: bash
         run: |
-          dotnet restore PPWCode.Util.Validation.sln \
+          dotnet restore PPWCode.Util.Validation.slnx \
             --locked-mode \
             -p:Configuration=Release
 
       - name: Build
         shell: bash
         run: |
-          dotnet build PPWCode.Util.Validation.sln \
+          dotnet build PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-restore \
             -p:ContinuousIntegrationBuild=true \
@@ -290,7 +287,7 @@ jobs:
       - name: Pack
         shell: bash
         run: |
-          dotnet pack PPWCode.Util.Validation.sln \
+          dotnet pack PPWCode.Util.Validation.slnx \
             --configuration Release \
             --no-build \
             --output ./artifacts \
